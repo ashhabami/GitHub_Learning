@@ -1,6 +1,0 @@
-framework module CleanCore {
-  umbrella header "CleanCore-umbrella.h"
-
-  export *
-  module * { export * }
-}

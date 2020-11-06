@@ -1,6 +1,0 @@
-framework module CleanPlatform {
-  umbrella header "CleanPlatform-umbrella.h"
-
-  export *
-  module * { export * }
-}
