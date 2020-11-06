@@ -34,6 +34,7 @@ class PagesControllerImpl: BaseControllerImpl {
             ]
         self.pages = pages
     }
+    
 }
 
 extension PagesControllerImpl : PagesController {

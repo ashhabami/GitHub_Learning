@@ -14,6 +14,8 @@
 		DA373839255567570003D164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA373837255567570003D164 /* LaunchScreen.storyboard */; };
 		DAB928FB25559FDC00354C8F /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FA25559FDC00354C8F /* Page.swift */; };
 		DAB928FD2555A13B00354C8F /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FC2555A13B00354C8F /* PageController.swift */; };
+		DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929002555A87200354C8F /* ScopeSpec.swift */; };
+		DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929022555A88500354C8F /* ScopeSpecProvider.swift */; };
 		F208FDC4F7D2731E652F8BD5 /* Pods_GitHub_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7629A38C2E5C6CBF341BC957 /* Pods_GitHub_Learning.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		DA37383A255567570003D164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAB928FA25559FDC00354C8F /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		DAB928FC2555A13B00354C8F /* PageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		DAB929002555A87200354C8F /* ScopeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpec.swift; sourceTree = "<group>"; };
+		DAB929022555A88500354C8F /* ScopeSpecProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpecProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		DAB928F325559D9600354C8F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				DAB928FE2555A80700354C8F /* Injection */,
 				DAB928F525559DC200354C8F /* View */,
 				DAB928F625559E1400354C8F /* Presentation */,
 				DAB928F725559E2000354C8F /* Application */,
@@ -112,6 +117,7 @@
 		DAB928F425559DA800354C8F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				DAB928FF2555A84D00354C8F /* ScopeManagment */,
 				DA37382C255567510003D164 /* AppDelegate.swift */,
 				DA37382E255567510003D164 /* SceneDelegate.swift */,
 				DA373835255567570003D164 /* Assets.xcassets */,
@@ -156,6 +162,30 @@
 				DAB928FA25559FDC00354C8F /* Page.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		DAB928FE2555A80700354C8F /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		DAB928FF2555A84D00354C8F /* ScopeManagment */ = {
+			isa = PBXGroup;
+			children = (
+				DAB929042555A88E00354C8F /* Injection */,
+			);
+			path = ScopeManagment;
+			sourceTree = "<group>";
+		};
+		DAB929042555A88E00354C8F /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DAB929002555A87200354C8F /* ScopeSpec.swift */,
+				DAB929022555A88500354C8F /* ScopeSpecProvider.swift */,
+			);
+			path = Injection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +309,9 @@
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* Page.swift in Sources */,
+				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
+				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
 				DAB928FD2555A13B00354C8F /* PageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
