@@ -19,6 +19,8 @@ DEPENDENCIES:
   - CleanCore (= 5.1.0)
   - CleanPlatform (= 5.1.0)
   - SDWebImage (~> 5.0)
+  - Swinject
+  - SwinjectAutoregistration
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -40,6 +42,6 @@ SPEC CHECKSUMS:
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
   SwinjectAutoregistration: 93a908f7543c401b0c315305ac0ae501efdbce89
 
-PODFILE CHECKSUM: 58bd07335f7220109b397d9004d83254f4a0446b
+PODFILE CHECKSUM: b8d10b2030377ecf03f1f20a26b7174808991a45
 
 COCOAPODS: 1.9.3

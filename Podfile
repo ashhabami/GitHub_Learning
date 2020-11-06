@@ -13,6 +13,8 @@ target 'GitHub_Learning' do
 pod 'CleanPlatform', @core_version
 pod 'CleanCore', @core_version
 pod 'SDWebImage', '~> 5.0'
+pod 'SwinjectAutoregistration'
+pod 'Swinject'
 
   # Pods for GitHub_Learning
 
