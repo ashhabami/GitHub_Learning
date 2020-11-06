@@ -12,7 +12,9 @@ import CleanPlatform
 
 final class MainApplicationScopeSpec : ApplicationScopeSpec {
     public override func assemblies() -> [Assembly] {
-        super.assemblies()
+        return super.assemblies() + [
+            OnboardingAssembly()
+        ]
         
     }
 }
