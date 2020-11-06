@@ -1,0 +1,8 @@
+${PODS_ROOT}/Target Support Files/Pods-GitHub_Learning/Pods-GitHub_Learning-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CleanCore/CleanCore.framework
+${BUILT_PRODUCTS_DIR}/CleanPlatform/CleanPlatform.framework
+${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework
+${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework
+${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework
