@@ -13,9 +13,6 @@ import Swinject
 final class OnboardingAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(OnboardingViewController.self, initializer: OnboardingViewController.init)
-        container.autoregister(PagesController.self, initializer: PagesControllerImpl.init)
+        container.autoregister(OnboardingController.self, initializer: OnboardingControllerImpl.init).inObjectScope(.container)
     }
 }
-
-
-
