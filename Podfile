@@ -8,13 +8,13 @@ target 'GitHub_Learning' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-@core_version = '5.1.0'
+  @core_version = '5.1.0'
 
-pod 'CleanPlatform', @core_version
-pod 'CleanCore', @core_version
-pod 'SDWebImage', '~> 5.0'
-pod 'SwinjectAutoregistration'
-pod 'Swinject'
+  pod 'CleanPlatform', @core_version
+  pod 'CleanCore', @core_version
+  pod 'SDWebImage', '~> 5.0'
+  pod 'SwinjectAutoregistration'
+  pod 'Swinject'
 
   # Pods for GitHub_Learning
 
