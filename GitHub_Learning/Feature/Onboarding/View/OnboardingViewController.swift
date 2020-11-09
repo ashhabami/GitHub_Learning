@@ -12,13 +12,17 @@ import CleanPlatform
 
 class OnboardingViewController: BaseViewController {
     
-    let layout = OnboardingLayout()
+    private let layout = OnboardingLayout()
+    private let presenter: OnboardingPresenter
 
     override func loadView() {
         view = layout
     }
     
-    init() {
+    init(
+        onboardingPresenter: OnboardingPresenter
+    ) {
+        self.presenter = onboardingPresenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,4 +33,12 @@ class OnboardingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
+
+extension OnboardingViewController: OnboardingView {
+    
+    func setPages(_ pages: OnboardingPage) {
+        // TODO:
+    }
+    
 }
