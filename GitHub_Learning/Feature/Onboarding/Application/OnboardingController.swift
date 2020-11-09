@@ -12,6 +12,7 @@ import CleanPlatform
 
 protocol OnboardingController: BaseController {
     var pages : [OnboardingPage] { get set }
+    func loadPages()
 }
 
 class OnboardingControllerImpl: BaseControllerImpl {
