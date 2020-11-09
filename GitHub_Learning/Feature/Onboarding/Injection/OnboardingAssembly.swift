@@ -15,5 +15,6 @@ final class OnboardingAssembly: Assembly {
         container.autoregister(OnboardingViewController.self, initializer: OnboardingViewController.init)
         container.autoregister(OnboardingController.self, initializer: OnboardingControllerImpl.init)
             .inObjectScope(.container)
+        container.autoregister(UIWindow.self, initializer: UIWindow.init)
     }
 }
