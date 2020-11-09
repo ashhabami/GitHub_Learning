@@ -1,0 +1,47 @@
+PODS:
+  - CleanCore (5.1.0)
+  - CleanPlatform (5.1.0):
+    - CleanCore (>= 5.1.0)
+    - KeychainAccess (= 3.2.0)
+    - ReachabilitySwift (= 4.3.1)
+    - Swinject (= 2.6)
+    - SwinjectAutoregistration (= 2.6)
+  - KeychainAccess (3.2.0)
+  - ReachabilitySwift (4.3.1)
+  - SDWebImage (5.9.2):
+    - SDWebImage/Core (= 5.9.2)
+  - SDWebImage/Core (5.9.2)
+  - Swinject (2.6.0)
+  - SwinjectAutoregistration (2.6.0):
+    - Swinject (~> 2.6)
+
+DEPENDENCIES:
+  - CleanCore (= 5.1.0)
+  - CleanPlatform (= 5.1.0)
+  - SDWebImage (~> 5.0)
+  - Swinject
+  - SwinjectAutoregistration
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - KeychainAccess
+    - ReachabilitySwift
+    - SDWebImage
+    - Swinject
+    - SwinjectAutoregistration
+  https://repo.cleverlance.com/git/clv/clv.podspecs.mobile.ios.git:
+    - CleanCore
+    - CleanPlatform
+
+SPEC CHECKSUMS:
+  CleanCore: 8056ac37abf3b19bf3fb812dac1f7a25b1cf7731
+  CleanPlatform: fc0521631053f4104ffa6f0c74b1069a25f647c8
+  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
+  SwinjectAutoregistration: 93a908f7543c401b0c315305ac0ae501efdbce89
+
+PODFILE CHECKSUM: b8d10b2030377ecf03f1f20a26b7174808991a45
+
+COCOAPODS: 1.9.3
