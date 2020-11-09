@@ -16,6 +16,14 @@ protocol OnboardingPresenter: Presenter {
 
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
     
+    private let onboardingController: OnboardingController
+    
+    init(
+        onboardingController: OnboardingController
+    ) {
+        self.onboardingController = onboardingController
+    }
+    
     func viewDidLoad() {
         
     }
