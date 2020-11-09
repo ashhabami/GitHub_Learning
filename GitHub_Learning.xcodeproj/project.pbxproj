@@ -18,6 +18,8 @@
 		DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929022555A88500354C8F /* ScopeSpecProvider.swift */; };
 		DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */; };
 		DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929072559513A00354C8F /* OnboardingLayout.swift */; };
+		DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9290925595B9D00354C8F /* OnboardingPresenter.swift */; };
+		DAB9290C25595C2000354C8F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9290B25595C2000354C8F /* OnboardingView.swift */; };
 		F208FDC4F7D2731E652F8BD5 /* Pods_GitHub_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7629A38C2E5C6CBF341BC957 /* Pods_GitHub_Learning.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		DAB929022555A88500354C8F /* ScopeSpecProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpecProvider.swift; sourceTree = "<group>"; };
 		DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
 		DAB929072559513A00354C8F /* OnboardingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayout.swift; sourceTree = "<group>"; };
+		DAB9290925595B9D00354C8F /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		DAB9290B25595C2000354C8F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 		DAB928F625559E1400354C8F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DAB9290925595B9D00354C8F /* OnboardingPresenter.swift */,
+				DAB9290B25595C2000354C8F /* OnboardingView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -319,8 +325,10 @@
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
+				DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */,
 				DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */,
 				DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */,
+				DAB9290C25595C2000354C8F /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
