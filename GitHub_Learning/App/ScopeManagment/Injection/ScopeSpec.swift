@@ -15,6 +15,5 @@ final class MainApplicationScopeSpec : ApplicationScopeSpec {
         return super.assemblies() + [
             OnboardingAssembly()
         ]
-        
     }
 }
