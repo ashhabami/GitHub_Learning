@@ -8,6 +8,7 @@
 
 import XCTest
 
+import CleanCore
 @testable import GitHub_Learning
 
 class OnboardingControllerTests: XCTestCase {
@@ -37,12 +38,20 @@ class OnboardingControllerTests: XCTestCase {
     func testNotifyListeners_whenPagesChanged() {
         // Given
         let controller = OnboardingControllerImpl()
+        let listener = FakeListener()
+        controller.subscribe(listener, errorBlock: nil) { _ in
+            listener.isNotified = true
+        }
         
         // When
         controller.loadPages()
         
         // Then
-        // TODO:
+        XCTAssert(listener.isNotified)
+    }
+    
+    private class FakeListener: Listener {
+        var isNotified = false
     }
     
 }
