@@ -9,17 +9,40 @@
 import XCTest
 
 @testable import GitHub_Learning
-@testable import CleanPlatform
-@testable import CleanCore
 
 class OnboardingControllerTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
+    func testPagesIsEmpty_whenLoadPagesHaveNotBeenCalled() {
+        // Given
+        let controller = OnboardingControllerImpl()
+        
+        // When
+        // LoadPages have not been called
+        
+        // Then
+        XCTAssert(controller.pages.isEmpty)
     }
     
-    override func tearDown() {
-        super.tearDown()
+    func testPagesIsNotEmpty_whenLoadPagesHaveBeenCalled() {
+        // Given
+        let controller = OnboardingControllerImpl()
+        
+        // When
+        controller.loadPages()
+        
+        // Then
+        XCTAssert(!controller.pages.isEmpty)
+    }
+    
+    func testNotifyListeners_whenPagesChanged() {
+        // Given
+        let controller = OnboardingControllerImpl()
+        
+        // When
+        controller.loadPages()
+        
+        // Then
+        // TODO:
     }
     
 }
