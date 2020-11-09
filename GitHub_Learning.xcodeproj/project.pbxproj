@@ -13,7 +13,7 @@
 		DA373836255567570003D164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA373835255567570003D164 /* Assets.xcassets */; };
 		DA373839255567570003D164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA373837255567570003D164 /* LaunchScreen.storyboard */; };
 		DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FA25559FDC00354C8F /* OnboardingPage.swift */; };
-		DAB928FD2555A13B00354C8F /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FC2555A13B00354C8F /* PageController.swift */; };
+		DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FC2555A13B00354C8F /* OnboardingController.swift */; };
 		DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929002555A87200354C8F /* ScopeSpec.swift */; };
 		DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929022555A88500354C8F /* ScopeSpecProvider.swift */; };
 		DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */; };
@@ -32,7 +32,7 @@
 		DA373838255567570003D164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA37383A255567570003D164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAB928FA25559FDC00354C8F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
-		DAB928FC2555A13B00354C8F /* PageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		DAB928FC2555A13B00354C8F /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		DAB929002555A87200354C8F /* ScopeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpec.swift; sourceTree = "<group>"; };
 		DAB929022555A88500354C8F /* ScopeSpecProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpecProvider.swift; sourceTree = "<group>"; };
 		DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		DAB928F725559E2000354C8F /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				DAB928FC2555A13B00354C8F /* PageController.swift */,
+				DAB928FC2555A13B00354C8F /* OnboardingController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
 				DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */,
-				DAB928FD2555A13B00354C8F /* PageController.swift in Sources */,
+				DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
