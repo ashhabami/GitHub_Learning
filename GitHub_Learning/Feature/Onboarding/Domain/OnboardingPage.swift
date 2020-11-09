@@ -12,4 +12,3 @@ struct OnboardingPage {
     let text: String
     let image: String
 }
-
