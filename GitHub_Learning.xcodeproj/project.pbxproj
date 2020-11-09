@@ -17,6 +17,7 @@
 		DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929002555A87200354C8F /* ScopeSpec.swift */; };
 		DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929022555A88500354C8F /* ScopeSpecProvider.swift */; };
 		DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */; };
+		DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929072559513A00354C8F /* OnboardingLayout.swift */; };
 		F208FDC4F7D2731E652F8BD5 /* Pods_GitHub_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7629A38C2E5C6CBF341BC957 /* Pods_GitHub_Learning.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		DAB929002555A87200354C8F /* ScopeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpec.swift; sourceTree = "<group>"; };
 		DAB929022555A88500354C8F /* ScopeSpecProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpecProvider.swift; sourceTree = "<group>"; };
 		DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
+		DAB929072559513A00354C8F /* OnboardingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				DA373830255567510003D164 /* OnboardingViewController.swift */,
+				DAB929072559513A00354C8F /* OnboardingLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			files = (
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
+				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,

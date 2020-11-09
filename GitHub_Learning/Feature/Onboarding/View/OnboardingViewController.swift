@@ -11,7 +11,13 @@ import CleanCore
 import CleanPlatform
 
 class OnboardingViewController: BaseViewController {
+    
+    let layout = OnboardingLayout()
 
+    override func loadView() {
+        view = layout
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
