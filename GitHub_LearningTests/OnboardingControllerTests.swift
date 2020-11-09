@@ -7,10 +7,19 @@
 //
 
 import XCTest
+
 @testable import GitHub_Learning
+@testable import CleanPlatform
+@testable import CleanCore
 
 class OnboardingControllerTests: XCTestCase {
     
+    override func setUp() {
+        super.setUp()
+    }
     
+    override func tearDown() {
+        super.tearDown()
+    }
     
 }
