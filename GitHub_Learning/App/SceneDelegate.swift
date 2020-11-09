@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CleanCore
+import CleanPlatform
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let initialViewController = OnboardingViewController()
+        let initialViewController : OnboardingViewController = try! startAppByResolvingType(scopeSpecProvider: ScopeSpecProvierImpl())
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
     }
