@@ -41,20 +41,9 @@ class OnboardingViewController: BaseViewController {
     
     @objc private func nextButtonPressed(sender: UIButton) {
         let nextPage = Int(layout.pagesCollectionView.contentOffset.x/view.frame.width) + 1
-        
-        switch true {
-        case nextPage == onboardingPagesVM.count - 1:
-            presenter.updatePageControlAt(nextPage)
-            let indexPath = IndexPath(item: nextPage, section: 0)
-            layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            layout.nextButton.setTitle("Log In", for: .normal)
-        case nextPage < onboardingPagesVM.count:
-            presenter.updatePageControlAt(nextPage)
-            let indexPath = IndexPath(item: nextPage, section: 0)
-            layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        default:
-            break
-        }
+        presenter.updatePageControlFor(nextPage)
+        presenter.updatePageTo(nextPage)
+        presenter.updateButtonTitleFor(nextPage)
     }
     
 }
@@ -82,16 +71,24 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = Int(scrollView.contentOffset.x/view.frame.width)
-        let title = page < onboardingPagesVM.count - 1 ? "Next" : "Log In"
-        layout.nextButton.setTitle(title, for: .normal)
-        presenter.updatePageControlAt(page)
+        presenter.updatePageControlFor(page)
+        presenter.updateButtonTitleFor(page)
     }
     
 }
 
 extension OnboardingViewController: OnboardingView {
     
-    func updateSelectedPageAt(_ index: Int) {
+    func setButtonTitle(_ title: String) {
+        layout.nextButton.setTitle(title, for: .normal)
+    }
+    
+    func setPageTo(_ index: Int) {
+        let indexPath = IndexPath(item: index, section: 0)
+        layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    func setSelectedPageControlFor(_ index: Int) {
         layout.pagesControl.currentPage = index
     }
     

@@ -11,13 +11,20 @@ import CleanCore
 import CleanPlatform
 
 protocol OnboardingPresenter: Presenter {
-    func updatePageControlAt(_ page: Int)
+    func updatePageControlFor(_ page: Int)
+    func updatePageTo(_ page: Int)
+    func updateButtonTitleFor(_ page: Int)
 }
 
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     
     private let onboardingController: OnboardingController
     
+    var numberOfPages: Int {
+        get {
+            onboardingController.pages.count
+        }
+    }
     
     init(
         onboardingController: OnboardingController
@@ -50,7 +57,20 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
 }
 
 extension OnboardingPresenterImpl: OnboardingPresenter {
-    func updatePageControlAt(_ page: Int) {
-        view?.updateSelectedPageAt(page)
+    
+    func updateButtonTitleFor(_ page: Int) {
+        let title = page < numberOfPages - 1 ? "Next" : "Log In"
+        view?.setButtonTitle(title)
     }
+    
+    func updatePageTo(_ page: Int) {
+        if page <= numberOfPages - 1 {
+            view?.setPageTo(page)
+        }
+    }
+    
+    func updatePageControlFor(_ page: Int) {
+        view?.setSelectedPageControlFor(page)
+    }
+    
 }
