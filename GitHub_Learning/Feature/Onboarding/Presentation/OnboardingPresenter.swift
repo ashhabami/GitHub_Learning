@@ -11,12 +11,13 @@ import CleanCore
 import CleanPlatform
 
 protocol OnboardingPresenter: Presenter {
-    
+    func updatePageControlAt(_ page: Int)
 }
 
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     
     private let onboardingController: OnboardingController
+    
     
     init(
         onboardingController: OnboardingController
@@ -44,11 +45,12 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
             OnboardingPageViewModel(onboardingPage: $0)
         }
         return viewModel
-        
     }
     
 }
 
 extension OnboardingPresenterImpl: OnboardingPresenter {
-
+    func updatePageControlAt(_ page: Int) {
+        view?.updateSelectedPageAt(page)
+    }
 }

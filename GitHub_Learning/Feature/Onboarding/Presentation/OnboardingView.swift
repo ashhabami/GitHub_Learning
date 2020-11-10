@@ -13,4 +13,5 @@ import CleanPlatform
 protocol OnboardingView: View {
     func setPages(_ pages: [OnboardingPageViewModel])
     func setNumberOfPagesControls(_ controls: Int)
+    func updateSelectedPageAt(_ index: Int)
 }
