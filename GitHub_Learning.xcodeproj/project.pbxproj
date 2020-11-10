@@ -234,10 +234,26 @@
 		DAB929122559601100354C8F /* GitHub_LearningTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAB9291D255A9B5000354C8F /* Feature */,
 				DAB929152559601100354C8F /* Info.plist */,
-				DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */,
 			);
 			path = GitHub_LearningTests;
+			sourceTree = "<group>";
+		};
+		DAB9291D255A9B5000354C8F /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9291E255A9B5B00354C8F /* Onboarding */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		DAB9291E255A9B5B00354C8F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
