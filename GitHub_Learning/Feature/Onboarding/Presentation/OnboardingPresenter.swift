@@ -25,16 +25,26 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     }
     
     private func subscribeForListeners() {
-        onboardingController.subscribe(self, errorBlock: nil, updateBlock: {_ in self.update()})
+        onboardingController.subscribe(self, errorBlock: nil, updateBlock: { _ in self.update()})
     }
     
     private func update() {
-        
+        view?.setPages(makeViewModels())
+        view?.setNumberOfPagesControls(onboardingController.pages.count)
     }
     
     func viewDidLoad() {
+        subscribeForListeners()
         onboardingController.loadPages()
-        view?.setPages(onboardingController.pages)
+    }
+    
+    private func makeViewModels() -> [OnboardingPageViewModel] {
+        let pages = onboardingController.pages
+        let viewModel = pages.map {
+            OnboardingPageViewModel(onboardingPage: $0)
+        }
+        return viewModel
+        
     }
     
 }
