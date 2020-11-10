@@ -37,8 +37,8 @@ class OnboardingViewController: BaseViewController {
 
 extension OnboardingViewController: OnboardingView {
     
-    func setPages(_ pages: OnboardingPage) {
-        // TODO:
+    func setPages(_ pages: [OnboardingPage]) {
+        
     }
     
 }
