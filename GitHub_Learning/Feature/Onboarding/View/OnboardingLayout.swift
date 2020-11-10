@@ -11,10 +11,18 @@ import SnapKit
 
 class OnboardingLayout: UIView {
     
-    private lazy var onboardingStack : UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [pagesCollectionView, pagesControl, nextButton])
+    private lazy var onboardingStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [pagesCollectionView, pagesControl, nextButtonStack])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        return stackView
+    }()
+    
+    private lazy var nextButtonStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [nextButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         return stackView
     }()
     
@@ -34,12 +42,20 @@ class OnboardingLayout: UIView {
     let pagesControl: UIPageControl = {
         let pc = UIPageControl()
         pc.translatesAutoresizingMaskIntoConstraints = false
+        pc.pageIndicatorTintColor = .lightGray
+        pc.currentPageIndicatorTintColor = .black
         return pc
     }()
     
     let nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.backgroundColor = .systemRed
+        button.setTitle("Next", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     
