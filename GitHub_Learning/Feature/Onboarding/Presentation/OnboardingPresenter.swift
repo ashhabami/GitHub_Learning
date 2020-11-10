@@ -14,7 +14,7 @@ protocol OnboardingPresenter: Presenter {
     
 }
 
-final class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
+final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     
     private let onboardingController: OnboardingController
     
@@ -24,8 +24,17 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
         self.onboardingController = onboardingController
     }
     
-    func viewDidLoad() {
+    private func subscribeForListeners() {
+        onboardingController.subscribe(self, errorBlock: nil, updateBlock: {_ in self.update()})
+    }
+    
+    private func update() {
         
+    }
+    
+    func viewDidLoad() {
+        onboardingController.loadPages()
+        view?.setPages(onboardingController.pages)
     }
     
 }
