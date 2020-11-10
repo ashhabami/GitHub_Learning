@@ -9,6 +9,7 @@
 import Foundation
 
 struct OnboardingPage {
+    let title: String
     let text: String
     let image: String
 }
