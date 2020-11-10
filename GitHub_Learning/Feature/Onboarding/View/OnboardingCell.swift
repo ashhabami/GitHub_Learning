@@ -13,6 +13,14 @@ class OnboardingCell: UICollectionViewCell {
     
     static let onboardingCellId = "OnboardingCell"
     
+    var onboardingPageViewModel: OnboardingPageViewModel? {
+        didSet {
+            pageImageView.image = onboardingPageViewModel?.image
+            pageTitle.text = onboardingPageViewModel?.title
+            pageText.text = onboardingPageViewModel?.text
+        }
+    }
+    
     private lazy var onboardingCellStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [pageImageView,pageTitle,pageTextStackView])
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -25,12 +33,13 @@ class OnboardingCell: UICollectionViewCell {
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.backgroundColor = .cyan
+        iv.clipsToBounds = true
         return iv
     }()
     
     let pageTitle: UILabel = {
         let title = UILabel()
-        title.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+        title.font = UIFont.systemFont(ofSize: 25.0, weight: .medium)
         title.translatesAutoresizingMaskIntoConstraints = false
         title.textAlignment = .center
         title.numberOfLines = 0
