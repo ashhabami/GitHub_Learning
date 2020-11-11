@@ -14,7 +14,7 @@ class OnboardingViewController: BaseViewController {
     
     private let layout = OnboardingLayout()
     private let presenter: OnboardingPresenter
-    private var onboardingPagesVM = [OnboardingPageViewModel]()
+    private var pages = [OnboardingPageViewModel]()
     
     override func loadView() {
         view = layout
@@ -40,10 +40,9 @@ class OnboardingViewController: BaseViewController {
     }
     
     @objc private func nextButtonPressed(sender: UIButton) {
-        let nextPage = Int(layout.pagesCollectionView.contentOffset.x/view.frame.width) + 1
-        presenter.updatePageControlFor(nextPage)
-        presenter.updatePageTo(nextPage)
-        presenter.updateButtonTitleFor(nextPage)
+        let nextPageIndex = Int(layout.pagesCollectionView.contentOffset.x/view.frame.width) + 1
+        presenter.presentingPage(at: nextPageIndex)
+        presenter.next()
     }
     
 }
@@ -51,18 +50,18 @@ class OnboardingViewController: BaseViewController {
 extension OnboardingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        onboardingPagesVM.count
+        pages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCell.onboardingCellId, for: indexPath) as! OnboardingCell
-        let item = onboardingPagesVM[indexPath.item]
+        let item = pages[indexPath.item]
         cell.onboardingPageViewModel = item
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.bounds.width, height: layout.pagesCollectionView.frame.height)
+        return layout.pagesCollectionView.frame.size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -70,34 +69,28 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let page = Int(scrollView.contentOffset.x/view.frame.width)
-        presenter.updatePageControlFor(page)
-        presenter.updateButtonTitleFor(page)
+        let pageIndex = Int(scrollView.contentOffset.x/view.frame.width)
+        presenter.presentingPage(at: pageIndex)
+        presenter.next()
     }
     
 }
 
 extension OnboardingViewController: OnboardingView {
     
+    func showPage(at index: Int) {
+        let indexPath = IndexPath(item: index, section: 0)
+        layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        layout.pagesControl.currentPage = index
+    }
+    
     func setButtonTitle(_ title: String) {
         layout.nextButton.setTitle(title, for: .normal)
     }
     
-    func setPageTo(_ index: Int) {
-        let indexPath = IndexPath(item: index, section: 0)
-        layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    }
-    
-    func setSelectedPageControlFor(_ index: Int) {
-        layout.pagesControl.currentPage = index
-    }
-    
-    func setNumberOfPagesControls(_ controls: Int) {
-        layout.pagesControl.numberOfPages = controls
-    }
-    
     func setPages(_ pages: [OnboardingPageViewModel]) {
-        self.onboardingPagesVM = pages
+        self.pages = pages
+        layout.pagesControl.numberOfPages = pages.count
     }
     
 }
