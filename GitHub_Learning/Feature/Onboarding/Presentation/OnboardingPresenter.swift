@@ -76,6 +76,7 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
 extension OnboardingPresenterImpl: OnboardingPresenter {
     
     func previous() {
+        guard index > 0 else { return }
         index -= 1
         showPage()
     }

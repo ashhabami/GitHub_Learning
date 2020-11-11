@@ -67,8 +67,8 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let nextPageIndex = Int(scrollView.contentOffset.x/view.frame.width)
-        presenter.presentingPage(at: nextPageIndex)
+        let currentPageIndex = Int(scrollView.contentOffset.x / view.frame.width)
+        presenter.presentingPage(at: currentPageIndex)
     }
     
 }
