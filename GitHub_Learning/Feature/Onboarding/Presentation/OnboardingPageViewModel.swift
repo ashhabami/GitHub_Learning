@@ -12,10 +12,4 @@ struct OnboardingPageViewModel {
     let title: String
     let text: String
     let image: UIImage
-    
-    init(onboardingPage: OnboardingPage) {
-        self.title = onboardingPage.title
-        self.text = onboardingPage.text
-        self.image = UIImage(named: onboardingPage.image)!
-    }
 }
