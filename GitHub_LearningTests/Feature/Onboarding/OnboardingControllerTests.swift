@@ -32,7 +32,7 @@ class OnboardingControllerTests: XCTestCase {
         controller.loadPages()
         
         // Then
-        XCTAssertNotEqual(controller.pages.isEmpty, true)
+        XCTAssertFalse(controller.pages.isEmpty)
     }
     
     func testNotifyListeners_whenPagesChanged() {
