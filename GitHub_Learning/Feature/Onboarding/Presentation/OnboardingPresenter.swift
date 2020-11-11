@@ -11,14 +11,15 @@ import CleanCore
 import CleanPlatform
 
 protocol OnboardingPresenter: Presenter {
-    func updatePageControlFor(_ page: Int)
-    func updatePageTo(_ page: Int)
-    func updateButtonTitleFor(_ page: Int)
+    func next()
+    func previous()
+    func presentingPage(at index: Int)
 }
 
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     
     private let onboardingController: OnboardingController
+    private var index: Int = 0
     
     var numberOfPages: Int {
         get {
@@ -32,24 +33,28 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
         self.onboardingController = onboardingController
     }
     
+    func viewDidLoad() {
+           subscribeForListeners()
+           onboardingController.loadPages()
+           view?.setButtonTitle("Next")
+    }
+    
     private func subscribeForListeners() {
         onboardingController.subscribe(self, errorBlock: nil, updateBlock: { _ in self.update()})
     }
     
     private func update() {
         view?.setPages(makeViewModels())
-        view?.setNumberOfPagesControls(onboardingController.pages.count)
-    }
-    
-    func viewDidLoad() {
-        subscribeForListeners()
-        onboardingController.loadPages()
     }
     
     private func makeViewModels() -> [OnboardingPageViewModel] {
         let pages = onboardingController.pages
         let viewModel = pages.map {
-            OnboardingPageViewModel(onboardingPage: $0)
+            OnboardingPageViewModel(
+                title: $0.title,
+                text: $0.text,
+                image: UIImage(named: $0.image)!
+            )
         }
         return viewModel
     }
@@ -58,19 +63,20 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
 
 extension OnboardingPresenterImpl: OnboardingPresenter {
     
-    func updateButtonTitleFor(_ page: Int) {
-        let title = page < numberOfPages - 1 ? "Next" : "Log In"
+    func previous() {
+        //TODO:
+    }
+    
+    func presentingPage(at index: Int) {
+        self.index = index
+    }
+    
+    func next() {
+        let title = index < numberOfPages - 1 ? "Next" : "Log In"
         view?.setButtonTitle(title)
-    }
-    
-    func updatePageTo(_ page: Int) {
-        if page <= numberOfPages - 1 {
-            view?.setPageTo(page)
+        if index <= numberOfPages - 1 {
+            view?.showPage(at: index)
         }
-    }
-    
-    func updatePageControlFor(_ page: Int) {
-        view?.setSelectedPageControlFor(page)
     }
     
 }
