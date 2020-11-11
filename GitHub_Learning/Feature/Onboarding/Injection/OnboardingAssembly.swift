@@ -13,7 +13,13 @@ import Swinject
 final class OnboardingAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(OnboardingViewController.self, initializer: OnboardingViewController.init)
+            .implements(OnboardingView.self)
         container.autoregister(OnboardingController.self, initializer: OnboardingControllerImpl.init)
             .inObjectScope(.container)
+        container.autoregister(UIWindow.self, initializer: UIWindow.init)
+        container.autoregister(OnboardingPresenter.self, initializer: OnboardingPresenterImpl.init)
+            .initCompleted { (r, presenter) in
+                (presenter as? OnboardingPresenterImpl)?.view = r.resolve(OnboardingView.self)
+            }
     }
 }

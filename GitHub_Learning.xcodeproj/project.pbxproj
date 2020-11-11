@@ -18,13 +18,32 @@
 		DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929022555A88500354C8F /* ScopeSpecProvider.swift */; };
 		DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */; };
 		DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929072559513A00354C8F /* OnboardingLayout.swift */; };
+		DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9290925595B9D00354C8F /* OnboardingPresenter.swift */; };
+		DAB9290C25595C2000354C8F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9290B25595C2000354C8F /* OnboardingView.swift */; };
+		DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */; };
+		DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9291F255AA95B00354C8F /* OnboardingCell.swift */; };
+		DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB92921255AC0C300354C8F /* OnboardingPageViewModel.swift */; };
+		E928E103F1228086DD54BC39 /* Pods_GitHub_LearningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958307D4623D91FB6A85D094 /* Pods_GitHub_LearningTests.framework */; };
 		F208FDC4F7D2731E652F8BD5 /* Pods_GitHub_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7629A38C2E5C6CBF341BC957 /* Pods_GitHub_Learning.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DAB929162559601100354C8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA373821255567510003D164 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA373828255567510003D164;
+			remoteInfo = GitHub_Learning;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1D6DDAA3F874A1328B663B91 /* Pods-GitHub_LearningTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_LearningTests.release.xcconfig"; path = "Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests.release.xcconfig"; sourceTree = "<group>"; };
 		43EE5DE395A94177439DAD19 /* Pods-GitHub_Learning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_Learning.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_Learning/Pods-GitHub_Learning.debug.xcconfig"; sourceTree = "<group>"; };
 		7629A38C2E5C6CBF341BC957 /* Pods_GitHub_Learning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_Learning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DFE6761B10F7EC28331518 /* Pods-GitHub_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_Learning.release.xcconfig"; path = "Target Support Files/Pods-GitHub_Learning/Pods-GitHub_Learning.release.xcconfig"; sourceTree = "<group>"; };
+		958307D4623D91FB6A85D094 /* Pods_GitHub_LearningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_LearningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C76EEE5050A97A4B52CEC482 /* Pods-GitHub_LearningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_LearningTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +57,13 @@
 		DAB929022555A88500354C8F /* ScopeSpecProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpecProvider.swift; sourceTree = "<group>"; };
 		DAB929052555AC4E00354C8F /* OnboardingAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAssembly.swift; sourceTree = "<group>"; };
 		DAB929072559513A00354C8F /* OnboardingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayout.swift; sourceTree = "<group>"; };
+		DAB9290925595B9D00354C8F /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		DAB9290B25595C2000354C8F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		DAB929112559601100354C8F /* GitHub_LearningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHub_LearningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB929152559601100354C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingControllerTests.swift; sourceTree = "<group>"; };
+		DAB9291F255AA95B00354C8F /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		DAB92921255AC0C300354C8F /* OnboardingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +75,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DAB9290E2559601100354C8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E928E103F1228086DD54BC39 /* Pods_GitHub_LearningTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -56,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				7629A38C2E5C6CBF341BC957 /* Pods_GitHub_Learning.framework */,
+				958307D4623D91FB6A85D094 /* Pods_GitHub_LearningTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -65,6 +100,8 @@
 			children = (
 				43EE5DE395A94177439DAD19 /* Pods-GitHub_Learning.debug.xcconfig */,
 				92DFE6761B10F7EC28331518 /* Pods-GitHub_Learning.release.xcconfig */,
+				C76EEE5050A97A4B52CEC482 /* Pods-GitHub_LearningTests.debug.xcconfig */,
+				1D6DDAA3F874A1328B663B91 /* Pods-GitHub_LearningTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -73,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				DA37382B255567510003D164 /* GitHub_Learning */,
+				DAB929122559601100354C8F /* GitHub_LearningTests */,
 				DA37382A255567510003D164 /* Products */,
 				CF85B6628FB7B34B3C167C10 /* Pods */,
 				CCDDFF0A11FE565B3DE8564D /* Frameworks */,
@@ -83,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				DA373829255567510003D164 /* GitHub_Learning.app */,
+				DAB929112559601100354C8F /* GitHub_LearningTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +174,7 @@
 			children = (
 				DA373830255567510003D164 /* OnboardingViewController.swift */,
 				DAB929072559513A00354C8F /* OnboardingLayout.swift */,
+				DAB9291F255AA95B00354C8F /* OnboardingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,6 +182,9 @@
 		DAB928F625559E1400354C8F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DAB92921255AC0C300354C8F /* OnboardingPageViewModel.swift */,
+				DAB9290925595B9D00354C8F /* OnboardingPresenter.swift */,
+				DAB9290B25595C2000354C8F /* OnboardingView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -194,6 +237,31 @@
 			path = Injection;
 			sourceTree = "<group>";
 		};
+		DAB929122559601100354C8F /* GitHub_LearningTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9291D255A9B5000354C8F /* Feature */,
+				DAB929152559601100354C8F /* Info.plist */,
+			);
+			path = GitHub_LearningTests;
+			sourceTree = "<group>";
+		};
+		DAB9291D255A9B5000354C8F /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9291E255A9B5B00354C8F /* Onboarding */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		DAB9291E255A9B5B00354C8F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,11 +280,29 @@
 			dependencies = (
 			);
 			name = GitHub_Learning;
-			packageProductDependencies = (
-			);
 			productName = GitHub_Learning;
 			productReference = DA373829255567510003D164 /* GitHub_Learning.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DAB929102559601100354C8F /* GitHub_LearningTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB9291A2559601100354C8F /* Build configuration list for PBXNativeTarget "GitHub_LearningTests" */;
+			buildPhases = (
+				9B6FDD162C2598E4F055963F /* [CP] Check Pods Manifest.lock */,
+				DAB9290D2559601100354C8F /* Sources */,
+				DAB9290E2559601100354C8F /* Frameworks */,
+				DAB9290F2559601100354C8F /* Resources */,
+				75EEE77DDBF949748339A186 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAB929172559601100354C8F /* PBXTargetDependency */,
+			);
+			name = GitHub_LearningTests;
+			productName = GitHub_LearningTests;
+			productReference = DAB929112559601100354C8F /* GitHub_LearningTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -231,6 +317,10 @@
 					DA373828255567510003D164 = {
 						CreatedOnToolsVersion = 11.7;
 					};
+					DAB929102559601100354C8F = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = DA373828255567510003D164;
+					};
 				};
 			};
 			buildConfigurationList = DA373824255567510003D164 /* Build configuration list for PBXProject "GitHub_Learning" */;
@@ -242,13 +332,12 @@
 				Base,
 			);
 			mainGroup = DA373820255567510003D164;
-			packageReferences = (
-			);
 			productRefGroup = DA37382A255567510003D164 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				DA373828255567510003D164 /* GitHub_Learning */,
+				DAB929102559601100354C8F /* GitHub_LearningTests */,
 			);
 		};
 /* End PBXProject section */
@@ -263,9 +352,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DAB9290F2559601100354C8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		75EEE77DDBF949748339A186 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B6FDD162C2598E4F055963F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GitHub_LearningTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9D836B6EBE094448194BD2D4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,17 +449,37 @@
 			files = (
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
+				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
+				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
+				DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */,
 				DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */,
 				DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */,
+				DAB9290C25595C2000354C8F /* OnboardingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB9290D2559601100354C8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAB929172559601100354C8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA373828255567510003D164 /* GitHub_Learning */;
+			targetProxy = DAB929162559601100354C8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DA373837255567570003D164 /* LaunchScreen.storyboard */ = {
@@ -490,6 +645,48 @@
 			};
 			name = Release;
 		};
+		DAB929182559601100354C8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C76EEE5050A97A4B52CEC482 /* Pods-GitHub_LearningTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95CG933A63;
+				INFOPLIST_FILE = GitHub_LearningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aminovaprvniappka.GitHub-LearningTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_Learning.app/GitHub_Learning";
+			};
+			name = Debug;
+		};
+		DAB929192559601100354C8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D6DDAA3F874A1328B663B91 /* Pods-GitHub_LearningTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95CG933A63;
+				INFOPLIST_FILE = GitHub_LearningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aminovaprvniappka.GitHub-LearningTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_Learning.app/GitHub_Learning";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -507,6 +704,15 @@
 			buildConfigurations = (
 				DA37383E255567570003D164 /* Debug */,
 				DA37383F255567570003D164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB9291A2559601100354C8F /* Build configuration list for PBXNativeTarget "GitHub_LearningTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB929182559601100354C8F /* Debug */,
+				DAB929192559601100354C8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
