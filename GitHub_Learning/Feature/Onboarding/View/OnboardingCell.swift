@@ -22,7 +22,7 @@ class OnboardingCell: UICollectionViewCell {
     }
     
     private lazy var onboardingCellStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [pageImageView,pageTitle,pageTextStackView])
+        let stack = UIStackView(arrangedSubviews: [pageImageView, pageTitle, pageTextStackView])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         return stack
@@ -30,17 +30,13 @@ class OnboardingCell: UICollectionViewCell {
     
     let pageImageView: UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.backgroundColor = .cyan
-        iv.clipsToBounds = true
+        iv.contentMode = .scaleAspectFit
         return iv
     }()
     
     let pageTitle: UILabel = {
         let title = UILabel()
         title.font = UIFont.systemFont(ofSize: 25.0, weight: .medium)
-        title.translatesAutoresizingMaskIntoConstraints = false
         title.textAlignment = .center
         title.numberOfLines = 0
         return title
@@ -48,7 +44,6 @@ class OnboardingCell: UICollectionViewCell {
     
     private lazy var pageTextStackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [pageText])
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.isLayoutMarginsRelativeArrangement = true
         stack.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         return stack
@@ -58,8 +53,6 @@ class OnboardingCell: UICollectionViewCell {
         let text = UILabel()
         text.numberOfLines = 0
         text.textAlignment = .center
-        text.translatesAutoresizingMaskIntoConstraints = false
-        text.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
         text.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
         return text
     }()

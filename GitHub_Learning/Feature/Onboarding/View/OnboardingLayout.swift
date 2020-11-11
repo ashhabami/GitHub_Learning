@@ -20,28 +20,25 @@ class OnboardingLayout: UIView {
     
     private lazy var nextButtonStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [nextButton])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         return stackView
     }()
     
     let pagesCollectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        cv.translatesAutoresizingMaskIntoConstraints = false
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.showsHorizontalScrollIndicator = false
         cv.allowsSelection = false
         cv.isPagingEnabled = true
         cv.backgroundColor = .clear
         cv.register(OnboardingCell.self, forCellWithReuseIdentifier: OnboardingCell.onboardingCellId)
-        let layout = (cv.collectionViewLayout as? UICollectionViewFlowLayout)
-        layout?.scrollDirection = .horizontal
+        layout.scrollDirection = .horizontal
         return cv
     }()
     
     let pagesControl: UIPageControl = {
         let pc = UIPageControl()
-        pc.translatesAutoresizingMaskIntoConstraints = false
         pc.pageIndicatorTintColor = .lightGray
         pc.currentPageIndicatorTintColor = .black
         return pc
@@ -49,11 +46,9 @@ class OnboardingLayout: UIView {
     
     let nextButton: UIButton = {
         let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.backgroundColor = .systemRed
-        button.setTitle("Next", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         button.setTitleColor(.white, for: .normal)
         return button
