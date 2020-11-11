@@ -19,7 +19,11 @@ protocol OnboardingPresenter: Presenter {
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     
     private let onboardingController: OnboardingController
-    private var index: Int = 0
+    private var index: Int = 0 {
+        didSet {
+            showPage()
+        }
+    }
     
     var numberOfPages: Int {
         get {
@@ -34,9 +38,9 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     }
     
     func viewDidLoad() {
-           subscribeForListeners()
-           onboardingController.loadPages()
-           view?.setButtonTitle("Next")
+        subscribeForListeners()
+        onboardingController.loadPages()
+        view?.setButtonTitle("Next")
     }
     
     private func subscribeForListeners() {
@@ -59,12 +63,21 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
         return viewModel
     }
     
+    private func showPage() {
+        let title = index < numberOfPages - 1 ? "Next" : "Log In"
+        view?.setButtonTitle(title)
+        if index <= numberOfPages - 1 {
+            view?.showPage(at: index)
+        }
+    }
+    
 }
 
 extension OnboardingPresenterImpl: OnboardingPresenter {
     
     func previous() {
-        //TODO:
+        index -= 1
+        showPage()
     }
     
     func presentingPage(at index: Int) {
@@ -72,11 +85,8 @@ extension OnboardingPresenterImpl: OnboardingPresenter {
     }
     
     func next() {
-        let title = index < numberOfPages - 1 ? "Next" : "Log In"
-        view?.setButtonTitle(title)
-        if index <= numberOfPages - 1 {
-            view?.showPage(at: index)
-        }
+        index += 1
+        showPage()
     }
     
 }

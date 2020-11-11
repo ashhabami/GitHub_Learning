@@ -40,8 +40,6 @@ class OnboardingViewController: BaseViewController {
     }
     
     @objc private func nextButtonPressed(sender: UIButton) {
-        let nextPageIndex = Int(layout.pagesCollectionView.contentOffset.x/view.frame.width) + 1
-        presenter.presentingPage(at: nextPageIndex)
         presenter.next()
     }
     
@@ -69,9 +67,8 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageIndex = Int(scrollView.contentOffset.x/view.frame.width)
-        presenter.presentingPage(at: pageIndex)
-        presenter.next()
+        let nextPageIndex = Int(scrollView.contentOffset.x/view.frame.width)
+        presenter.presentingPage(at: nextPageIndex)
     }
     
 }
