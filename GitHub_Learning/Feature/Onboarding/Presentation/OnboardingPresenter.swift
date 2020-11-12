@@ -12,16 +12,23 @@ import CleanPlatform
 
 protocol OnboardingPresenter: Presenter {
     func next()
-    func previous()
     func presentingPage(at index: Int)
+    func selectedPage(at index: Int)
 }
 
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     
     private let onboardingController: OnboardingController
-    private var index: Int = 0 {
+    private var selectedIndex: Int = 0 {
         didSet {
+            presentingIndex = selectedIndex
             showPage()
+        }
+    }
+    private var presentingIndex: Int = 0 {
+        didSet {
+            updatePageControl()
+            updateTitle()
         }
     }
     
@@ -51,6 +58,11 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
         view?.setPages(makeViewModels())
     }
     
+    private func updateTitle() {
+        let title = presentingIndex < numberOfPages - 1 ? "Next" : "Log In"
+        view?.setButtonTitle(title)
+    }
+    
     private func makeViewModels() -> [OnboardingPageViewModel] {
         let pages = onboardingController.pages
         let viewModel = pages.map {
@@ -63,11 +75,13 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
         return viewModel
     }
     
+    private func updatePageControl() {
+        view?.updatePageControl(at: presentingIndex)
+    }
+    
     private func showPage() {
-        let title = index < numberOfPages - 1 ? "Next" : "Log In"
-        view?.setButtonTitle(title)
-        if index <= numberOfPages - 1 {
-            view?.showPage(at: index)
+        if presentingIndex <= numberOfPages - 1 {
+            view?.showPage(at: presentingIndex)
         }
     }
     
@@ -75,18 +89,16 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
 
 extension OnboardingPresenterImpl: OnboardingPresenter {
     
-    func previous() {
-        guard index > 0 else { return }
-        index -= 1
-        showPage()
+    func selectedPage(at index: Int) {
+        self.selectedIndex = index
     }
     
     func presentingPage(at index: Int) {
-        self.index = index
+        self.presentingIndex = index
     }
     
     func next() {
-        index += 1
+        presentingIndex += 1
         showPage()
     }
     

@@ -36,11 +36,16 @@ class OnboardingViewController: BaseViewController {
         layout.pagesCollectionView.dataSource = self
         layout.pagesCollectionView.delegate = self
         layout.nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        layout.pagesControl.addTarget(self, action: #selector(pageControlPressed), for: .valueChanged)
         presenter.viewDidLoad()
     }
     
     @objc private func nextButtonPressed(sender: UIButton) {
         presenter.next()
+    }
+    
+    @objc private func pageControlPressed(sender: UIPageControl) {
+        presenter.selectedPage(at: sender.currentPage)
     }
     
 }
@@ -74,11 +79,15 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
 }
 
 extension OnboardingViewController: OnboardingView {
-    
+    // V případě, že swipnu, tak nechci volat znovu scrollToItem, chci jen updatnout pageControl a titleButton ?
+    func updatePageControl(at index: Int) {
+        layout.pagesControl.currentPage = index
+    }
+    // V případě, že swipnu, tak nechci volat už znovu scrollToItem, chci jen updatnout pageControl a titleButton?
+    // Tohle chci jen u buttonu a pageControlu žejo?
     func showPage(at index: Int) {
         let indexPath = IndexPath(item: index, section: 0)
         layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        layout.pagesControl.currentPage = index
     }
     
     func setButtonTitle(_ title: String) {
