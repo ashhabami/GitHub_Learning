@@ -12,8 +12,7 @@ import CleanPlatform
 
 protocol OnboardingPresenter: Presenter {
     func next()
-    func previous()
-    func presentingPage(at index: Int)
+    func selectedPage(at index: Int)
 }
 
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
@@ -21,13 +20,14 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     private let onboardingController: OnboardingController
     private var index: Int = 0 {
         didSet {
+            updateTitle()
             showPage()
         }
     }
     
-    var numberOfPages: Int {
+    private var lastIndex: Int {
         get {
-            onboardingController.pages.count
+            onboardingController.pages.count - 1
         }
     }
     
@@ -51,6 +51,11 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
         view?.setPages(makeViewModels())
     }
     
+    private func updateTitle() {
+        let title = index < lastIndex ? "Next" : "Log In"
+        view?.setButtonTitle(title)
+    }
+    
     private func makeViewModels() -> [OnboardingPageViewModel] {
         let pages = onboardingController.pages
         let viewModel = pages.map {
@@ -64,30 +69,23 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     }
     
     private func showPage() {
-        let title = index < numberOfPages - 1 ? "Next" : "Log In"
-        view?.setButtonTitle(title)
-        if index <= numberOfPages - 1 {
-            view?.showPage(at: index)
-        }
+        view?.showPage(at: index)
     }
     
 }
 
 extension OnboardingPresenterImpl: OnboardingPresenter {
     
-    func previous() {
-        guard index > 0 else { return }
-        index -= 1
-        showPage()
-    }
-    
-    func presentingPage(at index: Int) {
+    func selectedPage(at index: Int) {
         self.index = index
     }
     
     func next() {
-        index += 1
-        showPage()
+        if index < lastIndex {
+            index += 1
+        } else {
+            // Log In: TODO
+        }
     }
     
 }

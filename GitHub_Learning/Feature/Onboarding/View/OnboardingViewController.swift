@@ -16,6 +16,10 @@ class OnboardingViewController: BaseViewController {
     private let presenter: OnboardingPresenter
     private var pages = [OnboardingPageViewModel]()
     
+    private var currentScrollIndex: Int {
+        return Int(layout.pagesCollectionView.contentOffset.x / view.frame.width)
+    }
+    
     override func loadView() {
         view = layout
     }
@@ -36,11 +40,16 @@ class OnboardingViewController: BaseViewController {
         layout.pagesCollectionView.dataSource = self
         layout.pagesCollectionView.delegate = self
         layout.nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
+        layout.pagesControl.addTarget(self, action: #selector(pageControlPressed), for: .valueChanged)
         presenter.viewDidLoad()
     }
     
     @objc private func nextButtonPressed(sender: UIButton) {
         presenter.next()
+    }
+    
+    @objc private func pageControlPressed(sender: UIPageControl) {
+        presenter.selectedPage(at: sender.currentPage)
     }
     
 }
@@ -67,8 +76,7 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let currentPageIndex = Int(scrollView.contentOffset.x / view.frame.width)
-        presenter.presentingPage(at: currentPageIndex)
+        presenter.selectedPage(at: currentScrollIndex)
     }
     
 }
@@ -76,9 +84,14 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
 extension OnboardingViewController: OnboardingView {
     
     func showPage(at index: Int) {
-        let indexPath = IndexPath(item: index, section: 0)
-        layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        layout.pagesControl.currentPage = index
+        if index != currentScrollIndex {
+            let indexPath = IndexPath(item: index, section: 0)
+            layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+        
+        if index != layout.pagesControl.currentPage {
+            layout.pagesControl.currentPage = index
+        }
     }
     
     func setButtonTitle(_ title: String) {
