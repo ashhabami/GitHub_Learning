@@ -16,6 +16,10 @@ class OnboardingViewController: BaseViewController {
     private let presenter: OnboardingPresenter
     private var pages = [OnboardingPageViewModel]()
     
+    private var currentScrollIndex: Int {
+        return Int(layout.pagesCollectionView.contentOffset.x / view.frame.width)
+    }
+    
     override func loadView() {
         view = layout
     }
@@ -72,8 +76,7 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let currentPageIndex = Int(scrollView.contentOffset.x / view.frame.width)
-        presenter.selectedPage(at: currentPageIndex)
+        presenter.selectedPage(at: currentScrollIndex)
     }
     
 }
@@ -81,7 +84,6 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
 extension OnboardingViewController: OnboardingView {
     
     func showPage(at index: Int) {
-        let currentScrollIndex = Int(layout.pagesCollectionView.contentOffset.x / view.frame.width)
         if index != currentScrollIndex {
             let indexPath = IndexPath(item: index, section: 0)
             layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)

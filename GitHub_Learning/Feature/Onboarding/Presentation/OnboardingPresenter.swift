@@ -25,9 +25,9 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
         }
     }
     
-    private var numberOfPages: Int {
+    private var lastIndex: Int {
         get {
-            onboardingController.pages.count
+            onboardingController.pages.count - 1
         }
     }
     
@@ -52,7 +52,7 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     }
     
     private func updateTitle() {
-        let title = index < numberOfPages - 1 ? "Next" : "Log In"
+        let title = index < lastIndex ? "Next" : "Log In"
         view?.setButtonTitle(title)
     }
     
@@ -69,9 +69,7 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     }
     
     private func showPage() {
-        if index <= numberOfPages - 1 {
-            view?.showPage(at: index)
-        }
+        view?.showPage(at: index)
     }
     
 }
@@ -83,7 +81,11 @@ extension OnboardingPresenterImpl: OnboardingPresenter {
     }
     
     func next() {
-        index += 1
+        if index < lastIndex {
+            index += 1
+        } else {
+            // Log In: TODO
+        }
     }
     
 }
