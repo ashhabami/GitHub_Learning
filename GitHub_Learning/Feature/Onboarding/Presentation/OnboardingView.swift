@@ -14,5 +14,4 @@ protocol OnboardingView: View {
     func setPages(_ pages: [OnboardingPageViewModel])
     func showPage(at index: Int)
     func setButtonTitle(_ title: String)
-    func updatePageControl(at index: Int)
 }

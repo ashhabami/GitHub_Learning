@@ -12,27 +12,20 @@ import CleanPlatform
 
 protocol OnboardingPresenter: Presenter {
     func next()
-    func presentingPage(at index: Int)
     func selectedPage(at index: Int)
 }
 
 final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     
     private let onboardingController: OnboardingController
-    private var selectedIndex: Int = 0 {
+    private var index: Int = 0 {
         didSet {
-            presentingIndex = selectedIndex
+            updateTitle()
             showPage()
         }
     }
-    private var presentingIndex: Int = 0 {
-        didSet {
-            updatePageControl()
-            updateTitle()
-        }
-    }
     
-    var numberOfPages: Int {
+    private var numberOfPages: Int {
         get {
             onboardingController.pages.count
         }
@@ -59,7 +52,7 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     }
     
     private func updateTitle() {
-        let title = presentingIndex < numberOfPages - 1 ? "Next" : "Log In"
+        let title = index < numberOfPages - 1 ? "Next" : "Log In"
         view?.setButtonTitle(title)
     }
     
@@ -75,13 +68,9 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
         return viewModel
     }
     
-    private func updatePageControl() {
-        view?.updatePageControl(at: presentingIndex)
-    }
-    
     private func showPage() {
-        if presentingIndex <= numberOfPages - 1 {
-            view?.showPage(at: presentingIndex)
+        if index <= numberOfPages - 1 {
+            view?.showPage(at: index)
         }
     }
     
@@ -90,16 +79,11 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
 extension OnboardingPresenterImpl: OnboardingPresenter {
     
     func selectedPage(at index: Int) {
-        self.selectedIndex = index
-    }
-    
-    func presentingPage(at index: Int) {
-        self.presentingIndex = index
+        self.index = index
     }
     
     func next() {
-        presentingIndex += 1
-        showPage()
+        index += 1
     }
     
 }

@@ -73,21 +73,23 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPageIndex = Int(scrollView.contentOffset.x / view.frame.width)
-        presenter.presentingPage(at: currentPageIndex)
+        presenter.selectedPage(at: currentPageIndex)
     }
     
 }
 
 extension OnboardingViewController: OnboardingView {
-    // V případě, že swipnu, tak nechci volat znovu scrollToItem, chci jen updatnout pageControl a titleButton ?
-    func updatePageControl(at index: Int) {
-        layout.pagesControl.currentPage = index
-    }
-    // V případě, že swipnu, tak nechci volat už znovu scrollToItem, chci jen updatnout pageControl a titleButton?
-    // Tohle chci jen u buttonu a pageControlu žejo?
+    
     func showPage(at index: Int) {
-        let indexPath = IndexPath(item: index, section: 0)
-        layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        let currentScrollIndex = Int(layout.pagesCollectionView.contentOffset.x / view.frame.width)
+        if index != currentScrollIndex {
+            let indexPath = IndexPath(item: index, section: 0)
+            layout.pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+        
+        if index != layout.pagesControl.currentPage {
+            layout.pagesControl.currentPage = index
+        }
     }
     
     func setButtonTitle(_ title: String) {
