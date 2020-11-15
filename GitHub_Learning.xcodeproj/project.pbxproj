@@ -12,6 +12,9 @@
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
 		DA373836255567570003D164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA373835255567570003D164 /* Assets.xcassets */; };
 		DA373839255567570003D164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA373837255567570003D164 /* LaunchScreen.storyboard */; };
+		DA9EFB5225617718007DF94E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5125617718007DF94E /* LoginController.swift */; };
+		DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5425617DB4007DF94E /* Wireframe.swift */; };
+		DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */; };
 		DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FA25559FDC00354C8F /* OnboardingPage.swift */; };
 		DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FC2555A13B00354C8F /* OnboardingController.swift */; };
 		DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929002555A87200354C8F /* ScopeSpec.swift */; };
@@ -23,6 +26,9 @@
 		DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */; };
 		DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9291F255AA95B00354C8F /* OnboardingCell.swift */; };
 		DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB92921255AC0C300354C8F /* OnboardingPageViewModel.swift */; };
+		DAB9292E255ECE7200354C8F /* LoginLauncherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB9292D255ECE7200354C8F /* LoginLauncherController.swift */; };
+		DAB92931255ECF2400354C8F /* NavigationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB92930255ECF2400354C8F /* NavigationAssembly.swift */; };
+		DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB92934255ED23700354C8F /* OnboardingPresenterTests.swift */; };
 		E928E103F1228086DD54BC39 /* Pods_GitHub_LearningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958307D4623D91FB6A85D094 /* Pods_GitHub_LearningTests.framework */; };
 		F208FDC4F7D2731E652F8BD5 /* Pods_GitHub_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7629A38C2E5C6CBF341BC957 /* Pods_GitHub_Learning.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +57,9 @@
 		DA373835255567570003D164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA373838255567570003D164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA37383A255567570003D164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA9EFB5125617718007DF94E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DA9EFB5425617DB4007DF94E /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeImpl.swift; sourceTree = "<group>"; };
 		DAB928FA25559FDC00354C8F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		DAB928FC2555A13B00354C8F /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		DAB929002555A87200354C8F /* ScopeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpec.swift; sourceTree = "<group>"; };
@@ -64,6 +73,9 @@
 		DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingControllerTests.swift; sourceTree = "<group>"; };
 		DAB9291F255AA95B00354C8F /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		DAB92921255AC0C300354C8F /* OnboardingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewModel.swift; sourceTree = "<group>"; };
+		DAB9292D255ECE7200354C8F /* LoginLauncherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLauncherController.swift; sourceTree = "<group>"; };
+		DAB92930255ECF2400354C8F /* NavigationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAssembly.swift; sourceTree = "<group>"; };
+		DAB92934255ED23700354C8F /* OnboardingPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,14 +143,24 @@
 			children = (
 				DA37383A255567570003D164 /* Info.plist */,
 				DAB928F425559DA800354C8F /* App */,
+				DAB9292A255EC6F900354C8F /* Generic */,
 				DAB928F225559D8800354C8F /* Feature */,
 			);
 			path = GitHub_Learning;
 			sourceTree = "<group>";
 		};
+		DA9EFB5325617D50007DF94E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DAB928F225559D8800354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DAB92923255EC66E00354C8F /* Login */,
 				DAB928F325559D9600354C8F /* Onboarding */,
 			);
 			path = Feature;
@@ -257,9 +279,117 @@
 		DAB9291E255A9B5B00354C8F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */,
+				DAB92933255ED21A00354C8F /* Presentation */,
+				DAB92932255ED21100354C8F /* Application */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DAB92923255EC66E00354C8F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DAB92924255EC68200354C8F /* Injection */,
+				DAB92925255EC68E00354C8F /* View */,
+				DAB92926255EC6A100354C8F /* Presentation */,
+				DAB92927255EC6AB00354C8F /* Application */,
+				DAB92928255EC6B400354C8F /* Resources */,
+				DAB92929255EC6BE00354C8F /* Domain */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DAB92924255EC68200354C8F /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		DAB92925255EC68E00354C8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAB92926255EC6A100354C8F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		DAB92927255EC6AB00354C8F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EFB5125617718007DF94E /* LoginController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DAB92928255EC6B400354C8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DAB92929255EC6BE00354C8F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		DAB9292A255EC6F900354C8F /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9292B255EC71700354C8F /* Navigation */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		DAB9292B255EC71700354C8F /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9292F255ECF0500354C8F /* Injection */,
+				DA9EFB5325617D50007DF94E /* View */,
+				DAB9292C255ECE5000354C8F /* Application */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		DAB9292C255ECE5000354C8F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9292D255ECE7200354C8F /* LoginLauncherController.swift */,
+				DA9EFB5425617DB4007DF94E /* Wireframe.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DAB9292F255ECF0500354C8F /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DAB92930255ECF2400354C8F /* NavigationAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		DAB92932255ED21100354C8F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DAB9291B2559622600354C8F /* OnboardingControllerTests.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DAB92933255ED21A00354C8F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DAB92934255ED23700354C8F /* OnboardingPresenterTests.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,6 +577,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */,
+				DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */,
+				DA9EFB5225617718007DF94E /* LoginController.swift in Sources */,
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
 				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
@@ -454,6 +587,8 @@
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
+				DAB92931255ECF2400354C8F /* NavigationAssembly.swift in Sources */,
+				DAB9292E255ECE7200354C8F /* LoginLauncherController.swift in Sources */,
 				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
 				DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */,
@@ -468,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
+				DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
