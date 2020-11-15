@@ -10,14 +10,15 @@ import Foundation
 import CleanCore
 import CleanPlatform
 
-protocol OnboardingPresenter: Presenter {
+protocol OnboardingPresenter: Presenter, Listener {
     func next()
     func selectedPage(at index: Int)
 }
 
-final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
+class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
     
     private let onboardingController: OnboardingController
+    private let loginLauncherController: LoginLauncherController
     private var index: Int = 0 {
         didSet {
             updateTitle()
@@ -32,9 +33,11 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView>, Listener {
     }
     
     init(
-        onboardingController: OnboardingController
+        onboardingController: OnboardingController,
+        loginLauncherController: LoginLauncherController
     ) {
         self.onboardingController = onboardingController
+        self.loginLauncherController = loginLauncherController
     }
     
     func viewDidLoad() {
@@ -84,7 +87,7 @@ extension OnboardingPresenterImpl: OnboardingPresenter {
         if index < lastIndex {
             index += 1
         } else {
-            // Log In: TODO
+            loginLauncherController.launchLogin()
         }
     }
     
