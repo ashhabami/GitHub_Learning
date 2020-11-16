@@ -15,17 +15,18 @@ protocol OnboardingPresenter: Presenter, Listener {
     func selectedPage(at index: Int)
 }
 
-class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
+final class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
     
     private let onboardingController: OnboardingController
     private let loginLauncherController: LoginLauncherController
-    private var index: Int = 0 {
+
+    var index: Int = 0 {
         didSet {
             updateTitle()
             showPage()
         }
     }
-    
+
     private var lastIndex: Int {
         get {
             onboardingController.pages.count - 1

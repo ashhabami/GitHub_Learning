@@ -13,6 +13,7 @@ final class NavigationAssembly: Assembly {
 
     func assemble(container: Container) {
         container.autoregister(LoginLauncherController.self, initializer: LoginLauncherControllerImpl.init)
+            .inObjectScope(.container)
         container.autoregister(Wireframe.self, initializer: WireframeImpl.init)
     }
 

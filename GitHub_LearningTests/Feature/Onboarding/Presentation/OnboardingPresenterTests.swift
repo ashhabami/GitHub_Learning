@@ -11,15 +11,19 @@ import CleanCore
 @testable import GitHub_Learning
 
 class OnboardingPresenterTests: XCTestCase {
-    var sut: OnboardingPresenter!
+    private var sut: OnboardingPresenterImpl!
     private var view: OnboardingView!
     private var controller: OnboardingController!
     private var launchController: LoginLauncherController!
     
-    private func setUpWith(onboardingController: OnboardingController? = nil, onboardingLauncher: LoginLauncherController? = nil, onboardingView: OnboardingView? = nil) {
-        self.controller = onboardingController != nil ? onboardingController! : FakeOnboardingController()
-        self.launchController = onboardingLauncher != nil ? onboardingLauncher! : FakeLoginLauncherController()
-        self.view = onboardingView != nil ? onboardingView! : FakeView()
+    private func setUpWith(
+        onboardingController: OnboardingController? = nil,
+        onboardingLauncher: LoginLauncherController? = nil,
+        onboardingView: OnboardingView? = nil
+    ) {
+        self.controller = onboardingController ?? FakeOnboardingController()
+        self.launchController = onboardingLauncher ?? FakeLoginLauncherController()
+        self.view = onboardingView ?? FakeOnboardingView()
         
         let presenter = OnboardingPresenterImpl(onboardingController: controller, loginLauncherController: launchController)
         presenter.view = view
@@ -28,35 +32,33 @@ class OnboardingPresenterTests: XCTestCase {
     
     func testIncresePage_whenNextNotOnLastPage() {
         // Given
-        let view = FakeView()
+        let controller = FakeOnboardingController()
+        let view = FakeOnboardingView()
         let launcher = FakeLoginLauncherController()
-        setUpWith(onboardingLauncher: launcher, onboardingView: view)
+        setUpWith(onboardingController: controller, onboardingLauncher: launcher, onboardingView: view)
         
         // When
-        sut.viewDidLoad()
-        var nextPage = 0
-        view.presentingIndex = 0
-        for _ in 0..<view.pages.count - 1 {
-            nextPage = view.presentingIndex! + 1
-            sut.next()
-        }
-        
+        let index = 0
+        sut.index = index
+        sut.next()
+            
         // Then
-        XCTAssertTrue(view.presentingIndex == nextPage)
+        XCTAssertTrue(view.isPageShown)
+        XCTAssertEqual(view.presentingIndex, index + 1)
         XCTAssertNil(launcher.isLaunched)
     }
     
     func testLaunchLogin_whenNextOnLastPage() {
         // Given
+        let controller = FakeOnboardingController()
         let launcher = FakeLoginLauncherController()
-        let view = FakeView()
-        setUpWith(onboardingLauncher: launcher, onboardingView: view)
+        let view = FakeOnboardingView()
+        setUpWith(onboardingController: controller, onboardingLauncher: launcher, onboardingView: view)
         
         // When
-        sut.viewDidLoad()
-        for _ in 0...view.pages.count - 1 {
-            sut.next()
-        }
+        let index = controller.lastPageIndex
+        sut.index = index
+        sut.next()
         
         // Then
         XCTAssertNotNil(launcher.isLaunched)
@@ -64,28 +66,25 @@ class OnboardingPresenterTests: XCTestCase {
     
     func testViewUpdate_whenSelectedPage() {
         // Given
-        let view = FakeView()
+        let view = FakeOnboardingView()
         setUpWith(onboardingView: view)
-        
+        let index = 2
+
         // When
-        sut.viewDidLoad()
-        let index = Int.random(in: 0...view.pages.count - 1)
         sut.selectedPage(at: index)
         
-        
         // Then
-        XCTAssertNotNil(view.presentingIndex)
+        XCTAssertEqual(view.presentingIndex, index)
     }
     
     func testButtonTitleUpdate_whenSelectedPageIsLastPage() {
         // Given
-        let view = FakeView()
-        setUpWith(onboardingView: view)
+        let controller = FakeOnboardingController()
+        let view = FakeOnboardingView()
+        setUpWith(onboardingController: controller, onboardingView: view)
         
         // When
-        sut.viewDidLoad()
-        sut.selectedPage(at: view.pages.count - 1)
-        
+        sut.selectedPage(at: controller.lastPageIndex)
         
         // Then
         XCTAssertTrue(view.buttonTitle == "Log In")
@@ -93,13 +92,12 @@ class OnboardingPresenterTests: XCTestCase {
     
     func testButtonTitleUpdate_whenSelectedPageIsNotLastPage() {
         // Given
-        let view = FakeView()
-        setUpWith(onboardingView: view)
+        let controller = FakeOnboardingController()
+        let view = FakeOnboardingView()
+        setUpWith(onboardingController: controller, onboardingView: view)
         
         // When
-        sut.viewDidLoad()
-        let index = Int.random(in: 0..<view.pages.count - 1)
-        sut.selectedPage(at: index)
+        sut.selectedPage(at: controller.lastPageIndex - 1)
         
         // Then
         XCTAssertTrue(view.buttonTitle == "Next")
@@ -131,7 +129,7 @@ class OnboardingPresenterTests: XCTestCase {
     
     func testButtonTitleUpdate_whenViewDidLoad() {
         // Given
-        let view = FakeView()
+        let view = FakeOnboardingView()
         setUpWith(onboardingView: view)
         
         // When
@@ -141,60 +139,49 @@ class OnboardingPresenterTests: XCTestCase {
         XCTAssertNotNil(view.buttonTitle)
     }
     
-    private class FakeView: OnboardingView {
-        var pages: [OnboardingPageViewModel] = []
-        var presentingIndex: Int?
+    private class FakeOnboardingView: FakeView, OnboardingView {
         var buttonTitle: String?
+        var arePagesSet = false
+        var isPageShown = false
+        var presentingIndex: Int?
         
         func setPages(_ pages: [OnboardingPageViewModel]) {
-            self.pages = pages
+            arePagesSet = true
         }
         
         func showPage(at index: Int) {
             presentingIndex = index
+            isPageShown = true
         }
         
         func setButtonTitle(_ title: String) {
             buttonTitle = title
         }
-        
-        func startLoading() {}
-        
-        func stopLoading() {}
     }
     
-    private class FakeOnboardingController: BaseControllerImpl, OnboardingController {
+    private class FakeOnboardingController: FakeBaseController, OnboardingController {
         var isPagesLoaded: Bool?
-        var isSubscribed: Bool?
         
-        override func subscribe(_ listener: Listener, errorBlock: ErrorBlock?, updateBlock: UpdateBlock?) {
-            super.subscribe(listener, errorBlock: errorBlock, updateBlock: updateBlock)
-            isSubscribed = true
+        var lastPageIndex: Int {
+            return pages.count - 1
         }
         
-        var pages: [OnboardingPage] = [] {
-            didSet {
-                notifyListenersAboutUpdate()
-            }
-        }
-        
-        func loadPages() {
-            var pagesToLoad = [OnboardingPage]()
-            for _ in 1...Int.random(in: 1...10) {
-                pagesToLoad.append(
-                    OnboardingPage(
-                        title: "fake",
-                        text: "fake",
-                        image: "onboarding1"
-                    )
+        var pages: [OnboardingPage] = {
+            return (0..<10).map { _ in
+                OnboardingPage(
+                    title: "fake",
+                    text: "fake",
+                    image: "onboarding1"
                 )
             }
-            pages = pagesToLoad
+        }()
+        
+        func loadPages() {
             isPagesLoaded = true
         }
     }
     
-    private class FakeLoginLauncherController: BaseControllerImpl, LoginLauncherController {
+    private class FakeLoginLauncherController: FakeBaseController, LoginLauncherController {
         var isLaunched: Bool?
         
         func launchLogin() {
