@@ -8,6 +8,8 @@
 
 import Foundation
 import Swinject
+import CleanCore
+import CleanPlatform
 
 final class NavigationAssembly: Assembly {
 
@@ -15,6 +17,7 @@ final class NavigationAssembly: Assembly {
         container.autoregister(LoginLauncherController.self, initializer: LoginLauncherControllerImpl.init)
             .inObjectScope(.container)
         container.autoregister(Wireframe.self, initializer: WireframeImpl.init)
+        container.register(UIWindow.self) { _ in UIApplication.shared.windows.first! }
     }
 
 }
