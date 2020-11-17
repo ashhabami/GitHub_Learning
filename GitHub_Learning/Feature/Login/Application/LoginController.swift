@@ -9,8 +9,7 @@
 import Foundation
 import CleanCore
 import CleanPlatform
-
-// Je potřeba mít LoginController v LoginLaunchControlleru, když nepřenáším žádnej stav? 
+ 
 protocol LoginController: BaseController {
     
 }

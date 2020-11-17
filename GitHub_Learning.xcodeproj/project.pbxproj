@@ -17,6 +17,14 @@
 		DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */; };
 		DA9EFB5E2562884D007DF94E /* FakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* FakeView.swift */; };
 		DA9EFB6225628869007DF94E /* FakeBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6125628869007DF94E /* FakeBaseController.swift */; };
+		DA9EFB662562ACB7007DF94E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB652562ACB7007DF94E /* LoginViewController.swift */; };
+		DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB672562AED0007DF94E /* LoginAssembly.swift */; };
+		DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */; };
+		DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6B2562B04E007DF94E /* LoginView.swift */; };
+		DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */; };
+		DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */; };
+		DA9EFB722563DA77007DF94E /* PersistancyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB712563DA77007DF94E /* PersistancyController.swift */; };
+		DA9EFB772563DF7F007DF94E /* PersistancyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB762563DF7F007DF94E /* PersistancyAssembly.swift */; };
 		DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FA25559FDC00354C8F /* OnboardingPage.swift */; };
 		DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FC2555A13B00354C8F /* OnboardingController.swift */; };
 		DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929002555A87200354C8F /* ScopeSpec.swift */; };
@@ -64,6 +72,14 @@
 		DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeImpl.swift; sourceTree = "<group>"; };
 		DA9EFB5D2562884D007DF94E /* FakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeView.swift; sourceTree = "<group>"; };
 		DA9EFB6125628869007DF94E /* FakeBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBaseController.swift; sourceTree = "<group>"; };
+		DA9EFB652562ACB7007DF94E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DA9EFB672562AED0007DF94E /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
+		DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		DA9EFB6B2562B04E007DF94E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+topViewController.swift"; sourceTree = "<group>"; };
+		DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLayout.swift; sourceTree = "<group>"; };
+		DA9EFB712563DA77007DF94E /* PersistancyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistancyController.swift; sourceTree = "<group>"; };
+		DA9EFB762563DF7F007DF94E /* PersistancyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistancyAssembly.swift; sourceTree = "<group>"; };
 		DAB928FA25559FDC00354C8F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		DAB928FC2555A13B00354C8F /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		DAB929002555A87200354C8F /* ScopeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpec.swift; sourceTree = "<group>"; };
@@ -157,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */,
+				DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +217,31 @@
 				DA9EFB5D2562884D007DF94E /* FakeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DA9EFB732563DF21007DF94E /* Persistancy */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EFB752563DF6A007DF94E /* Injection */,
+				DA9EFB742563DF4A007DF94E /* Application */,
+			);
+			path = Persistancy;
+			sourceTree = "<group>";
+		};
+		DA9EFB742563DF4A007DF94E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EFB712563DA77007DF94E /* PersistancyController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA9EFB752563DF6A007DF94E /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA9EFB762563DF7F007DF94E /* PersistancyAssembly.swift */,
+			);
+			path = Injection;
 			sourceTree = "<group>";
 		};
 		DAB928F225559D8800354C8F /* Feature */ = {
@@ -347,6 +389,7 @@
 		DAB92924255EC68200354C8F /* Injection */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EFB672562AED0007DF94E /* LoginAssembly.swift */,
 			);
 			path = Injection;
 			sourceTree = "<group>";
@@ -354,6 +397,8 @@
 		DAB92925255EC68E00354C8F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EFB652562ACB7007DF94E /* LoginViewController.swift */,
+				DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +406,8 @@
 		DAB92926255EC6A100354C8F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */,
+				DA9EFB6B2562B04E007DF94E /* LoginView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -390,6 +437,7 @@
 		DAB9292A255EC6F900354C8F /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EFB732563DF21007DF94E /* Persistancy */,
 				DAB9292B255EC71700354C8F /* Navigation */,
 			);
 			path = Generic;
@@ -626,10 +674,18 @@
 				DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */,
 				DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */,
 				DA9EFB5225617718007DF94E /* LoginController.swift in Sources */,
+				DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */,
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
+				DA9EFB662562ACB7007DF94E /* LoginViewController.swift in Sources */,
+				DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
 				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
+				DA9EFB722563DA77007DF94E /* PersistancyController.swift in Sources */,
+				DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */,
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
+				DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */,
+				DA9EFB772563DF7F007DF94E /* PersistancyAssembly.swift in Sources */,
+				DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,

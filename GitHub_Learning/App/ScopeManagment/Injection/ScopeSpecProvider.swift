@@ -10,7 +10,7 @@ import Foundation
 import CleanPlatform
 import CleanCore
 
-final class ScopeSpecProvierImpl : ScopeSpecProvider {
+final class ScopeSpecProvierImpl: ScopeSpecProvider {
     func spec(describing scope: Scope) -> ScopeSpec? {
         return MainApplicationScopeSpec()
     }

@@ -7,11 +7,25 @@
 //
 
 import Foundation
+import CleanCore
+import CleanPlatform
 
+//Deinitnou se někdy ty původní objekty když na sebe ukazují a vytváří obřího pavouka odkazů?
 class WireframeImpl: Wireframe {
+    let instanceProvider: InstanceProvider
+    let window: UIWindow
     
-    func launchLogin() {
-        // TODO:
+    init(
+        instanceProvider: InstanceProvider,
+        window: UIWindow
+    ) {
+        self.instanceProvider = instanceProvider
+        self.window = window
     }
     
+    func launchLogin() {
+        let vc = try! instanceProvider.getInstance(LoginViewController.self)
+        vc.modalPresentationStyle = .fullScreen
+        window.topViewController?.present(vc,animated: true,completion: nil)
+    }
 }
