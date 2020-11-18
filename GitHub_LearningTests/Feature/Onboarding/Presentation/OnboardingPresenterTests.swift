@@ -77,30 +77,44 @@ class OnboardingPresenterTests: XCTestCase {
         XCTAssertEqual(view.presentingIndex, index)
     }
     
-    func testButtonTitleUpdate_whenSelectedPageIsLastPage() {
+    func testButtonTitleUpdate_whenPageIsLastPage() {
         // Given
         let controller = FakeOnboardingController()
         let view = FakeOnboardingView()
         setUpWith(onboardingController: controller, onboardingView: view)
         
         // When
-        sut.selectedPage(at: controller.lastPageIndex)
+        sut.index = controller.lastPageIndex
         
         // Then
-        XCTAssertTrue(view.buttonTitle == "Log In")
+        XCTAssertEqual(view.buttonTitle, "Log In")
     }
     
-    func testButtonTitleUpdate_whenSelectedPageIsNotLastPage() {
+    func testButtonTitleUpdate_whenPageIsNotLastPage() {
         // Given
         let controller = FakeOnboardingController()
         let view = FakeOnboardingView()
         setUpWith(onboardingController: controller, onboardingView: view)
         
         // When
-        sut.selectedPage(at: controller.lastPageIndex - 1)
+        sut.index = controller.lastPageIndex - 1
         
         // Then
-        XCTAssertTrue(view.buttonTitle == "Next")
+        XCTAssertEqual(view.buttonTitle, "Next")
+    }
+    
+    func testUpdateIndex_whenSelectedPage() {
+        // Given
+        let controller = FakeOnboardingController()
+        let view = FakeOnboardingView()
+        setUpWith(onboardingController: controller, onboardingView: view)
+        
+        // When
+        let index = 1
+        sut.selectedPage(at: index)
+        
+        // Then
+        XCTAssertEqual(sut.index, index)
     }
     
     func testSubscribeForPages_whenViewDidLoad() {
