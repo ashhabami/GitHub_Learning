@@ -15,8 +15,8 @@
 		DA9EFB5225617718007DF94E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5125617718007DF94E /* LoginController.swift */; };
 		DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5425617DB4007DF94E /* Wireframe.swift */; };
 		DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */; };
-		DA9EFB5E2562884D007DF94E /* FakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* FakeView.swift */; };
-		DA9EFB6225628869007DF94E /* FakeBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6125628869007DF94E /* FakeBaseController.swift */; };
+		DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* TestView.swift */; };
+		DA9EFB6225628869007DF94E /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6125628869007DF94E /* TestController.swift */; };
 		DA9EFB662562ACB7007DF94E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB652562ACB7007DF94E /* LoginViewController.swift */; };
 		DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB672562AED0007DF94E /* LoginAssembly.swift */; };
 		DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */; };
@@ -70,8 +70,8 @@
 		DA9EFB5125617718007DF94E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DA9EFB5425617DB4007DF94E /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeImpl.swift; sourceTree = "<group>"; };
-		DA9EFB5D2562884D007DF94E /* FakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeView.swift; sourceTree = "<group>"; };
-		DA9EFB6125628869007DF94E /* FakeBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBaseController.swift; sourceTree = "<group>"; };
+		DA9EFB5D2562884D007DF94E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		DA9EFB6125628869007DF94E /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		DA9EFB652562ACB7007DF94E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DA9EFB672562AED0007DF94E /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
 		DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		DA9EFB5A256287F3007DF94E /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				DA9EFB6125628869007DF94E /* FakeBaseController.swift */,
+				DA9EFB6125628869007DF94E /* TestController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 		DA9EFB5C25628838007DF94E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DA9EFB5D2562884D007DF94E /* FakeView.swift */,
+				DA9EFB5D2562884D007DF94E /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -705,8 +705,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
-				DA9EFB5E2562884D007DF94E /* FakeView.swift in Sources */,
-				DA9EFB6225628869007DF94E /* FakeBaseController.swift in Sources */,
+				DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */,
+				DA9EFB6225628869007DF94E /* TestController.swift in Sources */,
 				DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

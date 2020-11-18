@@ -9,7 +9,7 @@
 import Foundation
 import CleanCore
 
-class FakeView: View {
+class TestView: View {
     var isLoading: Bool?
     
     func startLoading() {
