@@ -16,7 +16,6 @@
 		DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5425617DB4007DF94E /* Wireframe.swift */; };
 		DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */; };
 		DA9EFB5E2562884D007DF94E /* FakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* FakeView.swift */; };
-		DA9EFB602562885B007DF94E /* FakePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5F2562885B007DF94E /* FakePresenter.swift */; };
 		DA9EFB6225628869007DF94E /* FakeBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6125628869007DF94E /* FakeBaseController.swift */; };
 		DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FA25559FDC00354C8F /* OnboardingPage.swift */; };
 		DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FC2555A13B00354C8F /* OnboardingController.swift */; };
@@ -64,7 +63,6 @@
 		DA9EFB5425617DB4007DF94E /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeImpl.swift; sourceTree = "<group>"; };
 		DA9EFB5D2562884D007DF94E /* FakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeView.swift; sourceTree = "<group>"; };
-		DA9EFB5F2562885B007DF94E /* FakePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePresenter.swift; sourceTree = "<group>"; };
 		DA9EFB6125628869007DF94E /* FakeBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBaseController.swift; sourceTree = "<group>"; };
 		DAB928FA25559FDC00354C8F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		DAB928FC2555A13B00354C8F /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 		DA9EFB59256287CE007DF94E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				DA9EFB5F2562885B007DF94E /* FakePresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -653,7 +650,6 @@
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
 				DA9EFB5E2562884D007DF94E /* FakeView.swift in Sources */,
-				DA9EFB602562885B007DF94E /* FakePresenter.swift in Sources */,
 				DA9EFB6225628869007DF94E /* FakeBaseController.swift in Sources */,
 				DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */,
 			);
