@@ -39,3 +39,7 @@ class LoginViewController: BaseViewController {
         loginPresenter.logInWith(email: loginLayout.emailTextField.text, password: loginLayout.passwordTextField.text)
     }
 }
+
+extension LoginViewController: LoginView {
+    //TODO:
+}
