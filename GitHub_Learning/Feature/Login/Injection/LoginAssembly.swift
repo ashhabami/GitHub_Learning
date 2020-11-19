@@ -12,8 +12,11 @@ import Swinject
 
 class LoginAssembly: Assembly {
     func assemble(container: Container) {
-        container.autoregister(LoginViewController.self, initializer: LoginViewController.init)
+        container.autoregister(LoginViewController.self, initializer: LoginViewController.init).implements(LoginView.self)
         container.autoregister(LoginPresenter.self, initializer: LoginPresenterImpl.init)
-        container.autoregister(LoginController.self, initializer: LoginControllerImpl.init)
+            .initCompleted { (r, presenter) in
+                (presenter as? LoginPresenterImpl)?.view = r.resolve(LoginView.self)
+            }
+        container.autoregister(LoginBuilder.self, initializer: LoginBuilderImpl.init)
     }
 }

@@ -31,6 +31,11 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginLayout.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         loginPresenter.viewDidLoad()
+    }
+    
+    @objc private func loginButtonPressed() {
+        loginPresenter.logInWith(email: loginLayout.emailTextField.text, password: loginLayout.passwordTextField.text)
     }
 }

@@ -9,6 +9,4 @@
 import Foundation
 import CleanCore
 
-protocol LoginView: View {
-    
-}
+protocol LoginView: View {}

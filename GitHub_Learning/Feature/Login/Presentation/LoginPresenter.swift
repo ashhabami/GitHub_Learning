@@ -11,25 +11,34 @@ import CleanPlatform
 import CleanCore
 
 protocol LoginPresenter: Presenter, Listener {
-    
+    func logInWith(email: String?, password: String?)
 }
 
 final class LoginPresenterImpl: BasePresenter<LoginView> {
-    
-    let loginController: LoginController
+    private var loginBuilder: LoginBuilder
+    private let alertProvider: AlertProviderController
     
     init(
-        loginController: LoginController
+        loginBuilder: LoginBuilder,
+        alertProvider: AlertProviderController
     ) {
-        self.loginController = loginController
+        self.loginBuilder = loginBuilder
+        self.alertProvider = alertProvider
     }
     
     func viewDidLoad() {
         
     }
-    
 }
 
 extension LoginPresenterImpl: LoginPresenter {
-    
+    func logInWith(email: String?, password: String?) {
+        loginBuilder.email = email
+        loginBuilder.password = password
+        do {
+            let _ = try loginBuilder.build()
+        } catch {
+            print(error)
+        }
+    }
 }
