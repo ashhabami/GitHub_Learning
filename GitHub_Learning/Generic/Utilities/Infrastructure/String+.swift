@@ -15,7 +15,26 @@ extension String {
     }
     
     var containsCapital: Bool {
-        let numbersRange = self.rangeOfCharacter(from: .capitalizedLetters)
-        return numbersRange != nil
+        let isCapital = self.filter {
+            $0.isUppercase
+        }.first
+        return isCapital != nil
+    }
+    
+    var length: Int {
+        return self.count
+    }
+    
+    var hasEmailCharacters: Bool {
+        do {
+            let regex = try NSRegularExpression(pattern: "[\\w.]+@[a-zA-Z]{2,}\\.[a-zA-Z]{2,3}\\b", options: [])
+            if let _ = regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSMakeRange(0, self.count)) {
+                return true
+            }
+        } catch {
+            debugPrint(error.localizedDescription)
+            return false
+        }
+        return false
     }
 }
