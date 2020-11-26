@@ -11,11 +11,13 @@ import CleanPlatform
 import CleanCore
 
 protocol LoginPresenter: Presenter, Listener {
-    func logInWith(email: String?, password: String?)
+    func updateEmail(_ email: String?)
+    func updatePassword(_ password: String?)
+    func logIn()
 }
 
 final class LoginPresenterImpl: BasePresenter<LoginView> {
-    private var loginBuilder: LoginBuilder
+    private let loginBuilder: LoginBuilder
     private let alertProvider: AlertProviderController
     
     init(
@@ -27,18 +29,39 @@ final class LoginPresenterImpl: BasePresenter<LoginView> {
     }
     
     func viewDidLoad() {
-        
+        view?.isLoginEnabled(loginBuilder.isMandatoryDataFilled)
     }
 }
 
 extension LoginPresenterImpl: LoginPresenter {
-    func logInWith(email: String?, password: String?) {
+    func updateEmail(_ email: String?) {
         loginBuilder.email = email
+        view?.isLoginEnabled(loginBuilder.isMandatoryDataFilled)
+    }
+    
+    func updatePassword(_ password: String?) {
         loginBuilder.password = password
+        view?.isLoginEnabled(loginBuilder.isMandatoryDataFilled)
+    }
+    
+    func logIn() {
         do {
             let _ = try loginBuilder.build()
+            // Nemůže nastat...vymazat tenhle error??
+        } catch LoginBuilderError.missingMandatoryData {
+            
+        } catch LoginBuilderError.invalidEmail {
+            alertProvider.showAlertWith("Invalid Email",
+                                        "Please re-type your email address",
+                                        [AlertAction(title: "ok", style: ._default, completion: nil)]
+                                        )
+        } catch LoginBuilderError.invalidPassword {
+            alertProvider.showAlertWith("Invalid Password",
+                                        "Password has to be at least 8 letter long, have at least one digit and capital letter",
+                                        [AlertAction(title: "ok", style: ._default, completion: nil)]
+                                        )
         } catch {
-            print(error)
+            print("Default errror")
         }
     }
 }

@@ -55,6 +55,7 @@ class LoginLayout: UIView {
     
     let emailTextField: UITextField = {
         let tf = UITextField()
+        tf.tag = 0
         tf.layer.masksToBounds = true
         tf.layer.cornerRadius = 5
         let myAttribute = [NSAttributedString.Key.foregroundColor: UIColor.lightText]
@@ -67,6 +68,7 @@ class LoginLayout: UIView {
     
     let passwordTextField: UITextField = {
         let tf = UITextField()
+        tf.tag = 1
         tf.layer.masksToBounds = true
         tf.layer.cornerRadius = 5
         let myAttribute = [NSAttributedString.Key.foregroundColor: UIColor.lightText]
@@ -88,7 +90,6 @@ class LoginLayout: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
         setUp()
     }
     
@@ -105,32 +106,28 @@ class LoginLayout: UIView {
         }
         
         loginStack.snp.makeConstraints {
-            $0.leading.equalTo(self).offset(15)
-            $0.trailing.equalTo(self).offset(-15)
-            $0.top.greaterThanOrEqualTo(self).offset(130)
-        }
-        
-        textFieldView.snp.makeConstraints {
-            $0.height.equalTo(120)
+            $0.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
+            $0.top.greaterThanOrEqualToSuperview().offset(130)
         }
         
         textFieldStack.snp.makeConstraints {
-            $0.leading.equalTo(textFieldView).offset(15)
-            $0.trailing.equalTo(textFieldView).offset(-15)
-            $0.bottom.equalTo(textFieldView)
-            $0.top.equalTo(textFieldView)
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15))
         }
         
         separatorLineView.snp.makeConstraints {
-            $0.height.equalTo(textFieldView.snp.height).multipliedBy(0.005)
+            $0.height.equalTo(0.5)
         }
         
         emailTextField.snp.makeConstraints {
-            $0.height.equalTo(textFieldView.snp.height).multipliedBy(0.4995)
+            $0.height.equalTo(60)
+        }
+        
+        passwordTextField.snp.makeConstraints {
+            $0.height.equalTo(emailTextField)
         }
         
         loginButton.snp.makeConstraints {
-            $0.height.equalTo(emailTextField.snp.height).dividedBy(1.5)
+            $0.height.equalTo(40)
         }
     }
 }

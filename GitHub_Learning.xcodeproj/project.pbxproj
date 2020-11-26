@@ -12,6 +12,14 @@
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
 		DA373836255567570003D164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA373835255567570003D164 /* Assets.xcassets */; };
 		DA373839255567570003D164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA373837255567570003D164 /* LaunchScreen.storyboard */; };
+		DA595002256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595001256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift */; };
+		DA59500B256C1463000CE120 /* OnobardingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59500A256C1463000CE120 /* OnobardingResource.swift */; };
+		DA59500D256D085E000CE120 /* OnboardingFinishedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */; };
+		DA59500F256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */; };
+		DA595011256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */; };
+		DA595013256D4080000CE120 /* LoadOnboardingFinishedFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */; };
+		DA595015256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */; };
+		DA595017256FD8E9000CE120 /* UIAlertAction+AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */; };
 		DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5425617DB4007DF94E /* Wireframe.swift */; };
 		DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */; };
 		DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* TestView.swift */; };
@@ -22,8 +30,6 @@
 		DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6B2562B04E007DF94E /* LoginView.swift */; };
 		DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */; };
 		DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */; };
-		DA9EFB722563DA77007DF94E /* PersistancyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB712563DA77007DF94E /* PersistancyController.swift */; };
-		DA9EFB772563DF7F007DF94E /* PersistancyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB762563DF7F007DF94E /* PersistancyAssembly.swift */; };
 		DAA4032625667C37006DD914 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4032525667C37006DD914 /* LoginBuilder.swift */; };
 		DAA4032825667E02006DD914 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4032725667E02006DD914 /* LoginCredentials.swift */; };
 		DAA4032C25668904006DD914 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4032B25668904006DD914 /* String+.swift */; };
@@ -71,6 +77,14 @@
 		DA373835255567570003D164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA373838255567570003D164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA37383A255567570003D164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA595001256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionStyle+UIAlertAction.style.swift"; sourceTree = "<group>"; };
+		DA59500A256C1463000CE120 /* OnobardingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnobardingResource.swift; sourceTree = "<group>"; };
+		DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedService.swift; sourceTree = "<group>"; };
+		DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadOnboardingFinishedInteractor.swift; sourceTree = "<group>"; };
+		DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOnboardingFinishedInteractor.swift; sourceTree = "<group>"; };
+		DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadOnboardingFinishedFacade.swift; sourceTree = "<group>"; };
+		DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOnboardingFinishedFacade.swift; sourceTree = "<group>"; };
+		DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+AlertAction.swift"; sourceTree = "<group>"; };
 		DA9EFB5425617DB4007DF94E /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeImpl.swift; sourceTree = "<group>"; };
 		DA9EFB5D2562884D007DF94E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -81,8 +95,6 @@
 		DA9EFB6B2562B04E007DF94E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+topViewController.swift"; sourceTree = "<group>"; };
 		DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLayout.swift; sourceTree = "<group>"; };
-		DA9EFB712563DA77007DF94E /* PersistancyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistancyController.swift; sourceTree = "<group>"; };
-		DA9EFB762563DF7F007DF94E /* PersistancyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistancyAssembly.swift; sourceTree = "<group>"; };
 		DAA4032525667C37006DD914 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		DAA4032725667E02006DD914 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		DAA4032B25668904006DD914 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -177,6 +189,15 @@
 			path = GitHub_Learning;
 			sourceTree = "<group>";
 		};
+		DA595000256BD923000CE120 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA595001256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift */,
+				DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DA9EFB5325617D50007DF94E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,31 +248,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DA9EFB732563DF21007DF94E /* Persistancy */ = {
-			isa = PBXGroup;
-			children = (
-				DA9EFB752563DF6A007DF94E /* Injection */,
-				DA9EFB742563DF4A007DF94E /* Application */,
-			);
-			path = Persistancy;
-			sourceTree = "<group>";
-		};
-		DA9EFB742563DF4A007DF94E /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				DA9EFB712563DA77007DF94E /* PersistancyController.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		DA9EFB752563DF6A007DF94E /* Injection */ = {
-			isa = PBXGroup;
-			children = (
-				DA9EFB762563DF7F007DF94E /* PersistancyAssembly.swift */,
-			);
-			path = Injection;
-			sourceTree = "<group>";
-		};
 		DAA4032925668752006DD914 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA4033125669231006DD914 /* Injection */,
+				DA595000256BD923000CE120 /* View */,
 				DAA4032E25668F18006DD914 /* Application */,
 			);
 			path = AlertProvider;
@@ -351,6 +348,11 @@
 			isa = PBXGroup;
 			children = (
 				DAB928FC2555A13B00354C8F /* OnboardingController.swift */,
+				DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */,
+				DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */,
+				DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */,
+				DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */,
+				DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -358,6 +360,7 @@
 		DAB928F825559E2600354C8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA59500A256C1463000CE120 /* OnobardingResource.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -489,7 +492,6 @@
 			children = (
 				DAA4032D25668F10006DD914 /* AlertProvider */,
 				DAA4032925668752006DD914 /* Utilities */,
-				DA9EFB732563DF21007DF94E /* Persistancy */,
 				DAB9292B255EC71700354C8F /* Navigation */,
 			);
 			path = Generic;
@@ -725,6 +727,8 @@
 			files = (
 				DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */,
 				DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */,
+				DA59500F256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift in Sources */,
+				DA595002256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift in Sources */,
 				DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */,
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
 				DA9EFB662562ACB7007DF94E /* LoginViewController.swift in Sources */,
@@ -732,18 +736,19 @@
 				DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
 				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
-				DA9EFB722563DA77007DF94E /* PersistancyController.swift in Sources */,
 				DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */,
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
 				DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */,
-				DA9EFB772563DF7F007DF94E /* PersistancyAssembly.swift in Sources */,
 				DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */,
 				DAA4033325669242006DD914 /* AlertProviderAssembly.swift in Sources */,
 				DAA4032825667E02006DD914 /* LoginCredentials.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
+				DA595011256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
 				DAB92931255ECF2400354C8F /* NavigationAssembly.swift in Sources */,
+				DA595015256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift in Sources */,
+				DA595017256FD8E9000CE120 /* UIAlertAction+AlertAction.swift in Sources */,
 				DAB9292E255ECE7200354C8F /* LoginLauncherController.swift in Sources */,
 				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
@@ -752,7 +757,10 @@
 				DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */,
 				DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */,
 				DAB9290C25595C2000354C8F /* OnboardingView.swift in Sources */,
+				DA59500B256C1463000CE120 /* OnobardingResource.swift in Sources */,
+				DA59500D256D085E000CE120 /* OnboardingFinishedService.swift in Sources */,
 				DAA4033025669009006DD914 /* AlertProviderController.swift in Sources */,
+				DA595013256D4080000CE120 /* LoadOnboardingFinishedFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

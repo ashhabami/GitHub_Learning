@@ -12,10 +12,10 @@ import CleanPlatform
 
 class LoginViewController: BaseViewController {
     let loginPresenter: LoginPresenter
-    let loginLayout = LoginLayout()
+    let layout = LoginLayout()
     
     override func loadView() {
-        view = loginLayout
+        view = layout
     }
     
     init(
@@ -31,15 +31,30 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginLayout.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        layout.passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        layout.emailTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        layout.loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         loginPresenter.viewDidLoad()
     }
     
     @objc private func loginButtonPressed() {
-        loginPresenter.logInWith(email: loginLayout.emailTextField.text, password: loginLayout.passwordTextField.text)
+        loginPresenter.logIn()
+    }
+    
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        if textField.tag == 0 {
+            loginPresenter.updateEmail(textField.text)
+        }
+        
+        if textField.tag == 1 {
+            loginPresenter.updatePassword(textField.text)
+        }
     }
 }
 
 extension LoginViewController: LoginView {
-    //TODO:
+    func isLoginEnabled(_ enabled: Bool) {
+        layout.loginButton.isEnabled = enabled
+        layout.loginButton.backgroundColor = enabled ? .brown : .lightGray
+    }
 }
