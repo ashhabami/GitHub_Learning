@@ -15,7 +15,6 @@ extension UIWindow {
     
     private func topViewControllerFrom(base: UIViewController?) -> UIViewController? {
         guard let presented = base?.presentedViewController else { return base }
-        
         return topViewControllerFrom(base: presented)
     }
 }

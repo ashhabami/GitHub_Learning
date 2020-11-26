@@ -9,15 +9,35 @@
 import Foundation
 import CleanCore
 
+enum ActionStyle {
+    case _default
+    case cancel
+    case destructive
+}
+
+struct AlertAction {
+    let title: String
+    let style: ActionStyle
+    var completion: ((Any) -> (Void))?
+}
+
 protocol AlertProviderController: BaseController {
-    //TODO:
+    func showAlertWith(_ title: String, _ message: String, _ actions: [AlertAction]?)
 }
 
 class AlertProviderControllerImpl: BaseControllerImpl {
-    //TODO:
+    private let wireframe: Wireframe
+    
+    init(
+        wireframe: Wireframe
+    ) {
+        self.wireframe = wireframe
+    }
 }
 
 extension AlertProviderControllerImpl: AlertProviderController {
-    //TODO:
+    func showAlertWith(_ title: String, _ message: String, _ actions: [AlertAction]?) {
+        wireframe.launchAlertWith(title, message, actions)
+    }
 }
 

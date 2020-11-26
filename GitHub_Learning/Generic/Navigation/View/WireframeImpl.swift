@@ -10,7 +10,6 @@ import Foundation
 import CleanCore
 import CleanPlatform
 
-//Deinitnou se někdy ty původní objekty když na sebe ukazují a vytváří obřího pavouka odkazů?
 class WireframeImpl: Wireframe {
     let instanceProvider: InstanceProvider
     let window: UIWindow
@@ -26,6 +25,17 @@ class WireframeImpl: Wireframe {
     func launchLogin() {
         let vc = try! instanceProvider.getInstance(LoginViewController.self)
         vc.modalPresentationStyle = .fullScreen
-        window.topViewController?.present(vc,animated: true,completion: nil)
+        window.topViewController?.present(vc, animated: true, completion: nil)
+    }
+    
+    func launchAlertWith(_ title: String, _ message: String, _ actions: [AlertAction]?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        if let actions = actions {
+            actions.forEach {
+                let alertAction = UIAlertAction(action: $0)
+                alert.addAction(alertAction)
+            }
+        }
+        window.topViewController?.present(alert, animated: true, completion: nil)
     }
 }

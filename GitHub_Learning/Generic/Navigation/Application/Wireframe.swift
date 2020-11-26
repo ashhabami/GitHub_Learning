@@ -10,4 +10,5 @@ import Foundation
 
 protocol Wireframe {
     func launchLogin()
+    func launchAlertWith(_ title: String, _ message: String, _ actions: [AlertAction]?)
 }
