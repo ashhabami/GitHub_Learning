@@ -19,7 +19,6 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
     
     private let onboardingController: OnboardingController
     private let loginLauncherController: LoginLauncherController
-    private let persistancyController: PersistancyController
 
     var index: Int = 0 {
         didSet {
@@ -36,12 +35,10 @@ final class OnboardingPresenterImpl: BasePresenter<OnboardingView> {
     
     init(
         onboardingController: OnboardingController,
-        loginLauncherController: LoginLauncherController,
-        persistancyController: PersistancyController
+        loginLauncherController: LoginLauncherController
     ) {
         self.onboardingController = onboardingController
         self.loginLauncherController = loginLauncherController
-        self.persistancyController = persistancyController
     }
     
     func viewDidLoad() {
@@ -91,7 +88,7 @@ extension OnboardingPresenterImpl: OnboardingPresenter {
         if index < lastIndex {
             index += 1
         } else {
-            persistancyController.setIsOnboardingFinished(true)
+            onboardingController.storeOnboardingFinished(isFinished: true)
             loginLauncherController.launchLogin()
         }
     }
