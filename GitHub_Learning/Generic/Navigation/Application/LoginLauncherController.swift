@@ -15,9 +15,11 @@ protocol LoginLauncherController: BaseController {
 }
 
 class LoginLauncherControllerImpl: BaseControllerImpl {
-    let wireframe: Wireframe
+    private let wireframe: Wireframe
     
-    init(wireframe: Wireframe) {
+    init(
+        wireframe: Wireframe
+    ) {
         self.wireframe = wireframe
     }
 }
