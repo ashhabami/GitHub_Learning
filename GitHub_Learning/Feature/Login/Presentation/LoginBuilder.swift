@@ -30,7 +30,7 @@ class LoginBuilderImpl {
     }
     var isEmailValid: Bool {
         guard let email = email else { return false }
-        return email.hasEmailCharacters
+        return email.isEmail
     }
     var isPasswordValid: Bool {
         guard let password = password else { return false }

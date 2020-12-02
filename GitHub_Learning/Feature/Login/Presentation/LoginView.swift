@@ -10,5 +10,5 @@ import Foundation
 import CleanCore
 
 protocol LoginView: View {
-    func isLoginEnabled(_ enabled: Bool)
+    func isLoginEnabled(_ isEnabled: Bool)
 }

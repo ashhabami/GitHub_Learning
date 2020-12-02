@@ -25,7 +25,7 @@ extension String {
         return self.count
     }
     
-    var hasEmailCharacters: Bool {
+    var isEmail: Bool {
         do {
             let regex = try NSRegularExpression(pattern: "[\\w.]+@[a-zA-Z]{2,}\\.[a-zA-Z]{2,3}\\b", options: [])
             if let _ = regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSMakeRange(0, self.count)) {

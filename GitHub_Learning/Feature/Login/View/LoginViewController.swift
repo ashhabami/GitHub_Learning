@@ -42,19 +42,19 @@ class LoginViewController: BaseViewController {
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
-        if textField.tag == 0 {
+        if textField.tag == layout.emailTextField.tag {
             loginPresenter.updateEmail(textField.text)
         }
         
-        if textField.tag == 1 {
+        if textField.tag == layout.passwordTextField.tag {
             loginPresenter.updatePassword(textField.text)
         }
     }
 }
 
 extension LoginViewController: LoginView {
-    func isLoginEnabled(_ enabled: Bool) {
-        layout.loginButton.isEnabled = enabled
-        layout.loginButton.backgroundColor = enabled ? .brown : .lightGray
+    func isLoginEnabled(_ isEnabled: Bool) {
+        layout.loginButton.isEnabled = isEnabled
+        layout.loginButton.backgroundColor = isEnabled ? .brown : .lightGray
     }
 }

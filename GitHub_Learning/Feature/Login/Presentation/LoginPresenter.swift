@@ -47,21 +47,20 @@ extension LoginPresenterImpl: LoginPresenter {
     func logIn() {
         do {
             let _ = try loginBuilder.build()
-            // Nemůže nastat...vymazat tenhle error??
         } catch LoginBuilderError.missingMandatoryData {
             
         } catch LoginBuilderError.invalidEmail {
-            alertProvider.showAlertWith("Invalid Email",
-                                        "Please re-type your email address",
-                                        [AlertAction(title: "ok", style: ._default, completion: nil)]
-                                        )
+            alertProvider.showAlertWith(
+                "Invalid Email",
+                message: "Please re-type your email address",
+                actions: [AlertAction(title: "ok", style: .`default`, completion: nil)]
+            )
         } catch LoginBuilderError.invalidPassword {
-            alertProvider.showAlertWith("Invalid Password",
-                                        "Password has to be at least 8 letter long, have at least one digit and capital letter",
-                                        [AlertAction(title: "ok", style: ._default, completion: nil)]
-                                        )
-        } catch {
-            print("Default errror")
-        }
+            alertProvider.showAlertWith(
+                "Invalid Password",
+                message: "Password has to be at least 8 letter long, have at least one digit and capital letter",
+                actions: [AlertAction(title: "ok", style: .`default`, completion: nil)]
+            )
+        } catch {}
     }
 }

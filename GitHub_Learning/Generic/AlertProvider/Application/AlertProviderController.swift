@@ -10,7 +10,7 @@ import Foundation
 import CleanCore
 
 enum ActionStyle {
-    case _default
+    case `default`
     case cancel
     case destructive
 }
@@ -18,11 +18,11 @@ enum ActionStyle {
 struct AlertAction {
     let title: String
     let style: ActionStyle
-    var completion: ((Any) -> (Void))?
+    var completion: ((Any) -> Void)?
 }
 
 protocol AlertProviderController: BaseController {
-    func showAlertWith(_ title: String, _ message: String, _ actions: [AlertAction]?)
+    func showAlertWith(_ title: String, message: String, actions: [AlertAction]?)
 }
 
 class AlertProviderControllerImpl: BaseControllerImpl {
@@ -36,8 +36,8 @@ class AlertProviderControllerImpl: BaseControllerImpl {
 }
 
 extension AlertProviderControllerImpl: AlertProviderController {
-    func showAlertWith(_ title: String, _ message: String, _ actions: [AlertAction]?) {
-        wireframe.launchAlertWith(title, message, actions)
+    func showAlertWith(_ title: String, message: String, actions: [AlertAction]?) {
+        wireframe.launchAlertWith(title, message: message, actions: actions)
     }
 }
 

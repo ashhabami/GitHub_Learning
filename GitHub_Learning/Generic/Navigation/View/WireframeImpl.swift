@@ -28,14 +28,12 @@ class WireframeImpl: Wireframe {
         window.topViewController?.present(vc, animated: true, completion: nil)
     }
     
-    func launchAlertWith(_ title: String, _ message: String, _ actions: [AlertAction]?) {
+    func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        if let actions = actions {
-            actions.forEach {
+            actions?.forEach {
                 let alertAction = UIAlertAction(action: $0)
                 alert.addAction(alertAction)
             }
-        }
         window.topViewController?.present(alert, animated: true, completion: nil)
     }
 }
