@@ -18,16 +18,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         
-        let onboardingController: OnboardingController = try! startAppByResolvingType(scopeSpecProvider: ScopeSpecProvierImpl())
-        onboardingController.getOnboardingFinished { isOnboardingFinished in
-            if isOnboardingFinished {
-                let initialViewController: LoginViewController = try! startAppByResolvingType(scopeSpecProvider: ScopeSpecProvierImpl())
-                self.window?.rootViewController = initialViewController
-            } else {
-                let initialViewController: OnboardingViewController = try! startAppByResolvingType(scopeSpecProvider: ScopeSpecProvierImpl())
-                self.window?.rootViewController = initialViewController
+        let startUpController: StartUpController = try! startAppByResolvingType(scopeSpecProvider: ScopeSpecProvierImpl())
+        startUpController.isOnboardingFinished(LoadOnboardingFinishedRequest()) { result in
+            switch result {
+            case .success(response: let response):
+                startUpController.startUpWithOnboardingFinished(response.isFinished)
+            case .failure(error: let error): print(error)
             }
-            self.window?.makeKeyAndVisible()
         }
     }
     

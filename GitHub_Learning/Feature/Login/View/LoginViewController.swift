@@ -42,11 +42,11 @@ class LoginViewController: BaseViewController {
     }
     
     @objc private func textFieldDidChange(_ textField: UITextField) {
-        if textField.tag == layout.emailTextField.tag {
+        if textField === layout.emailTextField {
             loginPresenter.updateEmail(textField.text)
         }
         
-        if textField.tag == layout.passwordTextField.tag {
+        if textField === layout.passwordTextField {
             loginPresenter.updatePassword(textField.text)
         }
     }

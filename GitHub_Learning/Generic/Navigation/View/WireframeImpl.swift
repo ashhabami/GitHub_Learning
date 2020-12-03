@@ -36,4 +36,17 @@ class WireframeImpl: Wireframe {
         }
         window.topViewController?.present(alert, animated: true, completion: nil)
     }
+    
+    func setRootViewFor(_ isOnboardingFinished: Bool) {
+        switch isOnboardingFinished {
+        case true:
+            let vc = try! instanceProvider.getInstance(LoginViewController.self)
+            self.window.rootViewController = vc
+            self.window.makeKeyAndVisible()
+        case false:
+            let vc = try! instanceProvider.getInstance(OnboardingViewController.self)
+            self.window.rootViewController = vc
+            self.window.makeKeyAndVisible()
+        }
+    }
 }

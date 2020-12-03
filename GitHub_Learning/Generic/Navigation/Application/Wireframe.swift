@@ -11,4 +11,5 @@ import Foundation
 protocol Wireframe {
     func launchLogin()
     func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?)
+    func setRootViewFor(_ isOnboardingFinished: Bool)
 }

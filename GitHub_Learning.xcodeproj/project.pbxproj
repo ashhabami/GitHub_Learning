@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA123E6D2579097D003CC7DC /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E6C2579097D003CC7DC /* StartUpController.swift */; };
+		DA123E70257909FE003CC7DC /* StartUpAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -70,6 +72,8 @@
 		92DFE6761B10F7EC28331518 /* Pods-GitHub_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_Learning.release.xcconfig"; path = "Target Support Files/Pods-GitHub_Learning/Pods-GitHub_Learning.release.xcconfig"; sourceTree = "<group>"; };
 		958307D4623D91FB6A85D094 /* Pods_GitHub_LearningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_LearningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76EEE5050A97A4B52CEC482 /* Pods-GitHub_LearningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_LearningTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA123E6C2579097D003CC7DC /* StartUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
+		DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpAssembly.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,31 @@
 				1D6DDAA3F874A1328B663B91 /* Pods-GitHub_LearningTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA123E6A2579094E003CC7DC /* StartUp */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E6E257909EF003CC7DC /* Injection */,
+				DA123E6B2579096A003CC7DC /* Application */,
+			);
+			path = StartUp;
+			sourceTree = "<group>";
+		};
+		DA123E6B2579096A003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E6C2579097D003CC7DC /* StartUpController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA123E6E257909EF003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */,
+			);
+			path = Injection;
 			sourceTree = "<group>";
 		};
 		DA373820255567510003D164 = {
@@ -293,6 +322,7 @@
 		DAB928F225559D8800354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DA123E6A2579094E003CC7DC /* StartUp */,
 				DAB92923255EC66E00354C8F /* Login */,
 				DAB928F325559D9600354C8F /* Onboarding */,
 			);
@@ -740,6 +770,7 @@
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
 				DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */,
 				DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */,
+				DA123E70257909FE003CC7DC /* StartUpAssembly.swift in Sources */,
 				DAA4033325669242006DD914 /* AlertProviderAssembly.swift in Sources */,
 				DAA4032825667E02006DD914 /* LoginCredentials.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
@@ -760,6 +791,7 @@
 				DA59500B256C1463000CE120 /* OnobardingResource.swift in Sources */,
 				DA59500D256D085E000CE120 /* OnboardingFinishedService.swift in Sources */,
 				DAA4033025669009006DD914 /* AlertProviderController.swift in Sources */,
+				DA123E6D2579097D003CC7DC /* StartUpController.swift in Sources */,
 				DA595013256D4080000CE120 /* LoadOnboardingFinishedFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
