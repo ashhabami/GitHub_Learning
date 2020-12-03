@@ -10,8 +10,7 @@ import Foundation
 import CleanCore
 
 protocol StartUpController: BaseController {
-    func isOnboardingFinished(_ request: LoadOnboardingFinishedRequest, _ completion: @escaping (Result<LoadOnboardingFinishedResponse>) -> Void)
-    func startUpWithOnboardingFinished(_ isOnboardingFinished: Bool)
+    func startUp()
 }
 
 final class StartUpControllerImpl: BaseControllerImpl {
@@ -28,11 +27,17 @@ final class StartUpControllerImpl: BaseControllerImpl {
 }
 
 extension StartUpControllerImpl: StartUpController {
-    func isOnboardingFinished(_ request: LoadOnboardingFinishedRequest, _ completion: @escaping (Result<LoadOnboardingFinishedResponse>) -> Void) {
-        loadOnboardingFinishedFacade.load(request, completion: completion)
-    }
-    
-    func startUpWithOnboardingFinished(_ isOnboardingFinished: Bool) {
-        wireframe.setRootViewFor(isOnboardingFinished)
+    func startUp() {
+        loadOnboardingFinishedFacade.load(LoadOnboardingFinishedRequest()) { response in
+            switch response {
+            case .success(response: let response):
+                switch response.isFinished {
+                case true: self.wireframe.setLoginAsRoot()
+                case false: self.wireframe.setOnboardingAsRoot()
+                }
+            case .failure(error: let error):
+                print(error)
+            }
+        }
     }
 }

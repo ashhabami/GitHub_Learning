@@ -19,13 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         
         let startUpController: StartUpController = try! startAppByResolvingType(scopeSpecProvider: ScopeSpecProvierImpl())
-        startUpController.isOnboardingFinished(LoadOnboardingFinishedRequest()) { result in
-            switch result {
-            case .success(response: let response):
-                startUpController.startUpWithOnboardingFinished(response.isFinished)
-            case .failure(error: let error): print(error)
-            }
-        }
+        startUpController.startUp()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
