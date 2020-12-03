@@ -40,12 +40,10 @@ class WireframeImpl: Wireframe {
     func setOnboardingAsRoot() {
         let vc = try! instanceProvider.getInstance(OnboardingViewController.self)
         window.rootViewController = vc
-        window.makeKeyAndVisible()
     }
     
     func setLoginAsRoot() {
         let vc = try! instanceProvider.getInstance(LoginViewController.self)
         window.rootViewController = vc
-        window.makeKeyAndVisible()
     }
 }
