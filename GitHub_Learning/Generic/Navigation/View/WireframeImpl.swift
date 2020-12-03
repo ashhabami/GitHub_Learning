@@ -30,10 +30,10 @@ class WireframeImpl: Wireframe {
     
     func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            actions?.forEach {
-                let alertAction = UIAlertAction(action: $0)
-                alert.addAction(alertAction)
-            }
+        actions?.forEach {
+            let alertAction = UIAlertAction(action: $0)
+            alert.addAction(alertAction)
+        }
         window.topViewController?.present(alert, animated: true, completion: nil)
     }
 }

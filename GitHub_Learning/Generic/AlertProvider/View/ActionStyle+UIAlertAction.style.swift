@@ -11,7 +11,7 @@ import UIKit
 extension ActionStyle {
     var alertStyle: UIAlertAction.Style {
         switch self {
-        case .`default`: return .default
+        case .default: return .default
         case .cancel: return .cancel
         case .destructive: return .destructive
         }
