@@ -31,10 +31,7 @@ extension StartUpControllerImpl: StartUpController {
         loadOnboardingFinishedFacade.load(LoadOnboardingFinishedRequest()) { response in
             switch response {
             case .success(response: let response):
-                switch response.isFinished {
-                case true: self.wireframe.setLoginAsRoot()
-                case false: self.wireframe.setOnboardingAsRoot()
-                }
+                response.isFinished ? self.wireframe.setLoginAsRoot() : self.wireframe.setOnboardingAsRoot()
             case .failure(error: let error):
                 print(error)
             }
