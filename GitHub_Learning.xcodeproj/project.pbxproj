@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		DA123E6D2579097D003CC7DC /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E6C2579097D003CC7DC /* StartUpController.swift */; };
 		DA123E70257909FE003CC7DC /* StartUpAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */; };
+		DA123E7C25792C27003CC7DC /* DashboardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7325792C27003CC7DC /* DashboardAssembly.swift */; };
+		DA123E7D25792C27003CC7DC /* DashboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7525792C27003CC7DC /* DashboardLayout.swift */; };
+		DA123E7E25792C27003CC7DC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7625792C27003CC7DC /* DashboardViewController.swift */; };
+		DA123E7F25792C27003CC7DC /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7825792C27003CC7DC /* DashboardController.swift */; };
+		DA123E8025792C27003CC7DC /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7A25792C27003CC7DC /* DashboardView.swift */; };
+		DA123E8125792C27003CC7DC /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7B25792C27003CC7DC /* DashboardPresenter.swift */; };
+		DA123E8325792D3C003CC7DC /* DashboardLauncherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E8225792D3B003CC7DC /* DashboardLauncherController.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -74,6 +81,13 @@
 		C76EEE5050A97A4B52CEC482 /* Pods-GitHub_LearningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_LearningTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA123E6C2579097D003CC7DC /* StartUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
 		DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpAssembly.swift; sourceTree = "<group>"; };
+		DA123E7325792C27003CC7DC /* DashboardAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardAssembly.swift; sourceTree = "<group>"; };
+		DA123E7525792C27003CC7DC /* DashboardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardLayout.swift; sourceTree = "<group>"; };
+		DA123E7625792C27003CC7DC /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		DA123E7825792C27003CC7DC /* DashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		DA123E7A25792C27003CC7DC /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		DA123E7B25792C27003CC7DC /* DashboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
+		DA123E8225792D3B003CC7DC /* DashboardLauncherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardLauncherController.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +199,51 @@
 				DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */,
 			);
 			path = Injection;
+			sourceTree = "<group>";
+		};
+		DA123E7125792C27003CC7DC /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E7225792C27003CC7DC /* Injection */,
+				DA123E7425792C27003CC7DC /* View */,
+				DA123E7725792C27003CC7DC /* Application */,
+				DA123E7925792C27003CC7DC /* Presentation */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DA123E7225792C27003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E7325792C27003CC7DC /* DashboardAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		DA123E7425792C27003CC7DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E7525792C27003CC7DC /* DashboardLayout.swift */,
+				DA123E7625792C27003CC7DC /* DashboardViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA123E7725792C27003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E7825792C27003CC7DC /* DashboardController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA123E7925792C27003CC7DC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E7A25792C27003CC7DC /* DashboardView.swift */,
+				DA123E7B25792C27003CC7DC /* DashboardPresenter.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		DA373820255567510003D164 = {
@@ -322,6 +381,7 @@
 		DAB928F225559D8800354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DA123E7125792C27003CC7DC /* Dashboard */,
 				DA123E6A2579094E003CC7DC /* StartUp */,
 				DAB92923255EC66E00354C8F /* Login */,
 				DAB928F325559D9600354C8F /* Onboarding */,
@@ -540,6 +600,7 @@
 		DAB9292C255ECE5000354C8F /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DA123E8225792D3B003CC7DC /* DashboardLauncherController.swift */,
 				DAB9292D255ECE7200354C8F /* LoginLauncherController.swift */,
 				DA9EFB5425617DB4007DF94E /* Wireframe.swift */,
 			);
@@ -766,6 +827,7 @@
 				DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
 				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
+				DA123E7E25792C27003CC7DC /* DashboardViewController.swift in Sources */,
 				DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */,
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
 				DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */,
@@ -777,10 +839,13 @@
 				DA595011256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
+				DA123E8025792C27003CC7DC /* DashboardView.swift in Sources */,
 				DAB92931255ECF2400354C8F /* NavigationAssembly.swift in Sources */,
 				DA595015256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift in Sources */,
 				DA595017256FD8E9000CE120 /* UIAlertAction+AlertAction.swift in Sources */,
 				DAB9292E255ECE7200354C8F /* LoginLauncherController.swift in Sources */,
+				DA123E7C25792C27003CC7DC /* DashboardAssembly.swift in Sources */,
+				DA123E8325792D3C003CC7DC /* DashboardLauncherController.swift in Sources */,
 				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
 				DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */,
@@ -791,7 +856,10 @@
 				DA59500B256C1463000CE120 /* OnobardingResource.swift in Sources */,
 				DA59500D256D085E000CE120 /* OnboardingFinishedService.swift in Sources */,
 				DAA4033025669009006DD914 /* AlertProviderController.swift in Sources */,
+				DA123E8125792C27003CC7DC /* DashboardPresenter.swift in Sources */,
 				DA123E6D2579097D003CC7DC /* StartUpController.swift in Sources */,
+				DA123E7D25792C27003CC7DC /* DashboardLayout.swift in Sources */,
+				DA123E7F25792C27003CC7DC /* DashboardController.swift in Sources */,
 				DA595013256D4080000CE120 /* LoadOnboardingFinishedFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

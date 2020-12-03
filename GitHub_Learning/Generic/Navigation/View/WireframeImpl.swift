@@ -37,6 +37,11 @@ class WireframeImpl: Wireframe {
         window.topViewController?.present(alert, animated: true, completion: nil)
     }
     
+    func launchDashboard() {
+        let vc = try! instanceProvider.getInstance(DashboardViewController.self)
+        window.topViewController?.present(vc, animated: true, completion: nil)
+    }
+    
     func setOnboardingAsRoot() {
         let vc = try! instanceProvider.getInstance(OnboardingViewController.self)
         window.rootViewController = vc
