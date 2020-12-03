@@ -88,6 +88,7 @@ extension OnboardingPresenterImpl: OnboardingPresenter {
         if index < lastIndex {
             index += 1
         } else {
+            onboardingController.storeOnboardingFinished(isFinished: true)
             loginLauncherController.launchLogin()
         }
     }

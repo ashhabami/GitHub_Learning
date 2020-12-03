@@ -7,16 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA123E6D2579097D003CC7DC /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E6C2579097D003CC7DC /* StartUpController.swift */; };
+		DA123E70257909FE003CC7DC /* StartUpAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
 		DA373836255567570003D164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA373835255567570003D164 /* Assets.xcassets */; };
 		DA373839255567570003D164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA373837255567570003D164 /* LaunchScreen.storyboard */; };
-		DA9EFB5225617718007DF94E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5125617718007DF94E /* LoginController.swift */; };
+		DA595002256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595001256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift */; };
+		DA59500B256C1463000CE120 /* OnobardingResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59500A256C1463000CE120 /* OnobardingResource.swift */; };
+		DA59500D256D085E000CE120 /* OnboardingFinishedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */; };
+		DA59500F256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */; };
+		DA595011256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */; };
+		DA595013256D4080000CE120 /* LoadOnboardingFinishedFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */; };
+		DA595015256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */; };
+		DA595017256FD8E9000CE120 /* UIAlertAction+AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */; };
 		DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5425617DB4007DF94E /* Wireframe.swift */; };
 		DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */; };
-		DA9EFB5E2562884D007DF94E /* FakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* FakeView.swift */; };
-		DA9EFB6225628869007DF94E /* FakeBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6125628869007DF94E /* FakeBaseController.swift */; };
+		DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* TestView.swift */; };
+		DA9EFB6225628869007DF94E /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6125628869007DF94E /* TestController.swift */; };
+		DA9EFB662562ACB7007DF94E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB652562ACB7007DF94E /* LoginViewController.swift */; };
+		DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB672562AED0007DF94E /* LoginAssembly.swift */; };
+		DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */; };
+		DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6B2562B04E007DF94E /* LoginView.swift */; };
+		DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */; };
+		DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */; };
+		DAA4032625667C37006DD914 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4032525667C37006DD914 /* LoginBuilder.swift */; };
+		DAA4032825667E02006DD914 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4032725667E02006DD914 /* LoginCredentials.swift */; };
+		DAA4032C25668904006DD914 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4032B25668904006DD914 /* String+.swift */; };
+		DAA4033025669009006DD914 /* AlertProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4032F25669009006DD914 /* AlertProviderController.swift */; };
+		DAA4033325669242006DD914 /* AlertProviderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA4033225669242006DD914 /* AlertProviderAssembly.swift */; };
 		DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FA25559FDC00354C8F /* OnboardingPage.swift */; };
 		DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB928FC2555A13B00354C8F /* OnboardingController.swift */; };
 		DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB929002555A87200354C8F /* ScopeSpec.swift */; };
@@ -52,6 +72,8 @@
 		92DFE6761B10F7EC28331518 /* Pods-GitHub_Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_Learning.release.xcconfig"; path = "Target Support Files/Pods-GitHub_Learning/Pods-GitHub_Learning.release.xcconfig"; sourceTree = "<group>"; };
 		958307D4623D91FB6A85D094 /* Pods_GitHub_LearningTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_LearningTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76EEE5050A97A4B52CEC482 /* Pods-GitHub_LearningTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_LearningTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_LearningTests/Pods-GitHub_LearningTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA123E6C2579097D003CC7DC /* StartUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
+		DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpAssembly.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,11 +81,29 @@
 		DA373835255567570003D164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA373838255567570003D164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA37383A255567570003D164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA9EFB5125617718007DF94E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DA595001256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionStyle+UIAlertAction.style.swift"; sourceTree = "<group>"; };
+		DA59500A256C1463000CE120 /* OnobardingResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnobardingResource.swift; sourceTree = "<group>"; };
+		DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishedService.swift; sourceTree = "<group>"; };
+		DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadOnboardingFinishedInteractor.swift; sourceTree = "<group>"; };
+		DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOnboardingFinishedInteractor.swift; sourceTree = "<group>"; };
+		DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadOnboardingFinishedFacade.swift; sourceTree = "<group>"; };
+		DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOnboardingFinishedFacade.swift; sourceTree = "<group>"; };
+		DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+AlertAction.swift"; sourceTree = "<group>"; };
 		DA9EFB5425617DB4007DF94E /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeImpl.swift; sourceTree = "<group>"; };
-		DA9EFB5D2562884D007DF94E /* FakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeView.swift; sourceTree = "<group>"; };
-		DA9EFB6125628869007DF94E /* FakeBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBaseController.swift; sourceTree = "<group>"; };
+		DA9EFB5D2562884D007DF94E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		DA9EFB6125628869007DF94E /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		DA9EFB652562ACB7007DF94E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DA9EFB672562AED0007DF94E /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
+		DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		DA9EFB6B2562B04E007DF94E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+topViewController.swift"; sourceTree = "<group>"; };
+		DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLayout.swift; sourceTree = "<group>"; };
+		DAA4032525667C37006DD914 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
+		DAA4032725667E02006DD914 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		DAA4032B25668904006DD914 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		DAA4032F25669009006DD914 /* AlertProviderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProviderController.swift; sourceTree = "<group>"; };
+		DAA4033225669242006DD914 /* AlertProviderAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProviderAssembly.swift; sourceTree = "<group>"; };
 		DAB928FA25559FDC00354C8F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		DAB928FC2555A13B00354C8F /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		DAB929002555A87200354C8F /* ScopeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeSpec.swift; sourceTree = "<group>"; };
@@ -122,6 +162,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DA123E6A2579094E003CC7DC /* StartUp */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E6E257909EF003CC7DC /* Injection */,
+				DA123E6B2579096A003CC7DC /* Application */,
+			);
+			path = StartUp;
+			sourceTree = "<group>";
+		};
+		DA123E6B2579096A003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E6C2579097D003CC7DC /* StartUpController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA123E6E257909EF003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E6F257909FE003CC7DC /* StartUpAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -153,10 +218,20 @@
 			path = GitHub_Learning;
 			sourceTree = "<group>";
 		};
+		DA595000256BD923000CE120 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA595001256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift */,
+				DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DA9EFB5325617D50007DF94E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */,
+				DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,7 +254,7 @@
 		DA9EFB5A256287F3007DF94E /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				DA9EFB6125628869007DF94E /* FakeBaseController.swift */,
+				DA9EFB6125628869007DF94E /* TestController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -197,14 +272,57 @@
 		DA9EFB5C25628838007DF94E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DA9EFB5D2562884D007DF94E /* FakeView.swift */,
+				DA9EFB5D2562884D007DF94E /* TestView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DAA4032925668752006DD914 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DAA4032A256688A0006DD914 /* Infrastructure */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		DAA4032A256688A0006DD914 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				DAA4032B25668904006DD914 /* String+.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		DAA4032D25668F10006DD914 /* AlertProvider */ = {
+			isa = PBXGroup;
+			children = (
+				DAA4033125669231006DD914 /* Injection */,
+				DA595000256BD923000CE120 /* View */,
+				DAA4032E25668F18006DD914 /* Application */,
+			);
+			path = AlertProvider;
+			sourceTree = "<group>";
+		};
+		DAA4032E25668F18006DD914 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DAA4032F25669009006DD914 /* AlertProviderController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DAA4033125669231006DD914 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DAA4033225669242006DD914 /* AlertProviderAssembly.swift */,
+			);
+			path = Injection;
 			sourceTree = "<group>";
 		};
 		DAB928F225559D8800354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DA123E6A2579094E003CC7DC /* StartUp */,
 				DAB92923255EC66E00354C8F /* Login */,
 				DAB928F325559D9600354C8F /* Onboarding */,
 			);
@@ -260,6 +378,11 @@
 			isa = PBXGroup;
 			children = (
 				DAB928FC2555A13B00354C8F /* OnboardingController.swift */,
+				DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */,
+				DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */,
+				DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */,
+				DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */,
+				DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -267,6 +390,7 @@
 		DAB928F825559E2600354C8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA59500A256C1463000CE120 /* OnobardingResource.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -347,6 +471,7 @@
 		DAB92924255EC68200354C8F /* Injection */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EFB672562AED0007DF94E /* LoginAssembly.swift */,
 			);
 			path = Injection;
 			sourceTree = "<group>";
@@ -354,6 +479,8 @@
 		DAB92925255EC68E00354C8F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EFB652562ACB7007DF94E /* LoginViewController.swift */,
+				DA9EFB6F2562BC61007DF94E /* LoginLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +488,9 @@
 		DAB92926255EC6A100354C8F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DA9EFB692562AFBA007DF94E /* LoginPresenter.swift */,
+				DA9EFB6B2562B04E007DF94E /* LoginView.swift */,
+				DAA4032525667C37006DD914 /* LoginBuilder.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -368,7 +498,6 @@
 		DAB92927255EC6AB00354C8F /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				DA9EFB5125617718007DF94E /* LoginController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -383,6 +512,7 @@
 		DAB92929255EC6BE00354C8F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DAA4032725667E02006DD914 /* LoginCredentials.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -390,6 +520,8 @@
 		DAB9292A255EC6F900354C8F /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				DAA4032D25668F10006DD914 /* AlertProvider */,
+				DAA4032925668752006DD914 /* Utilities */,
 				DAB9292B255EC71700354C8F /* Navigation */,
 			);
 			path = Generic;
@@ -625,22 +757,42 @@
 			files = (
 				DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */,
 				DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */,
-				DA9EFB5225617718007DF94E /* LoginController.swift in Sources */,
+				DA59500F256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift in Sources */,
+				DA595002256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift in Sources */,
+				DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */,
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
+				DA9EFB662562ACB7007DF94E /* LoginViewController.swift in Sources */,
+				DAA4032625667C37006DD914 /* LoginBuilder.swift in Sources */,
+				DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
 				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
+				DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */,
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
+				DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */,
+				DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */,
+				DA123E70257909FE003CC7DC /* StartUpAssembly.swift in Sources */,
+				DAA4033325669242006DD914 /* AlertProviderAssembly.swift in Sources */,
+				DAA4032825667E02006DD914 /* LoginCredentials.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
+				DA595011256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
 				DAB92931255ECF2400354C8F /* NavigationAssembly.swift in Sources */,
+				DA595015256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift in Sources */,
+				DA595017256FD8E9000CE120 /* UIAlertAction+AlertAction.swift in Sources */,
 				DAB9292E255ECE7200354C8F /* LoginLauncherController.swift in Sources */,
 				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
 				DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */,
+				DAA4032C25668904006DD914 /* String+.swift in Sources */,
 				DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */,
 				DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */,
 				DAB9290C25595C2000354C8F /* OnboardingView.swift in Sources */,
+				DA59500B256C1463000CE120 /* OnobardingResource.swift in Sources */,
+				DA59500D256D085E000CE120 /* OnboardingFinishedService.swift in Sources */,
+				DAA4033025669009006DD914 /* AlertProviderController.swift in Sources */,
+				DA123E6D2579097D003CC7DC /* StartUpController.swift in Sources */,
+				DA595013256D4080000CE120 /* LoadOnboardingFinishedFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +801,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
-				DA9EFB5E2562884D007DF94E /* FakeView.swift in Sources */,
-				DA9EFB6225628869007DF94E /* FakeBaseController.swift in Sources */,
+				DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */,
+				DA9EFB6225628869007DF94E /* TestController.swift in Sources */,
 				DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

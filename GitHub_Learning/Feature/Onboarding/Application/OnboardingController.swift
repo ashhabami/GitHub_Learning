@@ -11,14 +11,51 @@ import CleanCore
 import CleanPlatform
 
 protocol OnboardingController: BaseController {
-    var pages : [OnboardingPage] { get set }
+    var pages: [OnboardingPage] { get set }
     func loadPages()
+    func storeOnboardingFinished(isFinished: Bool)
+    func getOnboardingFinished(completion: @escaping ((Bool) -> Void))
 }
 
 class OnboardingControllerImpl: BaseControllerImpl {
     var pages: [OnboardingPage] = [] {
         didSet {
             notifyListenersAboutUpdate()
+        }
+    }
+    private let storeOnboardingFinishedFacade: StoreOnboardingFinishedFacade
+    private let loadOnboardingFinishedFacade: LoadOnboardingFinishedFacade
+    
+    init(
+        storeOnboardingFinishedFacade: StoreOnboardingFinishedFacade,
+        loadOnboardingFinishedFacade: LoadOnboardingFinishedFacade
+    ) {
+        self.storeOnboardingFinishedFacade = storeOnboardingFinishedFacade
+        self.loadOnboardingFinishedFacade = loadOnboardingFinishedFacade
+    }
+}
+
+extension OnboardingControllerImpl: OnboardingController {
+    func getOnboardingFinished(completion: @escaping ((Bool) -> Void)) {
+        loadOnboardingFinished(completion: completion)
+    }
+    
+    func storeOnboardingFinished(isFinished: Bool) {
+        storeOnboardingFinishedFacade.store(StoreOnboardingFinishedRequest(isFinished: isFinished)) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(response: _): print("Settings succesfully stored")
+            case .failure(error: let error): self.notifyListeners(about: error)
+            }
+        }
+    }
+    
+    private func loadOnboardingFinished(completion: @escaping ((Bool) -> Void)) {
+        loadOnboardingFinishedFacade.load(LoadOnboardingFinishedRequest()) { [weak self] result in
+            guard let self = self else { return }
+            self.handleResponse(result) { response in
+                completion(response.isFinished)
+            }
         }
     }
     
@@ -47,8 +84,4 @@ class OnboardingControllerImpl: BaseControllerImpl {
         ]
         self.pages = pages
     }
-}
-
-extension OnboardingControllerImpl : OnboardingController {
-    
 }

@@ -10,11 +10,14 @@ import Foundation
 import Swinject
 import CleanPlatform
 
-final class MainApplicationScopeSpec : ApplicationScopeSpec {
+final class MainApplicationScopeSpec: ApplicationScopeSpec {
     public override func assemblies() -> [Assembly] {
         return super.assemblies() + [
             OnboardingAssembly(),
-            NavigationAssembly()
+            NavigationAssembly(),
+            LoginAssembly(),
+            AlertProviderAssembly(),
+            StartUpAssembly()
         ]
     }
 }
