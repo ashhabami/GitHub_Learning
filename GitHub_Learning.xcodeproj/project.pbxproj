@@ -16,6 +16,17 @@
 		DA123E8025792C27003CC7DC /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7A25792C27003CC7DC /* DashboardView.swift */; };
 		DA123E8125792C27003CC7DC /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E7B25792C27003CC7DC /* DashboardPresenter.swift */; };
 		DA123E8325792D3C003CC7DC /* DashboardLauncherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E8225792D3B003CC7DC /* DashboardLauncherController.swift */; };
+		DA123E87257A590C003CC7DC /* OnboardingPersistancyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E86257A590C003CC7DC /* OnboardingPersistancyAssembly.swift */; };
+		DA123E8D257A6165003CC7DC /* CredentialsKeychainResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E8C257A6165003CC7DC /* CredentialsKeychainResource.swift */; };
+		DA123E90257A649D003CC7DC /* CredintalsKeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E8F257A649D003CC7DC /* CredintalsKeychainService.swift */; };
+		DA123E92257A6797003CC7DC /* LoadCredintalsKeychainInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E91257A6797003CC7DC /* LoadCredintalsKeychainInteractorImpl.swift */; };
+		DA123E94257A67AC003CC7DC /* StoreCredintalsKeychainInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E93257A67AC003CC7DC /* StoreCredintalsKeychainInteractorImpl.swift */; };
+		DA123E96257A6AD7003CC7DC /* LoadCredintalsKeychainFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E95257A6AD7003CC7DC /* LoadCredintalsKeychainFacade.swift */; };
+		DA123E98257A6AE6003CC7DC /* StoreCredintalsKeychainFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E97257A6AE6003CC7DC /* StoreCredintalsKeychainFacade.swift */; };
+		DA123E9A257A6FB0003CC7DC /* DeleteCredintalsKeychainInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E99257A6FB0003CC7DC /* DeleteCredintalsKeychainInteractorImpl.swift */; };
+		DA123E9C257A7371003CC7DC /* DeleteCredintalsKeychainFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E9B257A7371003CC7DC /* DeleteCredintalsKeychainFacade.swift */; };
+		DA123E9E257BF29A003CC7DC /* CredentialKeychainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123E9D257BF29A003CC7DC /* CredentialKeychainController.swift */; };
+		DA123EA1257C0861003CC7DC /* KeychainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EA0257C0861003CC7DC /* KeychainAssembly.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -88,6 +99,17 @@
 		DA123E7A25792C27003CC7DC /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		DA123E7B25792C27003CC7DC /* DashboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
 		DA123E8225792D3B003CC7DC /* DashboardLauncherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardLauncherController.swift; sourceTree = "<group>"; };
+		DA123E86257A590C003CC7DC /* OnboardingPersistancyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPersistancyAssembly.swift; sourceTree = "<group>"; };
+		DA123E8C257A6165003CC7DC /* CredentialsKeychainResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsKeychainResource.swift; sourceTree = "<group>"; };
+		DA123E8F257A649D003CC7DC /* CredintalsKeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredintalsKeychainService.swift; sourceTree = "<group>"; };
+		DA123E91257A6797003CC7DC /* LoadCredintalsKeychainInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCredintalsKeychainInteractorImpl.swift; sourceTree = "<group>"; };
+		DA123E93257A67AC003CC7DC /* StoreCredintalsKeychainInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCredintalsKeychainInteractorImpl.swift; sourceTree = "<group>"; };
+		DA123E95257A6AD7003CC7DC /* LoadCredintalsKeychainFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCredintalsKeychainFacade.swift; sourceTree = "<group>"; };
+		DA123E97257A6AE6003CC7DC /* StoreCredintalsKeychainFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCredintalsKeychainFacade.swift; sourceTree = "<group>"; };
+		DA123E99257A6FB0003CC7DC /* DeleteCredintalsKeychainInteractorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCredintalsKeychainInteractorImpl.swift; sourceTree = "<group>"; };
+		DA123E9B257A7371003CC7DC /* DeleteCredintalsKeychainFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCredintalsKeychainFacade.swift; sourceTree = "<group>"; };
+		DA123E9D257BF29A003CC7DC /* CredentialKeychainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialKeychainController.swift; sourceTree = "<group>"; };
+		DA123EA0257C0861003CC7DC /* KeychainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAssembly.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +268,77 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		DA123E84257A57B9003CC7DC /* OnboardingPersistancy */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E85257A5822003CC7DC /* Injection */,
+				DA123E88257A5A43003CC7DC /* Application */,
+				DAB928F825559E2600354C8F /* Resources */,
+			);
+			path = OnboardingPersistancy;
+			sourceTree = "<group>";
+		};
+		DA123E85257A5822003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E86257A590C003CC7DC /* OnboardingPersistancyAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		DA123E88257A5A43003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */,
+				DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */,
+				DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */,
+				DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */,
+				DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA123E8A257A5F7E003CC7DC /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E9F257C07D0003CC7DC /* Injection */,
+				DA123E8E257A6482003CC7DC /* Application */,
+				DA123E8B257A5F96003CC7DC /* Resource */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		DA123E8B257A5F96003CC7DC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E8C257A6165003CC7DC /* CredentialsKeychainResource.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA123E8E257A6482003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123E8F257A649D003CC7DC /* CredintalsKeychainService.swift */,
+				DA123E91257A6797003CC7DC /* LoadCredintalsKeychainInteractorImpl.swift */,
+				DA123E93257A67AC003CC7DC /* StoreCredintalsKeychainInteractorImpl.swift */,
+				DA123E99257A6FB0003CC7DC /* DeleteCredintalsKeychainInteractorImpl.swift */,
+				DA123E95257A6AD7003CC7DC /* LoadCredintalsKeychainFacade.swift */,
+				DA123E97257A6AE6003CC7DC /* StoreCredintalsKeychainFacade.swift */,
+				DA123E9B257A7371003CC7DC /* DeleteCredintalsKeychainFacade.swift */,
+				DA123E9D257BF29A003CC7DC /* CredentialKeychainController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA123E9F257C07D0003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EA0257C0861003CC7DC /* KeychainAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -396,7 +489,6 @@
 				DAB928F525559DC200354C8F /* View */,
 				DAB928F625559E1400354C8F /* Presentation */,
 				DAB928F725559E2000354C8F /* Application */,
-				DAB928F825559E2600354C8F /* Resources */,
 				DAB928F925559E3300354C8F /* Domain */,
 			);
 			path = Onboarding;
@@ -438,11 +530,6 @@
 			isa = PBXGroup;
 			children = (
 				DAB928FC2555A13B00354C8F /* OnboardingController.swift */,
-				DA59500C256D085E000CE120 /* OnboardingFinishedService.swift */,
-				DA59500E256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift */,
-				DA595010256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift */,
-				DA595012256D4080000CE120 /* LoadOnboardingFinishedFacade.swift */,
-				DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -521,7 +608,6 @@
 				DAB92924255EC68200354C8F /* Injection */,
 				DAB92925255EC68E00354C8F /* View */,
 				DAB92926255EC6A100354C8F /* Presentation */,
-				DAB92927255EC6AB00354C8F /* Application */,
 				DAB92928255EC6B400354C8F /* Resources */,
 				DAB92929255EC6BE00354C8F /* Domain */,
 			);
@@ -555,13 +641,6 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		DAB92927255EC6AB00354C8F /* Application */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		DAB92928255EC6B400354C8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +659,8 @@
 		DAB9292A255EC6F900354C8F /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				DA123E8A257A5F7E003CC7DC /* Keychain */,
+				DA123E84257A57B9003CC7DC /* OnboardingPersistancy */,
 				DAA4032D25668F10006DD914 /* AlertProvider */,
 				DAA4032925668752006DD914 /* Utilities */,
 				DAB9292B255EC71700354C8F /* Navigation */,
@@ -816,6 +897,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA123E98257A6AE6003CC7DC /* StoreCredintalsKeychainFacade.swift in Sources */,
+				DA123E90257A649D003CC7DC /* CredintalsKeychainService.swift in Sources */,
 				DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */,
 				DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */,
 				DA59500F256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift in Sources */,
@@ -832,12 +915,18 @@
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
 				DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */,
 				DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */,
+				DA123E9E257BF29A003CC7DC /* CredentialKeychainController.swift in Sources */,
 				DA123E70257909FE003CC7DC /* StartUpAssembly.swift in Sources */,
+				DA123E92257A6797003CC7DC /* LoadCredintalsKeychainInteractorImpl.swift in Sources */,
+				DA123E9A257A6FB0003CC7DC /* DeleteCredintalsKeychainInteractorImpl.swift in Sources */,
 				DAA4033325669242006DD914 /* AlertProviderAssembly.swift in Sources */,
 				DAA4032825667E02006DD914 /* LoginCredentials.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
 				DA595011256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift in Sources */,
+				DA123E8D257A6165003CC7DC /* CredentialsKeychainResource.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
+				DA123E87257A590C003CC7DC /* OnboardingPersistancyAssembly.swift in Sources */,
+				DA123EA1257C0861003CC7DC /* KeychainAssembly.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
 				DA123E8025792C27003CC7DC /* DashboardView.swift in Sources */,
 				DAB92931255ECF2400354C8F /* NavigationAssembly.swift in Sources */,
@@ -845,10 +934,13 @@
 				DA595017256FD8E9000CE120 /* UIAlertAction+AlertAction.swift in Sources */,
 				DAB9292E255ECE7200354C8F /* LoginLauncherController.swift in Sources */,
 				DA123E7C25792C27003CC7DC /* DashboardAssembly.swift in Sources */,
+				DA123E9C257A7371003CC7DC /* DeleteCredintalsKeychainFacade.swift in Sources */,
 				DA123E8325792D3C003CC7DC /* DashboardLauncherController.swift in Sources */,
 				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
 				DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */,
+				DA123E94257A67AC003CC7DC /* StoreCredintalsKeychainInteractorImpl.swift in Sources */,
+				DA123E96257A6AD7003CC7DC /* LoadCredintalsKeychainFacade.swift in Sources */,
 				DAA4032C25668904006DD914 /* String+.swift in Sources */,
 				DAB929062555AC4E00354C8F /* OnboardingAssembly.swift in Sources */,
 				DAB928FD2555A13B00354C8F /* OnboardingController.swift in Sources */,
