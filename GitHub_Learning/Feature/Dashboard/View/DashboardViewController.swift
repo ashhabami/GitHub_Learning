@@ -19,6 +19,8 @@ class DashboardViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        layout.logoutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
         presenter.viewDidLoad()
     }
     
@@ -31,6 +33,11 @@ class DashboardViewController: BaseViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func logoutPressed() {
+        self.dismiss(animated: true, completion: nil)
+        presenter.logOut()
     }
 }
 

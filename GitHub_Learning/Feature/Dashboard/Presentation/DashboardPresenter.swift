@@ -10,17 +10,20 @@ import Foundation
 import CleanCore
 
 protocol DashboardPresenter: Presenter {
-    
+    func logOut()
 }
 
 final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     
-    let dashboardCotroller: DashboardController
+    private let dashboardCotroller: DashboardController
+    private let credentialKeychainController: CredentialKeychainController
     
     init(
-        dashboardCotroller: DashboardController
+        dashboardCotroller: DashboardController,
+        credentialKeychainController: CredentialKeychainController
     ) {
         self.dashboardCotroller = dashboardCotroller
+        self.credentialKeychainController = credentialKeychainController
     }
     
     func viewDidLoad() {
@@ -29,5 +32,7 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
 }
 
 extension DashboardPresenterImpl: DashboardPresenter {
-    
+    func logOut() {
+        credentialKeychainController.deleteCredintals()
+    }
 }

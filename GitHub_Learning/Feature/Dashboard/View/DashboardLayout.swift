@@ -10,10 +10,27 @@ import UIKit
 import SnapKit
 
 class DashboardLayout: UIView {
+    private lazy var dashboardStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [dashboardLabel, logoutButton])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 20
+        return stack
+    }()
+    
+    let logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("LogOut", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17.0, weight: .medium)
+        button.backgroundColor = .brown
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
+    }()
     
     let dashboardLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
@@ -31,10 +48,16 @@ class DashboardLayout: UIView {
     }
     
     private func setup() {
-        addSubview(dashboardLabel)
+        addSubview(dashboardStack)
+        dashboardStack.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
+            $0.bottom.equalTo(self.snp.centerY)
+        }
         dashboardLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
-            $0.centerY.equalToSuperview()
+            $0.height.greaterThanOrEqualTo(100)
+        }
+        logoutButton.snp.makeConstraints {
+            $0.height.equalTo(40)
         }
     }
 }
