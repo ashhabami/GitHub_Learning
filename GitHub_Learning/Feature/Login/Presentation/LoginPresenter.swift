@@ -20,15 +20,19 @@ final class LoginPresenterImpl: BasePresenter<LoginView> {
     private let loginBuilder: LoginBuilder
     private let alertProvider: AlertProviderController
     private let dashboardLauncherController: DashboardLauncherController
+    private let keychainController: CredentialKeychainController
     
     init(
         loginBuilder: LoginBuilder,
         alertProvider: AlertProviderController,
-        dashboardLauncherController: DashboardLauncherController
+        dashboardLauncherController: DashboardLauncherController,
+        storeCredintalsKeychainFacade: StoreCredintalsKeychainFacade,
+        keychainController: CredentialKeychainController
     ) {
         self.loginBuilder = loginBuilder
         self.alertProvider = alertProvider
         self.dashboardLauncherController = dashboardLauncherController
+        self.keychainController = keychainController
     }
     
     func viewDidLoad() {
@@ -50,6 +54,7 @@ extension LoginPresenterImpl: LoginPresenter {
     func logIn() {
         do {
             let builder = try loginBuilder.build()
+            keychainController.storeCredintals(builder.email)
             dashboardLauncherController.launchDashboardWith(builder.email)
         } catch LoginBuilderError.missingMandatoryData {
             

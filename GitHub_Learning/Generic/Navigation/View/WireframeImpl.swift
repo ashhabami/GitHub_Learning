@@ -39,6 +39,7 @@ class WireframeImpl: Wireframe {
     
     func launchDashboard() {
         let vc = try! instanceProvider.getInstance(DashboardViewController.self)
+        vc.modalPresentationStyle = .fullScreen
         window.topViewController?.present(vc, animated: true, completion: nil)
     }
     
