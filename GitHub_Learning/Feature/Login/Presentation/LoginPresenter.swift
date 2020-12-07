@@ -26,7 +26,6 @@ final class LoginPresenterImpl: BasePresenter<LoginView> {
         loginBuilder: LoginBuilder,
         alertProvider: AlertProviderController,
         dashboardLauncherController: DashboardLauncherController,
-        storeCredintalsKeychainFacade: StoreCredintalsKeychainFacade,
         keychainController: CredentialKeychainController
     ) {
         self.loginBuilder = loginBuilder
@@ -54,8 +53,8 @@ extension LoginPresenterImpl: LoginPresenter {
     func logIn() {
         do {
             let builder = try loginBuilder.build()
-            keychainController.storeCredintals(builder.email)
-            dashboardLauncherController.launchDashboardWith(builder.email)
+            keychainController.storeCredentials(builder.email)
+            dashboardLauncherController.launchDashboardModallyWith(builder.email)
         } catch LoginBuilderError.missingMandatoryData {
             
         } catch LoginBuilderError.invalidEmail {

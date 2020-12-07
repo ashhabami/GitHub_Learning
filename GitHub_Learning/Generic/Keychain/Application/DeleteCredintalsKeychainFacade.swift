@@ -10,16 +10,16 @@ import Foundation
 import CleanCore
 
 protocol DeleteCredintalsKeychainFacade {
-    func deleteCredintals(_ request: DeleteCredintalsKeychainRequest, completion: @escaping (Result<DeleteCredintalsKeychainResponse>) -> Void)
+    func deleteCredentials(_ request: DeleteCredentialsKeychainRequest, completion: @escaping (Result<DeleteCredentialsKeychainResponse>) -> Void)
 }
 
-class DeleteCredintalsKeychainFacadeImpl: CommandFacadeImpl<DeleteCredintalsKeychainInteractor, DeleteCredintalsKeychainRequest, DeleteCredintalsKeychainResponse>, DeleteCredintalsKeychainFacade {
+class DeleteCredintalsKeychainFacadeImpl: CommandFacadeImpl<DeleteCredentialsKeychainInteractor, DeleteCredentialsKeychainRequest, DeleteCredentialsKeychainResponse>, DeleteCredintalsKeychainFacade {
     
-    init(invoker: Invoker, receiver: DeleteCredintalsKeychainInteractor) {
+    init(invoker: Invoker, receiver: DeleteCredentialsKeychainInteractor) {
         super.init(invoker: invoker, receiver: receiver)
     }
     
-    func deleteCredintals(_ request: DeleteCredintalsKeychainRequest, completion: @escaping (Result<DeleteCredintalsKeychainResponse>) -> Void) {
+    func deleteCredentials(_ request: DeleteCredentialsKeychainRequest, completion: @escaping (Result<DeleteCredentialsKeychainResponse>) -> Void) {
         execute(request, completion: completion)
     }
 }

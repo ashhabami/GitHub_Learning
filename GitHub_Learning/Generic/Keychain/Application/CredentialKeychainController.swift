@@ -11,30 +11,30 @@ import CleanPlatform
 import CleanCore
 
 protocol CredentialKeychainController: BaseController {
-    func storeCredintals(_ credintals: String)
-    func loadCredintals(_ completion: @escaping (Result<LoadCredintalsKeychainResponse>) -> Void)
-    func deleteCredintals()
+    func storeCredentials(_ credintals: String)
+    func loadCredentials(_ completion: @escaping (Result<LoadCredentialsKeychainResponse>) -> Void)
+    func deleteCredentials()
 }
 
 final class CredentialKeychainControllerImpl: BaseControllerImpl {
-    private let storeCreditalsKeychainFacade: StoreCredintalsKeychainFacade
-    private let loadCreditalsKeychainFacade: LoadCredintalsKeychainFacade
-    private let deleteCreditalsKeychainFacade: DeleteCredintalsKeychainFacade
+    private let storeCredentialsKeychainFacade: StoreCredentialsKeychainFacade
+    private let loadCredentialsKeychainFacade: LoadCredentialsKeychainFacade
+    private let deleteCredentialsKeychainFacade: DeleteCredintalsKeychainFacade
     
     init(
-        storeCreditalsKeychainFacade: StoreCredintalsKeychainFacade,
-        loadCreditalsKeychainFacade: LoadCredintalsKeychainFacade,
-        deleteCreditalsKeychainFacade: DeleteCredintalsKeychainFacade
+        storeCredentialsKeychainFacade: StoreCredentialsKeychainFacade,
+        loadCredentialsKeychainFacade: LoadCredentialsKeychainFacade,
+        deleteCredentialsKeychainFacade: DeleteCredintalsKeychainFacade
     ) {
-        self.storeCreditalsKeychainFacade = storeCreditalsKeychainFacade
-        self.loadCreditalsKeychainFacade = loadCreditalsKeychainFacade
-        self.deleteCreditalsKeychainFacade = deleteCreditalsKeychainFacade
+        self.storeCredentialsKeychainFacade = storeCredentialsKeychainFacade
+        self.loadCredentialsKeychainFacade = loadCredentialsKeychainFacade
+        self.deleteCredentialsKeychainFacade = deleteCredentialsKeychainFacade
     }
 }
 
 extension CredentialKeychainControllerImpl: CredentialKeychainController {
-    func deleteCredintals() {
-        deleteCreditalsKeychainFacade.deleteCredintals(DeleteCredintalsKeychainRequest()) { [weak self] response in
+    func deleteCredentials() {
+        deleteCredentialsKeychainFacade.deleteCredentials(DeleteCredentialsKeychainRequest()) { [weak self] response in
             guard let self = self else { return }
             self.handleResult(response) { _ in
                 print("Credintals successfully deleted")
@@ -42,12 +42,12 @@ extension CredentialKeychainControllerImpl: CredentialKeychainController {
         }
     }
     
-    func loadCredintals(_ completion: @escaping (Result<LoadCredintalsKeychainResponse>) -> Void) {
-        loadCreditalsKeychainFacade.loadCredintals(LoadCredintalsKeychainRequest(), completion: completion)
+    func loadCredentials(_ completion: @escaping (Result<LoadCredentialsKeychainResponse>) -> Void) {
+        loadCredentialsKeychainFacade.loadCredentials(LoadCredentialsKeychainRequest(), completion: completion)
     }
     
-    func storeCredintals(_ credintals: String) {
-        storeCreditalsKeychainFacade.storeCredintals(StoreCredintalsKeychainRequest(credentials: credintals)) { [weak self] response in
+    func storeCredentials(_ credintals: String) {
+        storeCredentialsKeychainFacade.storeCredentials(StoreCredentialsKeychainRequest(credentials: credintals)) { [weak self] response in
             guard let self = self else { return }
             self.handleResult(response) { _ in
                 print("Credintals successfully stored")

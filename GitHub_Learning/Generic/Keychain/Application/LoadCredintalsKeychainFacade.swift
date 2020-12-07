@@ -9,17 +9,17 @@
 import Foundation
 import CleanCore
 
-protocol LoadCredintalsKeychainFacade {
-    func loadCredintals(_ request: LoadCredintalsKeychainRequest, completion: @escaping (Result<LoadCredintalsKeychainResponse>) -> Void)
+protocol LoadCredentialsKeychainFacade {
+    func loadCredentials(_ request: LoadCredentialsKeychainRequest, completion: @escaping (Result<LoadCredentialsKeychainResponse>) -> Void)
 }
 
-class LoadCredintalsKeychainFacadeImpl: CommandFacadeImpl<LoadCredintalsKeychainInteractor, LoadCredintalsKeychainRequest, LoadCredintalsKeychainResponse>, LoadCredintalsKeychainFacade {
+class LoadCredentialsKeychainFacadeImpl: CommandFacadeImpl<LoadCredentialsKeychainInteractor, LoadCredentialsKeychainRequest, LoadCredentialsKeychainResponse>, LoadCredentialsKeychainFacade {
     
-    init(invoker: Invoker, receiver: LoadCredintalsKeychainInteractor) {
+    init(invoker: Invoker, receiver: LoadCredentialsKeychainInteractor) {
         super.init(invoker: invoker, receiver: receiver)
     }
     
-    func loadCredintals(_ request: LoadCredintalsKeychainRequest, completion: @escaping (Result<LoadCredintalsKeychainResponse>) -> Void) {
+    func loadCredentials(_ request: LoadCredentialsKeychainRequest, completion: @escaping (Result<LoadCredentialsKeychainResponse>) -> Void) {
         execute(request, completion: completion)
     }
 }

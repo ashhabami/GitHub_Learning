@@ -19,10 +19,10 @@ class KeychainAssembly: Assembly {
         }
         container.autoregister(CredentialKeychainController.self, initializer: CredentialKeychainControllerImpl.init)
         container.autoregister(DeleteCredintalsKeychainFacade.self, initializer: DeleteCredintalsKeychainFacadeImpl.init)
-        container.autoregister(LoadCredintalsKeychainFacade.self, initializer: LoadCredintalsKeychainFacadeImpl.init)
-        container.autoregister(StoreCredintalsKeychainFacade.self, initializer: StoreCredintalsKeychainFacadeImpl.init)
-        container.autoregister(DeleteCredintalsKeychainInteractor.self, initializer: DeleteCredintalsKeychainInteractor.init)
-        container.autoregister(LoadCredintalsKeychainInteractor.self, initializer: LoadCredintalsKeychainInteractor.init)
-        container.autoregister(StoreCredintalsKeychainInteractor.self, initializer: StoreCredintalsKeychainInteractor.init)
+        container.autoregister(LoadCredentialsKeychainFacade.self, initializer: LoadCredentialsKeychainFacadeImpl.init)
+        container.autoregister(StoreCredentialsKeychainFacade.self, initializer: StoreCredentialsKeychainFacadeImpl.init)
+        container.autoregister(DeleteCredentialsKeychainInteractor.self, initializer: DeleteCredentialsKeychainInteractor.init)
+        container.autoregister(LoadCredentialsKeychainInteractor.self, initializer: LoadCredentialsKeychainInteractor.init)
+        container.autoregister(StoreCredentialsKeychainInteractor.self, initializer: StoreCredentialsKeychainInteractor.init)
     }
 }

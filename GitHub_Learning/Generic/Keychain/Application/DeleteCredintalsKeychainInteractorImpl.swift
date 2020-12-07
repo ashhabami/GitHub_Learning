@@ -9,15 +9,15 @@
 import Foundation
 import CleanCore
 
-struct DeleteCredintalsKeychainRequest: Equatable {
+struct DeleteCredentialsKeychainRequest: Equatable {
     init() {}
 }
 
-struct DeleteCredintalsKeychainResponse: Equatable {
+struct DeleteCredentialsKeychainResponse: Equatable {
     init() {}
 }
 
-class DeleteCredintalsKeychainInteractor: Interactor {
+class DeleteCredentialsKeychainInteractor: Interactor {
     
     let credentialsKeychainService: CredentialsKeychainService
     
@@ -27,12 +27,12 @@ class DeleteCredintalsKeychainInteractor: Interactor {
         self.credentialsKeychainService = credentialsKeychainService
     }
     
-    func execute(_ request: DeleteCredintalsKeychainRequest) throws -> DeleteCredintalsKeychainResponse {
+    func execute(_ request: DeleteCredentialsKeychainRequest) throws -> DeleteCredentialsKeychainResponse {
         try credentialsKeychainService.deleteCredentials()
-        return DeleteCredintalsKeychainResponse()
+        return DeleteCredentialsKeychainResponse()
     }
     
-    static func == (lhs: DeleteCredintalsKeychainInteractor, rhs: DeleteCredintalsKeychainInteractor) -> Bool {
+    static func == (lhs: DeleteCredentialsKeychainInteractor, rhs: DeleteCredentialsKeychainInteractor) -> Bool {
         return true
     }
 }

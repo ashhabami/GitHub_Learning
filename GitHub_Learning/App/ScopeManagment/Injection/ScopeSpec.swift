@@ -20,7 +20,8 @@ final class MainApplicationScopeSpec: ApplicationScopeSpec {
             DashboardAssembly(),
             StartUpAssembly(),
             OnboardingPersistancyAssembly(),
-            KeychainAssembly()
+            KeychainAssembly(),
+            LogOutAssembly()
         ]
     }
 }

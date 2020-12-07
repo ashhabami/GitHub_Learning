@@ -52,4 +52,13 @@ class WireframeImpl: Wireframe {
         let vc = try! instanceProvider.getInstance(LoginViewController.self)
         window.rootViewController = vc
     }
+    
+    func setDashboardAsRoot() {
+        let vc = try! instanceProvider.getInstance(DashboardViewController.self)
+        window.rootViewController = vc
+    }
+    
+    func dissmisModalPresentation() {
+        window.topViewController?.dismiss(animated: true, completion: nil)
+    }
 }

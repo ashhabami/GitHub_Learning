@@ -15,7 +15,7 @@ class CredentialsKeychainResourceImpl: CredentialsKeychainResource {
     
     private let keychain: LocalStorage
     private let id = "Keychain"
-    private let type = "credintals"
+    private let type = "credentials"
     
     init(
         keychain: LocalStorage
@@ -23,17 +23,17 @@ class CredentialsKeychainResourceImpl: CredentialsKeychainResource {
         self.keychain = keychain
     }
     
-    func storeCredentials(_ credintails: String) throws {
-        let data = Bytes(credintails.utf8)
+    func storeCredentials(_ credentials: String) throws {
+        let data = Bytes(credentials.utf8)
         try keychain.storeData(type, id: id, data: data)
     }
     
     func loadCredentials() throws -> String {
         let data = try keychain.loadData(type, id: id)
-        guard let credintals = String(bytes: data, encoding: .utf8) else {
+        guard let credentials = String(bytes: data, encoding: .utf8) else {
             throw LocalStorageError.loadFailed("String to Data convertion failed")
         }
-        return credintals
+        return credentials
     }
     
     func deleteCredentials() throws {

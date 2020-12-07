@@ -36,7 +36,6 @@ class DashboardViewController: BaseViewController {
     }
     
     @objc func logoutPressed() {
-        self.dismiss(animated: true, completion: nil)
         presenter.logOut()
     }
 }

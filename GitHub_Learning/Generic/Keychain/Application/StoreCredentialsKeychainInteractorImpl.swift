@@ -9,19 +9,19 @@
 import Foundation
 import CleanCore
 
-struct StoreCredintalsKeychainRequest: Equatable {
+struct StoreCredentialsKeychainRequest: Equatable {
     let credentials: String
     
-    static func == (lhs: StoreCredintalsKeychainRequest, rhs: StoreCredintalsKeychainRequest) -> Bool {
+    static func == (lhs: StoreCredentialsKeychainRequest, rhs: StoreCredentialsKeychainRequest) -> Bool {
         return lhs.credentials == rhs.credentials
     }
 }
 
-struct StoreCredintalsKeychainResponse: Equatable {
+struct StoreCredentialsKeychainResponse: Equatable {
     init() {}
 }
 
-class StoreCredintalsKeychainInteractor: Interactor {
+class StoreCredentialsKeychainInteractor: Interactor {
     
     let credentialsKeychainService: CredentialsKeychainService
     
@@ -31,12 +31,12 @@ class StoreCredintalsKeychainInteractor: Interactor {
         self.credentialsKeychainService = credentialsKeychainService
     }
     
-    func execute(_ request: StoreCredintalsKeychainRequest) throws -> StoreCredintalsKeychainResponse {
+    func execute(_ request: StoreCredentialsKeychainRequest) throws -> StoreCredentialsKeychainResponse {
         try credentialsKeychainService.storeCredentials(request.credentials)
-        return StoreCredintalsKeychainResponse()
+        return StoreCredentialsKeychainResponse()
     }
     
-    static func == (lhs: StoreCredintalsKeychainInteractor, rhs: StoreCredintalsKeychainInteractor) -> Bool {
+    static func == (lhs: StoreCredentialsKeychainInteractor, rhs: StoreCredentialsKeychainInteractor) -> Bool {
         return true
     }
 }

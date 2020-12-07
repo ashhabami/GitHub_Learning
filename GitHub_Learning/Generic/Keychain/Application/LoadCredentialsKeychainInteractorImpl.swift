@@ -9,19 +9,19 @@
 import Foundation
 import CleanCore
 
-struct LoadCredintalsKeychainRequest: Equatable {
+struct LoadCredentialsKeychainRequest: Equatable {
     init() {}
 }
 
-struct LoadCredintalsKeychainResponse: Equatable {
+struct LoadCredentialsKeychainResponse: Equatable {
     let credentials: String
     
-    static func == (lhs: LoadCredintalsKeychainResponse, rhs: LoadCredintalsKeychainResponse) -> Bool {
+    static func == (lhs: LoadCredentialsKeychainResponse, rhs: LoadCredentialsKeychainResponse) -> Bool {
         return lhs.credentials == rhs.credentials
     }
 }
 
-class LoadCredintalsKeychainInteractor: Interactor {
+class LoadCredentialsKeychainInteractor: Interactor {
     
     let credentialsKeychainService: CredentialsKeychainService
     
@@ -30,13 +30,13 @@ class LoadCredintalsKeychainInteractor: Interactor {
     ) {
         self.credentialsKeychainService = credentialsKeychainService
     }
-    // Proč když je tanhle metoda throws tak nemusim dávat do catch block nebo force try??
-    func execute(_ request: LoadCredintalsKeychainRequest) throws -> LoadCredintalsKeychainResponse {
+    
+    func execute(_ request: LoadCredentialsKeychainRequest) throws -> LoadCredentialsKeychainResponse {
         let credentials = try credentialsKeychainService.loadCredentials()
-        return LoadCredintalsKeychainResponse(credentials: credentials)
+        return LoadCredentialsKeychainResponse(credentials: credentials)
     }
     
-    static func == (lhs: LoadCredintalsKeychainInteractor, rhs: LoadCredintalsKeychainInteractor) -> Bool {
+    static func == (lhs: LoadCredentialsKeychainInteractor, rhs: LoadCredentialsKeychainInteractor) -> Bool {
         return true
     }
 }
