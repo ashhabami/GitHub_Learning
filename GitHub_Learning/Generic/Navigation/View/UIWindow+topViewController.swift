@@ -18,4 +18,3 @@ extension UIWindow {
         return topViewControllerFrom(base: presented)
     }
 }
-
