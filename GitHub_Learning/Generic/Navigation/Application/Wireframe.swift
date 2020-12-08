@@ -13,7 +13,5 @@ protocol Wireframe {
     func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?)
     func setOnboardingAsRoot()
     func setLoginAsRoot()
-    func setDashboardAsRoot()
-    func dissmisModalPresentation()
-    func launchDashboard()
+    func launchDashboard(from point: LaunchPoint)
 }

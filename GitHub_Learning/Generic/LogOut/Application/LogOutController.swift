@@ -15,16 +15,20 @@ protocol LogOutController: BaseController {
 
 final class LogOutControllerImpl: BaseControllerImpl {
     private let wireframe: Wireframe
+    private let credentialKeychainController: CredentialKeychainController
     
     init(
-        wireframe: Wireframe
+        wireframe: Wireframe,
+        credentialKeychainController: CredentialKeychainController
     ) {
         self.wireframe = wireframe
+        self.credentialKeychainController = credentialKeychainController
     }
 }
 
 extension LogOutControllerImpl: LogOutController {
     func logOut() {
-        wireframe.dissmisModalPresentation()
+        credentialKeychainController.deleteCredentials()
+        wireframe.setLoginAsRoot()
     }
 }

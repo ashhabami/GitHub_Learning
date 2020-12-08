@@ -29,6 +29,7 @@
 		DA123EA1257C0861003CC7DC /* KeychainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EA0257C0861003CC7DC /* KeychainAssembly.swift */; };
 		DA123EAA257E66C1003CC7DC /* LogOutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EA9257E66C1003CC7DC /* LogOutController.swift */; };
 		DA123EAD257E6797003CC7DC /* LogOutAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */; };
+		DA123EB0257F9859003CC7DC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAF257F9859003CC7DC /* LoginController.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -114,6 +115,7 @@
 		DA123EA0257C0861003CC7DC /* KeychainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAssembly.swift; sourceTree = "<group>"; };
 		DA123EA9257E66C1003CC7DC /* LogOutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutController.swift; sourceTree = "<group>"; };
 		DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutAssembly.swift; sourceTree = "<group>"; };
+		DA123EAF257F9859003CC7DC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -366,6 +368,14 @@
 				DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */,
 			);
 			path = Injection;
+			sourceTree = "<group>";
+		};
+		DA123EAE257F9849003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EAF257F9859003CC7DC /* LoginController.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		DA373820255567510003D164 = {
@@ -634,6 +644,7 @@
 		DAB92923255EC66E00354C8F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				DA123EAE257F9849003CC7DC /* Application */,
 				DAB92924255EC68200354C8F /* Injection */,
 				DAB92925255EC68E00354C8F /* View */,
 				DAB92926255EC6A100354C8F /* Presentation */,
@@ -967,6 +978,7 @@
 				DAB9292E255ECE7200354C8F /* LoginLauncherController.swift in Sources */,
 				DA123E7C25792C27003CC7DC /* DashboardAssembly.swift in Sources */,
 				DA123E9C257A7371003CC7DC /* DeleteCredintalsKeychainFacade.swift in Sources */,
+				DA123EB0257F9859003CC7DC /* LoginController.swift in Sources */,
 				DA123E8325792D3C003CC7DC /* DashboardLauncherController.swift in Sources */,
 				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,

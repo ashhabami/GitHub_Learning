@@ -44,10 +44,10 @@ extension StartUpControllerImpl: StartUpController {
     }
     
     private func checkCredentials() {
-        credentialKeychainController.loadCredentials { credintalResponse in
-            switch credintalResponse {
+        credentialKeychainController.loadCredentials { credentialResponse in
+            switch credentialResponse {
             case .success(let credResponse):
-                self.dashboardLauncherController.launchDashboardAsRootWith(credResponse.credentials)
+                self.dashboardLauncherController.launchDashboardWith(credResponse.credentials, from: .startUp)
             case .failure:
                 self.wireframe.setLoginAsRoot()
             }

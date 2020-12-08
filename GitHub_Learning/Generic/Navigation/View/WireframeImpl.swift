@@ -11,8 +11,8 @@ import CleanCore
 import CleanPlatform
 
 class WireframeImpl: Wireframe {
-    let instanceProvider: InstanceProvider
-    let window: UIWindow
+    private let instanceProvider: InstanceProvider
+    private let window: UIWindow
     
     init(
         instanceProvider: InstanceProvider,
@@ -23,9 +23,7 @@ class WireframeImpl: Wireframe {
     }
     
     func launchLogin() {
-        let vc = try! instanceProvider.getInstance(LoginViewController.self)
-        vc.modalPresentationStyle = .fullScreen
-        window.topViewController?.present(vc, animated: true, completion: nil)
+        presentViewControllerModally(LoginViewController.self, with: .fullScreen)
     }
     
     func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?) {
@@ -37,28 +35,32 @@ class WireframeImpl: Wireframe {
         window.topViewController?.present(alert, animated: true, completion: nil)
     }
     
-    func launchDashboard() {
-        let vc = try! instanceProvider.getInstance(DashboardViewController.self)
-        vc.modalPresentationStyle = .fullScreen
-        window.topViewController?.present(vc, animated: true, completion: nil)
+    func launchDashboard(from point: LaunchPoint) {
+        switch point {
+        case .login:
+            presentViewControllerModally(DashboardViewController.self, with: .fullScreen) {
+                self.setViewControllerAsRoot(DashboardViewController.self)
+            }
+        case .startUp: setViewControllerAsRoot(DashboardViewController.self)
+        }
     }
     
     func setOnboardingAsRoot() {
-        let vc = try! instanceProvider.getInstance(OnboardingViewController.self)
-        window.rootViewController = vc
+        setViewControllerAsRoot(OnboardingViewController.self)
     }
     
     func setLoginAsRoot() {
-        let vc = try! instanceProvider.getInstance(LoginViewController.self)
+        setViewControllerAsRoot(LoginViewController.self)
+    }
+    
+    private func setViewControllerAsRoot<T:UIViewController>(_ viewController: T.Type) {
+        let vc = try! instanceProvider.getInstance(T.self)
         window.rootViewController = vc
     }
     
-    func setDashboardAsRoot() {
-        let vc = try! instanceProvider.getInstance(DashboardViewController.self)
-        window.rootViewController = vc
-    }
-    
-    func dissmisModalPresentation() {
-        window.topViewController?.dismiss(animated: true, completion: nil)
+    private func presentViewControllerModally<T:UIViewController>(_ viewController: T.Type, with presentationStyle: UIModalPresentationStyle? = nil, completion: (() -> Void)? = nil) {
+        let vc = try! instanceProvider.getInstance(T.self)
+        vc.modalPresentationStyle = presentationStyle ?? .automatic
+        window.topViewController?.present(vc, animated: true, completion: completion)
     }
 }

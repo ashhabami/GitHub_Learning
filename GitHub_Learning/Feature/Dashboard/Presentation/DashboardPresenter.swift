@@ -16,15 +16,12 @@ protocol DashboardPresenter: Presenter {
 final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     private let logOutController: LogOutController
     private let dashboardCotroller: DashboardController
-    private let credentialKeychainController: CredentialKeychainController
     
     init(
         dashboardCotroller: DashboardController,
-        credentialKeychainController: CredentialKeychainController,
         logOutController: LogOutController
     ) {
         self.dashboardCotroller = dashboardCotroller
-        self.credentialKeychainController = credentialKeychainController
         self.logOutController = logOutController
     }
     
@@ -35,7 +32,6 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
 
 extension DashboardPresenterImpl: DashboardPresenter {
     func logOut() {
-        credentialKeychainController.deleteCredentials()
         logOutController.logOut()
     }
 }

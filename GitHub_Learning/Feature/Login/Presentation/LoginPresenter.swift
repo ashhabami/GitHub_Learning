@@ -19,19 +19,16 @@ protocol LoginPresenter: Presenter, Listener {
 final class LoginPresenterImpl: BasePresenter<LoginView> {
     private let loginBuilder: LoginBuilder
     private let alertProvider: AlertProviderController
-    private let dashboardLauncherController: DashboardLauncherController
-    private let keychainController: CredentialKeychainController
+    private let loginController: LoginController
     
     init(
         loginBuilder: LoginBuilder,
         alertProvider: AlertProviderController,
-        dashboardLauncherController: DashboardLauncherController,
-        keychainController: CredentialKeychainController
+        loginController: LoginController
     ) {
         self.loginBuilder = loginBuilder
         self.alertProvider = alertProvider
-        self.dashboardLauncherController = dashboardLauncherController
-        self.keychainController = keychainController
+        self.loginController = loginController
     }
     
     func viewDidLoad() {
@@ -53,8 +50,7 @@ extension LoginPresenterImpl: LoginPresenter {
     func logIn() {
         do {
             let builder = try loginBuilder.build()
-            keychainController.storeCredentials(builder.email)
-            dashboardLauncherController.launchDashboardModallyWith(builder.email)
+            loginController.logInWith(builder.email)
         } catch LoginBuilderError.missingMandatoryData {
             
         } catch LoginBuilderError.invalidEmail {
