@@ -49,7 +49,7 @@ extension StartUpControllerImpl: StartUpController {
             case .success(let credResponse):
                 self.dashboardLauncherController.launchDashboardWith(credResponse.credentials, from: .startUp)
             case .failure:
-                self.wireframe.setLoginAsRoot()
+                self.wireframe.launchLoginAfter(.start)
             }
         }
     }

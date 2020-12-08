@@ -10,6 +10,12 @@ import Foundation
 import CleanCore
 import CleanPlatform
 
+enum LoginLaunchPoint {
+    case onboarding
+    case dashboard
+    case start
+}
+
 protocol LoginLauncherController: BaseController {
     func launchLogin()
 }
@@ -26,6 +32,6 @@ class LoginLauncherControllerImpl: BaseControllerImpl {
 
 extension LoginLauncherControllerImpl: LoginLauncherController {
     func launchLogin() {
-        wireframe.launchLogin()
+        wireframe.launchLoginAfter(.onboarding)
     }
 }

@@ -29,6 +29,6 @@ final class LogOutControllerImpl: BaseControllerImpl {
 extension LogOutControllerImpl: LogOutController {
     func logOut() {
         credentialKeychainController.deleteCredentials()
-        wireframe.setLoginAsRoot()
+        wireframe.launchLoginAfter(.dashboard)
     }
 }

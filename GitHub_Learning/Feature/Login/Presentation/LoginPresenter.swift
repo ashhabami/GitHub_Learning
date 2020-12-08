@@ -49,8 +49,8 @@ extension LoginPresenterImpl: LoginPresenter {
     
     func logIn() {
         do {
-            let builder = try loginBuilder.build()
-            loginController.logInWith(builder.email)
+            let credentials = try loginBuilder.build()
+            loginController.logInWith(credentials.email)
         } catch LoginBuilderError.missingMandatoryData {
             
         } catch LoginBuilderError.invalidEmail {

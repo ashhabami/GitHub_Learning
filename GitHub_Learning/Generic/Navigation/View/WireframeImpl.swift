@@ -22,8 +22,12 @@ class WireframeImpl: Wireframe {
         self.window = window
     }
     
-    func launchLogin() {
-        presentViewControllerModally(LoginViewController.self, with: .fullScreen)
+    func launchLoginAfter(_ point: LoginLaunchPoint) {
+        switch point {
+        case .onboarding: presentViewControllerModally(LoginViewController.self, with: .fullScreen, animated: true)
+        case .dashboard: setLoginAsRoot(animated: true)
+        case .start: setLoginAsRoot(animated: false)
+        }
     }
     
     func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?) {
@@ -38,8 +42,10 @@ class WireframeImpl: Wireframe {
     func launchDashboard(from point: LaunchPoint) {
         switch point {
         case .login:
-            presentViewControllerModally(DashboardViewController.self, with: .fullScreen) {
-                self.setViewControllerAsRoot(DashboardViewController.self)
+            presentViewControllerModally(DashboardViewController.self, with: .fullScreen, animated: true) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.setViewControllerAsRoot(DashboardViewController.self)
+                }
             }
         case .startUp: setViewControllerAsRoot(DashboardViewController.self)
         }
@@ -49,18 +55,23 @@ class WireframeImpl: Wireframe {
         setViewControllerAsRoot(OnboardingViewController.self)
     }
     
-    func setLoginAsRoot() {
-        setViewControllerAsRoot(LoginViewController.self)
+    private func setLoginAsRoot(animated: Bool) {
+        if animated {
+            UIView.transition(with: window, duration: 0.6, options: [.preferredFramesPerSecond60,.transitionCurlDown], animations: {
+                self.setViewControllerAsRoot(LoginViewController.self)
+            })
+        }
+        self.setViewControllerAsRoot(LoginViewController.self)
     }
     
-    private func setViewControllerAsRoot<T:UIViewController>(_ viewController: T.Type) {
+    private func setViewControllerAsRoot<T: UIViewController>(_ viewController: T.Type) {
         let vc = try! instanceProvider.getInstance(T.self)
         window.rootViewController = vc
     }
     
-    private func presentViewControllerModally<T:UIViewController>(_ viewController: T.Type, with presentationStyle: UIModalPresentationStyle? = nil, completion: (() -> Void)? = nil) {
+    private func presentViewControllerModally<T: UIViewController>(_ viewController: T.Type, with presentationStyle: UIModalPresentationStyle? = nil, animated: Bool, completion: (() -> Void)? = nil) {
         let vc = try! instanceProvider.getInstance(T.self)
         vc.modalPresentationStyle = presentationStyle ?? .automatic
-        window.topViewController?.present(vc, animated: true, completion: completion)
+        window.topViewController?.present(vc, animated: animated, completion: completion)
     }
 }
