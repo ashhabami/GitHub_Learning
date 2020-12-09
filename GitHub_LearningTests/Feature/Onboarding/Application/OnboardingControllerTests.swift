@@ -51,27 +51,110 @@ class OnboardingControllerTests: XCTestCase {
         setUpTest()
         let listener = FakeListener()
         sut.subscribe(listener, errorBlock: nil) { _ in
-            listener.isNotified = true
+            listener.isNotifiedAboutUpdate = true
         }
         
         // When
         sut.loadPages()
         
         // Then
-        XCTAssert(listener.isNotified)
+        XCTAssert(listener.isNotifiedAboutUpdate)
+    }
+    
+    func test_givenStoreOnboardingFinishedFacade_whenFacadeCallwithError_thenNotifiesListenersAboutError() {
+        //Given
+        let listener = FakeListener()
+        setUpTest(storeOnboardingFinishedFacade: StoreOnboardingFinishedFacadeFailureStub())
+        
+        //When
+        sut.subscribe(listener, errorBlock: { _ in
+            listener.error = self.sut.lastError
+        }, updateBlock: nil)
+        sut.storeOnboardingFinished(isFinished: true)
+        
+        //Then
+        XCTAssertNotNil(listener.error)
+    }
+    
+    func test_givenStoreOnboardingFinishedFacade_whenFacadeCallwithSuccess_thenNotNotifiesListenersAboutError() {
+        //Given
+        let listener = FakeListener()
+        setUpTest(storeOnboardingFinishedFacade: StoreOnboardingFinishedFacadeSuccessStub())
+        
+        //When
+        sut.subscribe(listener, errorBlock: { _ in
+            listener.error = self.sut.lastError
+        }, updateBlock: nil)
+        sut.storeOnboardingFinished(isFinished: true)
+        
+        //Then
+        XCTAssertNil(listener.error)
+    }
+    
+    func test_givenLoadOnboardingFinishedFacade_whenFacadeCallwithSuccess_thenNotifiesListenersAboutUpdate() {
+        //Given
+        let listener = FakeListener()
+        setUpTest(loadOnboardingFinishedFacade: LoadOnboardingFinishedFacadeSuccessStub())
+        
+        //When
+        sut.subscribe(listener, errorBlock: nil, updateBlock: { _ in
+            listener.isNotifiedAboutUpdate = true
+        })
+        sut.getOnboardingFinished(completion: { _ in })
+        
+        //Then
+        XCTAssertTrue(listener.isNotifiedAboutUpdate)
+    }
+    
+    func test_givenLoadOnboardingFinishedFacade_whenFacadeCallwithError_thenNotifiesListenersAboutError() {
+        //Given
+        let listener = FakeListener()
+        setUpTest(loadOnboardingFinishedFacade: LoadOnboardingFinishedFacadeFailureStub())
+        
+        //When
+        sut.subscribe(listener, errorBlock: { _ in
+            listener.error = self.sut.lastError
+        }, updateBlock: nil)
+        sut.getOnboardingFinished(completion: { _ in })
+        
+        //Then
+        XCTAssertNotNil(listener.error)
     }
     
     private class FakeListener: Listener {
-        var isNotified = false
+        var isNotifiedAboutUpdate = false
+        var error: Error?
     }
     
     private class StoreOnboardingFinishedFacadeDummy: StoreOnboardingFinishedFacade {
+        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {}
+    }
+    
+    private class StoreOnboardingFinishedFacadeFailureStub: StoreOnboardingFinishedFacade {
         func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {
-            
+            completion(.failure(error: LocalStorageError.storeFailed("Store Failed")))
         }
     }
-
+    
+    private class StoreOnboardingFinishedFacadeSuccessStub: StoreOnboardingFinishedFacade {
+        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {
+            completion(.success(response: StoreOnboardingFinishedResponse()))
+        }
+    }
+    
     private class LoadOnboardingFinishedFacadeDummy: LoadOnboardingFinishedFacade {
         func load(_ request: LoadOnboardingFinishedRequest, completion: @escaping ((Result<LoadOnboardingFinishedResponse>) -> Void)) {}
+    }
+    
+    private class LoadOnboardingFinishedFacadeSuccessStub: LoadOnboardingFinishedFacade {
+        func load(_ request: LoadOnboardingFinishedRequest, completion: @escaping ((Result<LoadOnboardingFinishedResponse>) -> Void)) {
+            completion(.success(response: LoadOnboardingFinishedResponse(isFinished: true)))
+        }
+    }
+    
+    private class LoadOnboardingFinishedFacadeFailureStub: LoadOnboardingFinishedFacade {
+        func load(_ request: LoadOnboardingFinishedRequest, completion: @escaping ((Result<LoadOnboardingFinishedResponse>) -> Void)) {
+            completion(.failure(error: LocalStorageError.loadFailed("Load Failed")))
+        }
     }
 }
