@@ -163,7 +163,7 @@ class OnboardingPresenterTests: XCTestCase {
         sut.next()
         
         // Then
-        XCTAssertNotNil(controller.isOnboardingFinished)
+        XCTAssertTrue(controller.isOnboardingFinished)
     }
     
     private class FakeOnboardingView: TestView, OnboardingView {
