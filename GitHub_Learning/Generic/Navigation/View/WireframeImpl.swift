@@ -60,8 +60,9 @@ class WireframeImpl: Wireframe {
             UIView.transition(with: window, duration: 0.6, options: [.preferredFramesPerSecond60,.transitionCurlDown], animations: {
                 self.setViewControllerAsRoot(LoginViewController.self)
             })
+        } else {
+            self.setViewControllerAsRoot(LoginViewController.self)
         }
-        self.setViewControllerAsRoot(LoginViewController.self)
     }
     
     private func setViewControllerAsRoot<T: UIViewController>(_ viewController: T.Type) {
