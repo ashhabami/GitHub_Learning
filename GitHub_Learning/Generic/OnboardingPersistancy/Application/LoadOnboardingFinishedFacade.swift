@@ -8,7 +8,6 @@
 
 import Foundation
 import CleanCore
-import CleanPlatform
 
 protocol LoadOnboardingFinishedFacade {
     func load(_ request: LoadOnboardingFinishedRequest, completion: @escaping ((Result<LoadOnboardingFinishedResponse>) -> Void))

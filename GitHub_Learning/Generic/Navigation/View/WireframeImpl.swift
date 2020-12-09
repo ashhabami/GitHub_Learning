@@ -11,8 +11,8 @@ import CleanCore
 import CleanPlatform
 
 class WireframeImpl: Wireframe {
-    let instanceProvider: InstanceProvider
-    let window: UIWindow
+    private let instanceProvider: InstanceProvider
+    private let window: UIWindow
     
     init(
         instanceProvider: InstanceProvider,
@@ -22,10 +22,12 @@ class WireframeImpl: Wireframe {
         self.window = window
     }
     
-    func launchLogin() {
-        let vc = try! instanceProvider.getInstance(LoginViewController.self)
-        vc.modalPresentationStyle = .fullScreen
-        window.topViewController?.present(vc, animated: true, completion: nil)
+    func launchLoginAfter(_ point: LoginLaunchPoint) {
+        switch point {
+        case .onboarding: presentViewControllerModally(LoginViewController.self, with: .fullScreen, animated: true)
+        case .dashboard: setLoginAsRoot(animated: true)
+        case .start: setLoginAsRoot(animated: false)
+        }
     }
     
     func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?) {
@@ -37,13 +39,40 @@ class WireframeImpl: Wireframe {
         window.topViewController?.present(alert, animated: true, completion: nil)
     }
     
+    func launchDashboard(from point: LaunchPoint) {
+        switch point {
+        case .login:
+            presentViewControllerModally(DashboardViewController.self, with: .fullScreen, animated: true) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.setViewControllerAsRoot(DashboardViewController.self)
+                }
+            }
+        case .startUp: setViewControllerAsRoot(DashboardViewController.self)
+        }
+    }
+    
     func setOnboardingAsRoot() {
-        let vc = try! instanceProvider.getInstance(OnboardingViewController.self)
+        setViewControllerAsRoot(OnboardingViewController.self)
+    }
+    
+    private func setLoginAsRoot(animated: Bool) {
+        if animated {
+            UIView.transition(with: window, duration: 0.6, options: [.preferredFramesPerSecond60,.transitionCurlDown], animations: {
+                self.setViewControllerAsRoot(LoginViewController.self)
+            })
+        } else {
+            self.setViewControllerAsRoot(LoginViewController.self)
+        }
+    }
+    
+    private func setViewControllerAsRoot<T: UIViewController>(_ viewController: T.Type) {
+        let vc = try! instanceProvider.getInstance(T.self)
         window.rootViewController = vc
     }
     
-    func setLoginAsRoot() {
-        let vc = try! instanceProvider.getInstance(LoginViewController.self)
-        window.rootViewController = vc
+    private func presentViewControllerModally<T: UIViewController>(_ viewController: T.Type, with presentationStyle: UIModalPresentationStyle? = nil, animated: Bool, completion: (() -> Void)? = nil) {
+        let vc = try! instanceProvider.getInstance(T.self)
+        vc.modalPresentationStyle = presentationStyle ?? .automatic
+        window.topViewController?.present(vc, animated: animated, completion: completion)
     }
 }

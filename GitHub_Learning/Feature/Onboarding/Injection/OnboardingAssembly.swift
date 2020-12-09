@@ -18,18 +18,9 @@ final class OnboardingAssembly: Assembly {
             .implements(OnboardingView.self)
         container.autoregister(OnboardingController.self, initializer: OnboardingControllerImpl.init)
             .inObjectScope(.container)
-        container.autoregister(UIWindow.self, initializer: UIWindow.init)
         container.autoregister(OnboardingPresenter.self, initializer: OnboardingPresenterImpl.init)
             .initCompleted { (r, presenter) in
                 (presenter as? OnboardingPresenterImpl)?.view = r.resolve(OnboardingView.self)
             }
-        container.register(OnboardingResource.self) { r in
-            let localStorage = r.resolve(LocalStorageFactory.self)!.makeUserDefaultsStorage()
-            return OnboardingResourceImpl(localStorage: localStorage)
-        }
-        container.autoregister(LoadOnboardingFinishedInteractor.self, initializer: LoadOnboardingFinishedInteractor.init)
-        container.autoregister(StoreOnboardingFinishedInteractor.self, initializer: StoreOnboardingFinishedInteractor.init)
-        container.autoregister(StoreOnboardingFinishedFacade.self, initializer: StoreOnboardingFinishedFacadeImpl.init)
-        container.autoregister(LoadOnboardingFinishedFacade.self, initializer: LoadOnboardingFinishedFacadeImpl.init)
     }
 }

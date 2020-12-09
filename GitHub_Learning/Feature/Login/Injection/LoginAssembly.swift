@@ -18,6 +18,7 @@ class LoginAssembly: Assembly {
             .initCompleted { (r, presenter) in
                 (presenter as? LoginPresenterImpl)?.view = r.resolve(LoginView.self)
             }
+        container.autoregister(LoginController.self, initializer: LoginControllerImpl.init)
         container.autoregister(LoginBuilder.self, initializer: LoginBuilderImpl.init)
     }
 }

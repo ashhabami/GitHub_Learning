@@ -17,7 +17,11 @@ final class MainApplicationScopeSpec: ApplicationScopeSpec {
             NavigationAssembly(),
             LoginAssembly(),
             AlertProviderAssembly(),
-            StartUpAssembly()
+            DashboardAssembly(),
+            StartUpAssembly(),
+            OnboardingPersistancyAssembly(),
+            KeychainAssembly(),
+            LogOutAssembly()
         ]
     }
 }

@@ -12,12 +12,11 @@ import CleanCore
 import CleanPlatform
 
 final class NavigationAssembly: Assembly {
-
     func assemble(container: Container) {
         container.autoregister(LoginLauncherController.self, initializer: LoginLauncherControllerImpl.init)
             .inObjectScope(.container)
         container.autoregister(Wireframe.self, initializer: WireframeImpl.init)
         container.register(UIWindow.self) { _ in UIApplication.shared.windows.first! }
+        container.autoregister(DashboardLauncherController.self, initializer: DashboardLauncherControllerImpl.init)
     }
-
 }

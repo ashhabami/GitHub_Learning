@@ -24,8 +24,7 @@ class OnboardingResourceImpl: OnboardingResource {
     }
     
     func loadIsOnboardingFinished() throws -> Bool {
-        let isFinished: Bool = try localStorage.loadSetting(onboardingIsFinishedKey)
-        return isFinished
+        return (try? localStorage.loadSetting(onboardingIsFinishedKey)) ?? false
     }
     
     func storeIsOnboardingFinished(_ isFinished: Bool) {

@@ -15,25 +15,41 @@ protocol StartUpController: BaseController {
 
 final class StartUpControllerImpl: BaseControllerImpl {
     private let loadOnboardingFinishedFacade: LoadOnboardingFinishedFacade
+    private let credentialKeychainController: CredentialKeychainController
     private let wireframe: Wireframe
+    private let dashboardLauncherController: DashboardLauncherController
     
     init(
         loadOnboardingFinishedFacade: LoadOnboardingFinishedFacade,
-        wireframe: Wireframe
+        wireframe: Wireframe,
+        credentialKeychainController: CredentialKeychainController,
+        dashboardLauncherController: DashboardLauncherController
     ) {
         self.loadOnboardingFinishedFacade = loadOnboardingFinishedFacade
         self.wireframe = wireframe
+        self.credentialKeychainController = credentialKeychainController
+        self.dashboardLauncherController = dashboardLauncherController
     }
 }
 
 extension StartUpControllerImpl: StartUpController {
     func startUp() {
-        loadOnboardingFinishedFacade.load(LoadOnboardingFinishedRequest()) { response in
-            switch response {
-            case .success(response: let response):
-                response.isFinished ? self.wireframe.setLoginAsRoot() : self.wireframe.setOnboardingAsRoot()
-            case .failure(error: let error):
-                print(error)
+        loadOnboardingFinishedFacade.load(LoadOnboardingFinishedRequest()) { onboardingResponse in
+            if case .success(let response) = onboardingResponse, response.isFinished {
+                self.checkCredentials()
+            } else {
+                self.wireframe.setOnboardingAsRoot()
+            }
+        }
+    }
+    
+    private func checkCredentials() {
+        credentialKeychainController.loadCredentials { credentialResponse in
+            switch credentialResponse {
+            case .success(let credResponse):
+                self.dashboardLauncherController.launchDashboardWith(credResponse.credentials, from: .startUp)
+            case .failure:
+                self.wireframe.launchLoginAfter(.start)
             }
         }
     }

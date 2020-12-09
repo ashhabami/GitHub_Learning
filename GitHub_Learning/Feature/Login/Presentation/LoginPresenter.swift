@@ -19,13 +19,16 @@ protocol LoginPresenter: Presenter, Listener {
 final class LoginPresenterImpl: BasePresenter<LoginView> {
     private let loginBuilder: LoginBuilder
     private let alertProvider: AlertProviderController
+    private let loginController: LoginController
     
     init(
         loginBuilder: LoginBuilder,
-        alertProvider: AlertProviderController
+        alertProvider: AlertProviderController,
+        loginController: LoginController
     ) {
         self.loginBuilder = loginBuilder
         self.alertProvider = alertProvider
+        self.loginController = loginController
     }
     
     func viewDidLoad() {
@@ -46,7 +49,8 @@ extension LoginPresenterImpl: LoginPresenter {
     
     func logIn() {
         do {
-            let _ = try loginBuilder.build()
+            let credentials = try loginBuilder.build()
+            loginController.logInWith(credentials.email)
         } catch LoginBuilderError.missingMandatoryData {
             
         } catch LoginBuilderError.invalidEmail {
