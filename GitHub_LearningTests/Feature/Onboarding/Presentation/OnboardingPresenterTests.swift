@@ -157,13 +157,13 @@ class OnboardingPresenterTests: XCTestCase {
         // Given
         let controller = FakeOnboardingController()
         setUpWith(onboardingController: controller)
+        sut.index = controller.lastPageIndex
         
         // When
-        sut.index = controller.lastPageIndex
         sut.next()
         
         // Then
-        XCTAssertTrue(controller.isOnboardingFinished)
+        XCTAssert(controller.isOnboardingFinished == true)
     }
     
     private class FakeOnboardingView: TestView, OnboardingView {
