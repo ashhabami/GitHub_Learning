@@ -15,20 +15,17 @@ class OnboardingPresenterTests: XCTestCase {
     private var view: OnboardingView!
     private var controller: OnboardingController!
     private var launchController: LoginLauncherController!
-    private var persistancyController: PersistancyController!
     
     private func setUpWith(
         onboardingController: OnboardingController? = nil,
         onboardingLauncher: LoginLauncherController? = nil,
-        onboardingView: OnboardingView? = nil,
-        persistancyControole: PersistancyController? = nil
+        onboardingView: OnboardingView? = nil
     ) {
         self.controller = onboardingController ?? FakeOnboardingController()
         self.launchController = onboardingLauncher ?? FakeLoginLauncherController()
         self.view = onboardingView ?? FakeOnboardingView()
-        self.persistancyController = persistancyController ?? FakePersistancyController()
         
-        let presenter = OnboardingPresenterImpl(onboardingController: controller, loginLauncherController: launchController, persistancyController: persistancyController)
+        let presenter = OnboardingPresenterImpl(onboardingController: controller, loginLauncherController: launchController)
         presenter.view = view
         sut = presenter
     }
@@ -156,6 +153,19 @@ class OnboardingPresenterTests: XCTestCase {
         XCTAssertNotNil(view.buttonTitle)
     }
     
+    func test_givenOnLastPage_whenNext_thenStoreOnboardingFinishedIsCalled() {
+        // Given
+        let controller = FakeOnboardingController()
+        setUpWith(onboardingController: controller)
+        sut.index = controller.lastPageIndex
+        
+        // When
+        sut.next()
+        
+        // Then
+        XCTAssert(controller.isOnboardingFinished == true)
+    }
+    
     private class FakeOnboardingView: TestView, OnboardingView {
         var buttonTitle: String?
         var arePagesSet = false
@@ -178,6 +188,7 @@ class OnboardingPresenterTests: XCTestCase {
     
     private class FakeOnboardingController: TestController, OnboardingController {
         var isPagesLoaded: Bool?
+        var isOnboardingFinished: Bool?
         
         var lastPageIndex: Int {
             return pages.count - 1
@@ -196,6 +207,14 @@ class OnboardingPresenterTests: XCTestCase {
         func loadPages() {
             isPagesLoaded = true
         }
+        
+        func storeOnboardingFinished(isFinished: Bool) {
+            isOnboardingFinished = isFinished
+        }
+        
+        func getOnboardingFinished(completion: @escaping ((Bool) -> Void)) {
+            
+        }
     }
     
     private class FakeLoginLauncherController: TestController, LoginLauncherController {
@@ -203,17 +222,6 @@ class OnboardingPresenterTests: XCTestCase {
         
         func launchLogin() {
             isLaunched = true
-        }
-    }
-    
-    //TODO:??
-    private class FakePersistancyController: TestController, PersistancyController {
-        func setIsOnboardingFinished(_ value: Bool) {
-            
-        }
-        
-        func IsOnboardingFinished() -> Bool {
-            return false
         }
     }
 }
