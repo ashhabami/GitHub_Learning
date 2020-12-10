@@ -220,7 +220,7 @@ class OnboardingPresenterTests: XCTestCase {
     private class FakeLoginLauncherController: TestController, LoginLauncherController {
         var isLaunched: Bool?
         
-        func launchLogin() {
+        func launchLoginAfter(_ point: LoginLaunchPoint) {
             isLaunched = true
         }
     }

@@ -16,19 +16,22 @@ protocol StartUpController: BaseController {
 final class StartUpControllerImpl: BaseControllerImpl {
     private let loadOnboardingFinishedFacade: LoadOnboardingFinishedFacade
     private let credentialKeychainController: CredentialKeychainController
-    private let wireframe: Wireframe
+    private let loginLauncherController: LoginLauncherController
     private let dashboardLauncherController: DashboardLauncherController
+    private let wireframe: Wireframe
     
     init(
         loadOnboardingFinishedFacade: LoadOnboardingFinishedFacade,
-        wireframe: Wireframe,
+        loginLauncherController: LoginLauncherController,
         credentialKeychainController: CredentialKeychainController,
-        dashboardLauncherController: DashboardLauncherController
+        dashboardLauncherController: DashboardLauncherController,
+        wireframe: Wireframe
     ) {
         self.loadOnboardingFinishedFacade = loadOnboardingFinishedFacade
-        self.wireframe = wireframe
+        self.loginLauncherController = loginLauncherController
         self.credentialKeychainController = credentialKeychainController
         self.dashboardLauncherController = dashboardLauncherController
+        self.wireframe = wireframe
     }
 }
 
@@ -49,7 +52,7 @@ extension StartUpControllerImpl: StartUpController {
             case .success(let credResponse):
                 self.dashboardLauncherController.launchDashboardWith(credResponse.credentials, from: .startUp)
             case .failure:
-                self.wireframe.launchLoginAfter(.start)
+                self.loginLauncherController.launchLoginAfter(.start)
             }
         }
     }

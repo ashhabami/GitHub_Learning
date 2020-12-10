@@ -453,13 +453,6 @@
 			path = Generic;
 			sourceTree = "<group>";
 		};
-		DA9EFB59256287CE007DF94E /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 		DA9EFB5A256287F3007DF94E /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,7 +465,6 @@
 			isa = PBXGroup;
 			children = (
 				DA9EFB5C25628838007DF94E /* View */,
-				DA9EFB59256287CE007DF94E /* Presentation */,
 				DA9EFB5A256287F3007DF94E /* Application */,
 			);
 			path = Fakes;

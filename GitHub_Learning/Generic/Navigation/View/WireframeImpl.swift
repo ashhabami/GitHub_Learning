@@ -39,7 +39,7 @@ class WireframeImpl: Wireframe {
         window.topViewController?.present(alert, animated: true, completion: nil)
     }
     
-    func launchDashboard(from point: LaunchPoint) {
+    func launchDashboard(from point: DashboardLaunchPoint) {
         switch point {
         case .login:
             presentViewControllerModally(DashboardViewController.self, with: .fullScreen, animated: true) {

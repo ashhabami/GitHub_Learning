@@ -89,7 +89,7 @@ extension OnboardingPresenterImpl: OnboardingPresenter {
             index += 1
         } else {
             onboardingController.storeOnboardingFinished(isFinished: true)
-            loginLauncherController.launchLogin()
+            loginLauncherController.launchLoginAfter(.onboarding)
         }
     }
     
