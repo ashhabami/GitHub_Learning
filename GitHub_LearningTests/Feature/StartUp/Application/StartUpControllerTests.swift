@@ -40,7 +40,6 @@ class StartUpControllerTests: XCTestCase {
         sut.startUp()
         
         // Then
-        XCTAssertNotNil(credentialKeychainController.isCalled)
         XCTAssert(credentialKeychainController.isCalled == true)
     }
     
@@ -55,7 +54,6 @@ class StartUpControllerTests: XCTestCase {
         sut.startUp()
         
         // Then
-        XCTAssertNotNil(wireframe.isOnboardingSetAsRoot)
         XCTAssert(wireframe.isOnboardingSetAsRoot == true)
     }
     
@@ -71,7 +69,6 @@ class StartUpControllerTests: XCTestCase {
         sut.startUp()
         
         // Then
-        XCTAssertNotNil(wireframe.isOnboardingSetAsRoot)
         XCTAssert(wireframe.isOnboardingSetAsRoot == true)
     }
     
@@ -92,7 +89,6 @@ class StartUpControllerTests: XCTestCase {
         sut.startUp()
         
         // Then
-        XCTAssertNotNil(dashboardLauncherController.launched)
         XCTAssert(dashboardLauncherController.launched == true)
         XCTAssert(dashboardLauncherController.email == email)
         XCTAssert(dashboardLauncherController.point == DashboardLaunchPoint.startUp)
@@ -116,7 +112,6 @@ class StartUpControllerTests: XCTestCase {
         // Then
         XCTAssert(credentialKeychainController.isCalled == true)
         XCTAssert(credentialKeychainController.isLoaded == false)
-        XCTAssertNotNil(loginLauncherController.launched)
         XCTAssert(loginLauncherController.launched == true)
         XCTAssert(loginLauncherController.point == LoginLaunchPoint.start)
     }
