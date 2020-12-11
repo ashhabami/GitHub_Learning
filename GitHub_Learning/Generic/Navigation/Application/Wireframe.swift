@@ -12,5 +12,5 @@ protocol Wireframe {
     func launchLoginAfter(_ point: LoginLaunchPoint)
     func launchAlertWith(_ title: String, message: String, actions: [AlertAction]?)
     func setOnboardingAsRoot()
-    func launchDashboard(from point: LaunchPoint)
+    func launchDashboard(from point: DashboardLaunchPoint)
 }

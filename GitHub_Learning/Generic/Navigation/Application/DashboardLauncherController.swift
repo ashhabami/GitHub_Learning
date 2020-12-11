@@ -9,13 +9,13 @@
 import Foundation
 import CleanCore
 
-enum LaunchPoint {
+enum DashboardLaunchPoint {
     case startUp
     case login
 }
 
 protocol DashboardLauncherController: BaseController {
-    func launchDashboardWith(_ email: String, from launchPoint: LaunchPoint)
+    func launchDashboardWith(_ email: String, from launchPoint: DashboardLaunchPoint)
 }
 
 final class DashboardLauncherControllerImpl: BaseControllerImpl {
@@ -32,7 +32,7 @@ final class DashboardLauncherControllerImpl: BaseControllerImpl {
 }
 
 extension DashboardLauncherControllerImpl: DashboardLauncherController {
-    func launchDashboardWith(_ email: String, from launchPoint: LaunchPoint) {
+    func launchDashboardWith(_ email: String, from launchPoint: DashboardLaunchPoint) {
         dashboardController.setEmail(email)
         wireframe.launchDashboard(from: launchPoint)
     }

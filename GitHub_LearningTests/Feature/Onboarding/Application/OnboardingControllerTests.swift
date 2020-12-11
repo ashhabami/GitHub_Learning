@@ -126,22 +126,6 @@ class OnboardingControllerTests: XCTestCase {
         var error: Error?
     }
     
-    private class StoreOnboardingFinishedFacadeDummy: StoreOnboardingFinishedFacade {
-        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {}
-    }
-    
-    private class StoreOnboardingFinishedFacadeFailureStub: StoreOnboardingFinishedFacade {
-        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {
-            completion(.failure(error: LocalStorageError.storeFailed("Store Failed")))
-        }
-    }
-    
-    private class StoreOnboardingFinishedFacadeSuccessStub: StoreOnboardingFinishedFacade {
-        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {
-            completion(.success(response: StoreOnboardingFinishedResponse()))
-        }
-    }
-    
     private class LoadOnboardingFinishedFacadeDummy: LoadOnboardingFinishedFacade {
         func load(_ request: LoadOnboardingFinishedRequest, completion: @escaping ((Result<LoadOnboardingFinishedResponse>) -> Void)) {}
     }
@@ -155,6 +139,22 @@ class OnboardingControllerTests: XCTestCase {
     private class LoadOnboardingFinishedFacadeFailureStub: LoadOnboardingFinishedFacade {
         func load(_ request: LoadOnboardingFinishedRequest, completion: @escaping ((Result<LoadOnboardingFinishedResponse>) -> Void)) {
             completion(.failure(error: LocalStorageError.loadFailed("Load Failed")))
+        }
+    }
+    
+    private class StoreOnboardingFinishedFacadeDummy: StoreOnboardingFinishedFacade {
+        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {}
+    }
+
+    private class StoreOnboardingFinishedFacadeFailureStub: StoreOnboardingFinishedFacade {
+        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {
+            completion(.failure(error: LocalStorageError.storeFailed("Store Failed")))
+        }
+    }
+
+    private class StoreOnboardingFinishedFacadeSuccessStub: StoreOnboardingFinishedFacade {
+        func store(_ request: StoreOnboardingFinishedRequest, _ completion: @escaping ((Result<StoreOnboardingFinishedResponse>) -> Void)) {
+            completion(.success(response: StoreOnboardingFinishedResponse()))
         }
     }
 }

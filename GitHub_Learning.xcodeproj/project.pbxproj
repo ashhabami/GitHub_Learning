@@ -30,6 +30,7 @@
 		DA123EAA257E66C1003CC7DC /* LogOutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EA9257E66C1003CC7DC /* LogOutController.swift */; };
 		DA123EAD257E6797003CC7DC /* LogOutAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */; };
 		DA123EB0257F9859003CC7DC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAF257F9859003CC7DC /* LoginController.swift */; };
+		DA123EB525810FBE003CC7DC /* StartUpControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EB425810FBE003CC7DC /* StartUpControllerTests.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -116,6 +117,7 @@
 		DA123EA9257E66C1003CC7DC /* LogOutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutController.swift; sourceTree = "<group>"; };
 		DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutAssembly.swift; sourceTree = "<group>"; };
 		DA123EAF257F9859003CC7DC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DA123EB425810FBE003CC7DC /* StartUpControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpControllerTests.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -378,6 +380,22 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		DA123EB225810FBE003CC7DC /* StartUp */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EB325810FBE003CC7DC /* Application */,
+			);
+			path = StartUp;
+			sourceTree = "<group>";
+		};
+		DA123EB325810FBE003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EB425810FBE003CC7DC /* StartUpControllerTests.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -435,13 +453,6 @@
 			path = Generic;
 			sourceTree = "<group>";
 		};
-		DA9EFB59256287CE007DF94E /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 		DA9EFB5A256287F3007DF94E /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,7 +465,6 @@
 			isa = PBXGroup;
 			children = (
 				DA9EFB5C25628838007DF94E /* View */,
-				DA9EFB59256287CE007DF94E /* Presentation */,
 				DA9EFB5A256287F3007DF94E /* Application */,
 			);
 			path = Fakes;
@@ -627,6 +637,7 @@
 		DAB9291D255A9B5000354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DA123EB225810FBE003CC7DC /* StartUp */,
 				DAB9291E255A9B5B00354C8F /* Onboarding */,
 			);
 			path = Feature;
@@ -1006,6 +1017,7 @@
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
 				DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */,
+				DA123EB525810FBE003CC7DC /* StartUpControllerTests.swift in Sources */,
 				DA9EFB6225628869007DF94E /* TestController.swift in Sources */,
 				DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */,
 			);

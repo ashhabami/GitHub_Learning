@@ -17,7 +17,7 @@ enum LoginLaunchPoint {
 }
 
 protocol LoginLauncherController: BaseController {
-    func launchLogin()
+    func launchLoginAfter(_ point: LoginLaunchPoint)
 }
 
 class LoginLauncherControllerImpl: BaseControllerImpl {
@@ -31,7 +31,7 @@ class LoginLauncherControllerImpl: BaseControllerImpl {
 }
 
 extension LoginLauncherControllerImpl: LoginLauncherController {
-    func launchLogin() {
-        wireframe.launchLoginAfter(.onboarding)
+    func launchLoginAfter(_ point: LoginLaunchPoint) {
+        wireframe.launchLoginAfter(point)
     }
 }
