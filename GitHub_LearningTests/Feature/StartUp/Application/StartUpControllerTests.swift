@@ -156,18 +156,15 @@ class StartUpControllerTests: XCTestCase {
         func deleteCredentials() {}
         
         func loadCredentials(_ completion: @escaping (Result<LoadCredentialsKeychainResponse>) -> Void) {
+            isCalled = true
             if let returnValue = returnValue {
                 switch returnValue {
                 case .success:
-                    isCalled = true
                     isLoaded = true
                 case .failure:
-                    isCalled = true
                     isLoaded = false
                 }
                 completion(returnValue)
-            } else {
-                isCalled = true
             }
         }
     }
