@@ -31,7 +31,9 @@
 		DA123EAD257E6797003CC7DC /* LogOutAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */; };
 		DA123EB0257F9859003CC7DC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAF257F9859003CC7DC /* LoginController.swift */; };
 		DA123EB525810FBE003CC7DC /* StartUpControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EB425810FBE003CC7DC /* StartUpControllerTests.swift */; };
-		DA123EC5258772AD003CC7DC /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EC4258772AD003CC7DC /* DashboardPresenterTests.swift */; };
+		DA123ECC258783A1003CC7DC /* LoginControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123ECB258783A1003CC7DC /* LoginControllerTests.swift */; };
+		DA123ECF258797E8003CC7DC /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123ECE258797E8003CC7DC /* LoginPresenterTests.swift */; };
+		DA123ED12587B660003CC7DC /* LoginBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123ED02587B660003CC7DC /* LoginBuilderTests.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -119,7 +121,9 @@
 		DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutAssembly.swift; sourceTree = "<group>"; };
 		DA123EAF257F9859003CC7DC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DA123EB425810FBE003CC7DC /* StartUpControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpControllerTests.swift; sourceTree = "<group>"; };
-		DA123EC4258772AD003CC7DC /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
+		DA123ECB258783A1003CC7DC /* LoginControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerTests.swift; sourceTree = "<group>"; };
+		DA123ECE258797E8003CC7DC /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
+		DA123ED02587B660003CC7DC /* LoginBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilderTests.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -398,18 +402,28 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		DA123EC22587722F003CC7DC /* Dashboard */ = {
+		DA123EC92587836B003CC7DC /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				DA123EC325877297003CC7DC /* Presentation */,
+				DA123ECD258797C4003CC7DC /* Presentation */,
+				DA123ECA25878377003CC7DC /* Application */,
 			);
-			path = Dashboard;
+			path = Login;
 			sourceTree = "<group>";
 		};
-		DA123EC325877297003CC7DC /* Presentation */ = {
+		DA123ECA25878377003CC7DC /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				DA123EC4258772AD003CC7DC /* DashboardPresenterTests.swift */,
+				DA123ECB258783A1003CC7DC /* LoginControllerTests.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DA123ECD258797C4003CC7DC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DA123ECE258797E8003CC7DC /* LoginPresenterTests.swift */,
+				DA123ED02587B660003CC7DC /* LoginBuilderTests.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -655,7 +669,7 @@
 		DAB9291D255A9B5000354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				DA123EC22587722F003CC7DC /* Dashboard */,
+				DA123EC92587836B003CC7DC /* Login */,
 				DA123EB225810FBE003CC7DC /* StartUp */,
 				DAB9291E255A9B5B00354C8F /* Onboarding */,
 			);
@@ -678,7 +692,6 @@
 				DAB92924255EC68200354C8F /* Injection */,
 				DAB92925255EC68E00354C8F /* View */,
 				DAB92926255EC6A100354C8F /* Presentation */,
-				DAB92928255EC6B400354C8F /* Resources */,
 				DAB92929255EC6BE00354C8F /* Domain */,
 			);
 			path = Login;
@@ -709,13 +722,6 @@
 				DAA4032525667C37006DD914 /* LoginBuilder.swift */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		DAB92928255EC6B400354C8F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		DAB92929255EC6BE00354C8F /* Domain */ = {
@@ -1035,11 +1041,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
-				DA123EC5258772AD003CC7DC /* DashboardPresenterTests.swift in Sources */,
+				DA123ECF258797E8003CC7DC /* LoginPresenterTests.swift in Sources */,
 				DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */,
 				DA123EB525810FBE003CC7DC /* StartUpControllerTests.swift in Sources */,
 				DA9EFB6225628869007DF94E /* TestController.swift in Sources */,
+				DA123ED12587B660003CC7DC /* LoginBuilderTests.swift in Sources */,
 				DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */,
+				DA123ECC258783A1003CC7DC /* LoginControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
