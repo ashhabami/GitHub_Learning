@@ -34,6 +34,7 @@
 		DA123ECC258783A1003CC7DC /* LoginControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123ECB258783A1003CC7DC /* LoginControllerTests.swift */; };
 		DA123ECF258797E8003CC7DC /* LoginPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123ECE258797E8003CC7DC /* LoginPresenterTests.swift */; };
 		DA123ED12587B660003CC7DC /* LoginBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123ED02587B660003CC7DC /* LoginBuilderTests.swift */; };
+		DA123ED52587C1B8003CC7DC /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123ED42587C1B8003CC7DC /* DashboardPresenterTests.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -124,6 +125,7 @@
 		DA123ECB258783A1003CC7DC /* LoginControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginControllerTests.swift; sourceTree = "<group>"; };
 		DA123ECE258797E8003CC7DC /* LoginPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterTests.swift; sourceTree = "<group>"; };
 		DA123ED02587B660003CC7DC /* LoginBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilderTests.swift; sourceTree = "<group>"; };
+		DA123ED42587C1B8003CC7DC /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -428,6 +430,23 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		DA123ED22587C1B8003CC7DC /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				DA123ED32587C1B8003CC7DC /* Presentation */,
+			);
+			name = Dashboard;
+			path = GitHub_LearningTests/Feature/Dashboard;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA123ED32587C1B8003CC7DC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DA123ED42587C1B8003CC7DC /* DashboardPresenterTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +688,7 @@
 		DAB9291D255A9B5000354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DA123ED22587C1B8003CC7DC /* Dashboard */,
 				DA123EC92587836B003CC7DC /* Login */,
 				DA123EB225810FBE003CC7DC /* StartUp */,
 				DAB9291E255A9B5B00354C8F /* Onboarding */,
@@ -1047,6 +1067,7 @@
 				DA9EFB6225628869007DF94E /* TestController.swift in Sources */,
 				DA123ED12587B660003CC7DC /* LoginBuilderTests.swift in Sources */,
 				DAB92935255ED23700354C8F /* OnboardingPresenterTests.swift in Sources */,
+				DA123ED52587C1B8003CC7DC /* DashboardPresenterTests.swift in Sources */,
 				DA123ECC258783A1003CC7DC /* LoginControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
