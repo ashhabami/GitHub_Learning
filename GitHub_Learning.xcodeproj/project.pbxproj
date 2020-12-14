@@ -31,6 +31,7 @@
 		DA123EAD257E6797003CC7DC /* LogOutAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */; };
 		DA123EB0257F9859003CC7DC /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EAF257F9859003CC7DC /* LoginController.swift */; };
 		DA123EB525810FBE003CC7DC /* StartUpControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EB425810FBE003CC7DC /* StartUpControllerTests.swift */; };
+		DA123EC5258772AD003CC7DC /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EC4258772AD003CC7DC /* DashboardPresenterTests.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -118,6 +119,7 @@
 		DA123EAC257E6797003CC7DC /* LogOutAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutAssembly.swift; sourceTree = "<group>"; };
 		DA123EAF257F9859003CC7DC /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DA123EB425810FBE003CC7DC /* StartUpControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpControllerTests.swift; sourceTree = "<group>"; };
+		DA123EC4258772AD003CC7DC /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -396,6 +398,22 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		DA123EC22587722F003CC7DC /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EC325877297003CC7DC /* Presentation */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DA123EC325877297003CC7DC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EC4258772AD003CC7DC /* DashboardPresenterTests.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +655,7 @@
 		DAB9291D255A9B5000354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DA123EC22587722F003CC7DC /* Dashboard */,
 				DA123EB225810FBE003CC7DC /* StartUp */,
 				DAB9291E255A9B5B00354C8F /* Onboarding */,
 			);
@@ -1016,6 +1035,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
+				DA123EC5258772AD003CC7DC /* DashboardPresenterTests.swift in Sources */,
 				DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */,
 				DA123EB525810FBE003CC7DC /* StartUpControllerTests.swift in Sources */,
 				DA9EFB6225628869007DF94E /* TestController.swift in Sources */,
