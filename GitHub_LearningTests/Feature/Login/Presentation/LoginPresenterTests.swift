@@ -14,7 +14,7 @@ class LoginPresenterTests: XCTestCase {
     private var sut: LoginPresenterImpl!
     
     private func setUpTests(
-        loginBuilder: LoginBuilder = LoginBuilderDummy(),
+        loginBuilder: LoginBuilder = LoginBuilderDummy(isMandatoryDataFilled: false),
         alertProvider: AlertProviderController = AlertProviderControllerDummy(),
         loginController: LoginController = LoginControllerDummy(),
         loginView: LoginView = LoginViewDummy()
@@ -28,25 +28,25 @@ class LoginPresenterTests: XCTestCase {
     }
     
     func test_givenTestEmail_whenUpdateEmail_thenIsLoginEnabledIsCalled() {
-        // given
+        // Given
         let testEmail = "test@gmail.com"
         let view = LoginViewDummy()
         setUpTests(loginView: view)
         
-        // when
+        // When
         sut.updateEmail(testEmail)
         
-        // then
-        XCTAssert(view.isLoginEnbaledCalled == true)
+        // Then
+        XCTAssert(view.isLoginEnabledCalled == true)
     }
     
     func test_givenTestEmail_whenUpdateEmail_thenLoginBuildersEmailIsFilled() {
-        // given
+        // Given
         let testEmail = "test@gmail.com"
-        let builder = LoginBuilderDummy()
+        let builder = LoginBuilderDummy(isMandatoryDataFilled: false)
         setUpTests(loginBuilder: builder)
         
-        // when
+        // When
         sut.updateEmail(testEmail)
         
         // then
@@ -54,246 +54,128 @@ class LoginPresenterTests: XCTestCase {
     }
     
     func test_givenTestPassword_whenUpdatePassword_thenIsLoginEnabledIsCalled() {
-        // given
+        // Given
         let testPassword = "Test123567"
         let view = LoginViewDummy()
         setUpTests(loginView: view)
         
-        // when
+        // When
         sut.updateEmail(testPassword)
         
-        // then
-        XCTAssert(view.isLoginEnbaledCalled == true)
+        // Then
+        XCTAssert(view.isLoginEnabledCalled == true)
     }
     
     func test_givenTestPassword_whenUpdatePassword_thenLoginBuildersPasswordIsFilled() {
-        // given
+        // Given
         let testPassword = "Test123567"
-        let builder = LoginBuilderDummy()
+        let builder = LoginBuilderDummy(isMandatoryDataFilled: false)
         setUpTests(loginBuilder: builder)
         
-        // when
+        // When
         sut.updateEmail(testPassword)
         
-        // then
+        // Then
         XCTAssert(builder.email == testPassword)
     }
     
-    
     func test_givenMandatoryDataFilled_whenUpdateCredentails_thenLoginIsEnabled() {
-        // given
+        // Given
         let testEmail = "test@gmail.com"
         let testPassword = "Test123567"
+        let builder = LoginBuilderDummy(isMandatoryDataFilled: true)
         let view = LoginViewDummy()
-        setUpTests(loginView: view)
+        setUpTests(loginBuilder: builder, loginView: view)
         
-        // when
+        // When
         sut.updateEmail(testEmail)
         sut.updatePassword(testPassword)
         
-        // then
+        // Then
         XCTAssert(view.isLoginEnabled == true)
     }
     
-    func test_givenEmailNotFilled_whenUpdateCredentails_thenLoginIsNotEnabled() {
-        // given
+    func test_givenMandatoryDataNotFilled_whenUpdateCredentails_thenLoginIsNotEnabled() {
+        // Given
         let testEmail: String? = nil
         let testPassword = "Test123567"
         let view = LoginViewDummy()
-        setUpTests(loginView: view)
+        let builder = LoginBuilderDummy(isMandatoryDataFilled: false)
+        setUpTests(loginBuilder: builder, loginView: view)
         
-        // when
+        // When
         sut.updateEmail(testEmail)
         sut.updatePassword(testPassword)
         
-        // then
+        // Then
         XCTAssert(view.isLoginEnabled == false)
     }
     
-    func test_givenPasswordNotFilled_whenUpdateCredentails_thenLoginIsNotEnabled() {
-        // given
-        let testEmail = "test@gmail.com"
-        let testPassword: String? = nil
-        let view = LoginViewDummy()
-        setUpTests(loginView: view)
-        
-        // when
-        sut.updateEmail(testEmail)
-        sut.updatePassword(testPassword)
-        
-        // then
-        XCTAssert(view.isLoginEnabled == false)
-    }
-    
-    func test_givenEmailIsEmpty_whenUpdateCredentails_thenLoginIsNotEnabled() {
-        // given
-        let testEmail = ""
-        let testPassword = "Test123567"
-        let view = LoginViewDummy()
-        setUpTests(loginView: view)
-        
-        // when
-        sut.updateEmail(testEmail)
-        sut.updatePassword(testPassword)
-        
-        // then
-        XCTAssert(view.isLoginEnabled == false)
-    }
-    
-    func test_givenPasswordIsEmpty_whenUpdateCredentails_thenLoginIsNotEnabled() {
-        // given
-        let testEmail = "test@gmail.com"
-        let testPassword = ""
-        let view = LoginViewDummy()
-        setUpTests(loginView: view)
-        
-        // when
-        sut.updateEmail(testEmail)
-        sut.updatePassword(testPassword)
-        
-        // then
-        XCTAssert(view.isLoginEnabled == false)
-    }
-    
-    func test_givenValidCredentails_whenLogIn_thenLogInWithIsCalled() {
-        // given
-        let testEmail = "test@gmail.com"
-        let testPassword = "Test123567"
+    func test_givenMandatoryDataFilled_whenLogIn_thenLogInWithIsCalled() {
+        // Given
         let loginController = LoginControllerDummy()
-        let builder = LoginBuilderDummy()
+        let builder = LoginBuilderDummy(isMandatoryDataFilled: true)
         setUpTests(loginBuilder: builder, loginController: loginController)
         
-        // when
-        builder.email = testEmail
-        builder.password = testPassword
+        // When
         sut.logIn()
         
-        // then
+        // Then
         XCTAssert(loginController.isLogedIn == true)
     }
     
-    func test_givenValidCredentails_whenLogIn_thenNoAlertIsThrown() {
-        // given
-        let testEmail = "test@gmail.com"
-        let testPassword = "Test123567"
-        let builder = LoginBuilderDummy()
+    func test_givenMandatoryDataFilled_whenLogIn_thenNoAlertIsThrown() {
+        // Given
+        let builder = LoginBuilderDummy(isMandatoryDataFilled: true)
         let provider = AlertProviderControllerDummy()
         setUpTests(loginBuilder: builder, alertProvider: provider)
         
-        // when
-        builder.email = testEmail
-        builder.password = testPassword
+        // When
         sut.logIn()
         
-        // then
+        // Then
         XCTAssertNil(provider.alert)
     }
     
-    func test_givenUnvalidEmail_whenLogIn_thenLogInWithIsNotCalled() {
-        // given
-        let testEmail = "test@gmail.c"
-        let testPassword = "Test123567"
+    func test_givenMandatoryDataNotFilled_whenLogIn_thenLogInWithIsNotCalledAndErrorIsThrown() {
+        // Given
         let loginController = LoginControllerDummy()
-        let builder = LoginBuilderDummy()
+        let builder = LoginBuilderDummy(isMandatoryDataFilled: false) { throw LoginBuilderError.missingMandatoryData }
         setUpTests(loginBuilder: builder, loginController: loginController)
         
-        // when
-        builder.email = testEmail
-        builder.password = testPassword
+        // When
         sut.logIn()
         
-        // then
+        // Then
         XCTAssertNil(loginController.isLogedIn)
-    }
-    
-    func test_givenUnvalidEmail_whenLogIn_thenInvalidEmailAlertIsThrown() {
-        // given
-        let testEmail = "test@gmail.c"
-        let testPassword = "Test123567"
-        let alertTitle = "Invalid Email"
-        let builder = LoginBuilderDummy()
-        let provider = AlertProviderControllerDummy()
-        setUpTests(loginBuilder: builder, alertProvider: provider)
-        
-        // when
-        builder.email = testEmail
-        builder.password = testPassword
-        sut.logIn()
-        
-        // then
-        XCTAssertNotNil(provider.alert)
-        XCTAssert(alertTitle == provider.alert?.title)
-    }
-    
-    func test_givenUnvalidPassword_whenLogIn_thenInvalidPasswordAlertIsThrown() {
-        // given
-        let testEmail = "test@gmail.com"
-        let testPassword = "Test"
-        let alertTitle = "Invalid Password"
-        let builder = LoginBuilderDummy()
-        let provider = AlertProviderControllerDummy()
-        setUpTests(loginBuilder: builder, alertProvider: provider)
-        
-        // when
-        builder.email = testEmail
-        builder.password = testPassword
-        sut.logIn()
-        
-        // then
-        XCTAssertNotNil(provider.alert)
-        XCTAssert(alertTitle == provider.alert?.title)
-    }
-    
-    func test_givenUnvalidPassword_whenLogIn_thenLogInWithIsNotCalled() {
-        // given
-        let testEmail = "test@gmail.com"
-        let testPassword = "Test"
-        let loginController = LoginControllerDummy()
-        let builder = LoginBuilderDummy()
-        setUpTests(loginBuilder: builder, loginController: loginController)
-        
-        // when
-        builder.email = testEmail
-        builder.password = testPassword
-        sut.logIn()
-        
-        // then
-        XCTAssertNil(loginController.isLogedIn)
+        XCTAssertThrowsError(try builder.build())
     }
     
     private class LoginBuilderDummy: LoginBuilder {
         var email: String?
         var password: String?
-        
-        var isMandatoryDataFilled: Bool {
-            guard let email = email, let password = password else { return false }
-            return !email.isEmpty && !password.isEmpty
+        var isMandatoryDataFilled: Bool { _isMandatoryDataFilled }
+
+        private var _isMandatoryDataFilled: Bool
+        private var _build: () throws -> LoginCredentials
+
+        init(
+            isMandatoryDataFilled: Bool,
+            build: @escaping () throws -> LoginCredentials = { return LoginCredentials(email: "dummy", password: "dummy") }
+        ) {
+            _isMandatoryDataFilled = isMandatoryDataFilled
+            _build = build
         }
         
-        var isEmailValid: Bool {
-            guard let email = email else { return false }
-            return email.isEmail
-        }
-        
-        var isPasswordValid: Bool {
-            guard let password = password else { return false }
-            return password.containsNumber && password.containsCapital && password.length > 7
-        }
-        
-        func build() throws -> LoginCredentials {
-            guard let email = email, let password = password else { throw LoginBuilderError.missingMandatoryData }
-            guard isEmailValid else { throw LoginBuilderError.invalidEmail }
-            guard isPasswordValid else { throw LoginBuilderError.invalidPassword }
-            return LoginCredentials(email: email, password: password)
-        }
+        func build() throws -> LoginCredentials { try _build() }
     }
     
     private class LoginViewDummy: TestView, LoginView {
-        var isLoginEnbaledCalled: Bool?
+        var isLoginEnabledCalled: Bool?
         var isLoginEnabled: Bool?
         
         func isLoginEnabled(_ isEnabled: Bool) {
-            isLoginEnbaledCalled = true
+            isLoginEnabledCalled = true
             isLoginEnabled = isEnabled
         }
     }

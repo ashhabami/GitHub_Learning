@@ -35,11 +35,8 @@ class LoginBuilderTests: XCTestCase {
         sut.email = "test@gmail.com"
         sut.password = nil
         
-        // When
-        let credentails = try? sut.build()
-        
         // Then
-        XCTAssertNil(credentails)
+        XCTAssertThrowsError(try sut.build())
     }
     
     func test_givenEmailIsEmpty_whenBuild_thenCredentailsAreNotBuild() {
@@ -48,11 +45,8 @@ class LoginBuilderTests: XCTestCase {
         sut.email = ""
         sut.password = "Test124567"
         
-        // When
-        let credentails = try? sut.build()
-        
         // Then
-        XCTAssertNil(credentails)
+        XCTAssertThrowsError(try sut.build())
     }
     
     func test_givenPasswordIsEmpty_whenBuild_thenCredentailsAreNotBuild() {
@@ -61,11 +55,8 @@ class LoginBuilderTests: XCTestCase {
         sut.email = "test@gmail.com"
         sut.password = ""
         
-        // When
-        let credentails = try? sut.build()
-        
         // Then
-        XCTAssertNil(credentails)
+        XCTAssertThrowsError(try sut.build())
     }
     
     func test_givenValidCredentails_whenBuild_thenCredentailsAreBuild() {

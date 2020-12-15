@@ -14,41 +14,42 @@ class LoginControllerTests: XCTestCase {
     private var sut: LoginControllerImpl!
     
     private func setupTest(
-        dashboardLauncherControllerDummy: DashboardLauncherController = DashboardLauncherControllerDummy(),
+        dashboardLauncherController: DashboardLauncherController = DashboardLauncherControllerDummy(),
         keychainController: CredentialKeychainController = KeychainControllerDummy()
     ) {
         sut = LoginControllerImpl(
-            dashboardLauncherController: dashboardLauncherControllerDummy,
+            dashboardLauncherController: dashboardLauncherController,
             keychainController: keychainController
         )
     }
     
     func test_givenTestEmail_whenLoginWith_thenStoreCredentailsIsCalled() {
-        // given
+        // Given
         let testEmail = "test@gmail.com"
         let keychainController = KeychainControllerDummy()
         setupTest(keychainController: keychainController)
-        // when
+        
+        // When
         sut.logInWith(testEmail)
         
-        // then
-        XCTAssert(keychainController.isStoreCalled == true)
+        // Then
         XCTAssert(keychainController.credentials == testEmail)
     }
     
     func test_givenTestEmail_whenLoginWith_thenLaunchDashboardWithIsCalled() {
-        // given
+        // Given
         let testEmail = "test@gmail.com"
         let dashboardLauncher = DashboardLauncherControllerDummy()
-        setupTest(dashboardLauncherControllerDummy: dashboardLauncher)
-        // when
+        setupTest(dashboardLauncherController: dashboardLauncher)
+        
+        // When
         sut.logInWith(testEmail)
         
-        // then
+        // Then
         XCTAssert(dashboardLauncher.email == testEmail)
         XCTAssert(dashboardLauncher.launchPoint == .login)
-      }
-      
+    }
+    
     private class DashboardLauncherControllerDummy: TestController, DashboardLauncherController {
         let launchPoint = DashboardLaunchPoint.login
         var email: String?
@@ -60,10 +61,8 @@ class LoginControllerTests: XCTestCase {
     
     private class KeychainControllerDummy: TestController, CredentialKeychainController {
         var credentials: String?
-        var isStoreCalled: Bool?
         
         func storeCredentials(_ credentials: String) {
-            isStoreCalled = true
             self.credentials = credentials
         }
         
