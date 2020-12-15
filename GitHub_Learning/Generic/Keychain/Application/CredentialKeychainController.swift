@@ -11,7 +11,7 @@ import CleanPlatform
 import CleanCore
 
 protocol CredentialKeychainController: BaseController {
-    func storeCredentials(_ credintals: String)
+    func storeCredentials(_ credentials: String)
     func loadCredentials(_ completion: @escaping (Result<LoadCredentialsKeychainResponse>) -> Void)
     func deleteCredentials()
 }
@@ -46,8 +46,8 @@ extension CredentialKeychainControllerImpl: CredentialKeychainController {
         loadCredentialsKeychainFacade.loadCredentials(LoadCredentialsKeychainRequest(), completion: completion)
     }
     
-    func storeCredentials(_ credintals: String) {
-        storeCredentialsKeychainFacade.storeCredentials(StoreCredentialsKeychainRequest(credentials: credintals)) { [weak self] response in
+    func storeCredentials(_ credentials: String) {
+        storeCredentialsKeychainFacade.storeCredentials(StoreCredentialsKeychainRequest(credentials: credentials)) { [weak self] response in
             guard let self = self else { return }
             self.handleResult(response) { _ in
                 print("Credintals successfully stored")
