@@ -244,7 +244,7 @@ class LoginPresenterTests: XCTestCase {
         XCTAssert(alertTitle == provider.alert?.title)
     }
     
-    func test_givenUnvalidPassword_whenLogIn_thenLogInWithIsNotCalled() {
+    func test_givenInvalidPassword_whenLogIn_thenLogInWithIsNotCalled() {
         // given
         let testEmail = "test@gmail.com"
         let testPassword = "Test"
