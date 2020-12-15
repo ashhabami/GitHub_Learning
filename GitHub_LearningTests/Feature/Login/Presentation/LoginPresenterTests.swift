@@ -123,19 +123,6 @@ class LoginPresenterTests: XCTestCase {
         // Then
         XCTAssert(loginController.isLogedIn == true)
     }
-    // Chyba TODO:
-    func test_givenMandatoryDataFilled_whenLogIn_thenNoAlertIsThrown() {
-        // Given
-        let builder = LoginBuilderDummy(isMandatoryDataFilled: true)
-        let provider = AlertProviderControllerDummy()
-        setUpTests(loginBuilder: builder, alertProvider: provider)
-        
-        // When
-        sut.logIn()
-        
-        // Then
-        XCTAssertNil(provider.alert)
-    }
     
     func test_givenMandatoryDataNotFilled_whenLogIn_thenLogInWithIsNotCalledAndErrorIsThrown() {
         // Given
@@ -154,10 +141,10 @@ class LoginPresenterTests: XCTestCase {
         var email: String?
         var password: String?
         var isMandatoryDataFilled: Bool { _isMandatoryDataFilled }
-
+        
         private var _isMandatoryDataFilled: Bool
         private var _build: () throws -> LoginCredentials
-
+        
         init(
             isMandatoryDataFilled: Bool,
             build: @escaping () throws -> LoginCredentials = { return LoginCredentials(email: "dummy", password: "dummy") }
