@@ -16,50 +16,75 @@ class LoginBuilderTests: XCTestCase {
         sut = LoginBuilderImpl()
     }
     
-    func test_givenEmailIsNotFilled_whenBuild_thenCredentailsAreNotBuild() {
+    func test_givenEmailIsNotFilled_whenBuild_thenMissingMandatoryDataErrorIsThrown() {
         // Given
         setUpTests()
         sut.email = nil
         sut.password = "Test124567"
         
         // When
-        let credentails = try? sut.build()
-        
-        // Then
-        XCTAssertNil(credentails)
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.missingMandatoryData)
+        }
     }
     
-    func test_givenPasswordIsNotFilled_whenBuild_thenCredentailsAreNotBuild() {
+    func test_givenPasswordIsNotFilled_whenBuild_thenMissingMandatoryDataErrorIsThrown() {
         // Given
         setUpTests()
         sut.email = "test@gmail.com"
         sut.password = nil
         
-        // Then
-        XCTAssertThrowsError(try sut.build())
+        // When
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.missingMandatoryData)
+        }
     }
     
-    func test_givenEmailIsEmpty_whenBuild_thenCredentailsAreNotBuild() {
+    func test_givenEmailIsEmpty_whenBuild_thenInvalidEmailErrorIsThrown() {
         // Given
         setUpTests()
         sut.email = ""
         sut.password = "Test124567"
         
-        // Then
-        XCTAssertThrowsError(try sut.build())
+        // When
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.invalidEmail)
+        }
     }
     
-    func test_givenPasswordIsEmpty_whenBuild_thenCredentailsAreNotBuild() {
+    func test_givenPasswordIsEmpty_whenBuild_thenInvalidPasswordErrorIsThrown() {
         // Given
         setUpTests()
         sut.email = "test@gmail.com"
         sut.password = ""
         
-        // Then
-        XCTAssertThrowsError(try sut.build())
+        // When
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.invalidPassword)
+        }
     }
     
-    func test_givenValidCredentails_whenBuild_thenCredentailsAreBuild() {
+    func test_givenValidCredentails_whenBuild_thenCredentailsAreBuild() throws {
         // Given
         setUpTests()
         let testEmail = "test@gmail.com"
@@ -68,11 +93,11 @@ class LoginBuilderTests: XCTestCase {
         sut.password = testPassword
         
         // When
-        let credentails = try? sut.build()
+        let credentails = try sut.build()
         
         // Then
-        XCTAssert(testEmail == credentails?.email)
-        XCTAssert(testPassword == credentails?.password)
+        XCTAssert(testEmail == credentails.email)
+        XCTAssert(testPassword == credentails.password)
     }
     
     func test_givenIncorrectEmail_thenEmailIsNotValid() {

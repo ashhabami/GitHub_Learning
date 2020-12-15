@@ -123,7 +123,7 @@ class LoginPresenterTests: XCTestCase {
         // Then
         XCTAssert(loginController.isLogedIn == true)
     }
-    
+    // Chyba TODO:
     func test_givenMandatoryDataFilled_whenLogIn_thenNoAlertIsThrown() {
         // Given
         let builder = LoginBuilderDummy(isMandatoryDataFilled: true)
@@ -148,7 +148,6 @@ class LoginPresenterTests: XCTestCase {
         
         // Then
         XCTAssertNil(loginController.isLogedIn)
-        XCTAssertThrowsError(try builder.build())
     }
     
     private class LoginBuilderDummy: LoginBuilder {
