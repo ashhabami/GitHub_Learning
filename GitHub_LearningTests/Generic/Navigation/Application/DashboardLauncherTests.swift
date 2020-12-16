@@ -18,20 +18,37 @@ class DashboardLauncherTests: XCTestCase {
         sut = DashboardLauncherControllerImpl(wireframe: wireframe, dashboardController: dashboardController)
     }
     
-    func test_givenDashboardLauncherController_whenlaunchDashboardWith_thenWireframeCallsLaunchDashboard() {
+    func test_givenDashboardLauncherController_whenlaunchDashboardFromStartUp_thenWireframeCallsLaunchDashboard() {
         // Given
         let wireframe = WireframeDummy()
+        let launchPoint = DashboardLaunchPoint.startUp
         let testEmail = "test@gmail.com"
         setupTest(wireframe: wireframe)
         
         // When
-        sut.launchDashboardWith(testEmail, from: .startUp)
+        sut.launchDashboardWith(testEmail, from: launchPoint)
         
         // Then
         XCTAssert(wireframe.isLaunchedDashboardCalled == true)
+        XCTAssert(wireframe.launchPoint == launchPoint)
     }
     
-    func test_givenTestEmail_whenlaunchDashboardWith_thenEmailIsSetToDashboardController() {
+    func test_givenDashboardLauncherController_whenlaunchDashboardFromLogin_thenWireframeCallsLaunchDashboard() {
+        // Given
+        let wireframe = WireframeDummy()
+        let launchPoint = DashboardLaunchPoint.login
+        let testEmail = "test@gmail.com"
+        setupTest(wireframe: wireframe)
+        
+        // When
+        sut.launchDashboardWith(testEmail, from: launchPoint)
+        
+        // Then
+        XCTAssert(wireframe.isLaunchedDashboardCalled == true)
+        XCTAssert(wireframe.launchPoint == launchPoint)
+    }
+    
+    func test_givenTestEmail_whenlaunchDashboard_thenEmailIsSetToDashboardController() {
         // Given
         let wireframe = WireframeDummy()
         let controller = DashboardControllerDummy()
@@ -47,9 +64,11 @@ class DashboardLauncherTests: XCTestCase {
     
     private class WireframeDummy: Wireframe {
         var isLaunchedDashboardCalled: Bool?
+        var launchPoint: DashboardLaunchPoint?
         
         func launchDashboard(from point: DashboardLaunchPoint) {
             isLaunchedDashboardCalled = true
+            launchPoint = point
         }
         
         func launchLoginAfter(_ point: LoginLaunchPoint) {}
