@@ -28,13 +28,13 @@ class LoginBuilderImpl {
         guard let email = email, let password = password else { return false }
         return !email.isEmpty && !password.isEmpty
     }
-    var isEmailValid: Bool {
+    private var isEmailValid: Bool {
         guard let email = email else { return false }
         return email.isEmail
     }
-    var isPasswordValid: Bool {
+    private var isPasswordValid: Bool {
         guard let password = password else { return false }
-        return password.containsNumber && password.containsCapital && password.length > 7
+        return password.containsNumber && password.containsCapital && password.count > 7
     }
 }
 

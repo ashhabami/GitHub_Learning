@@ -18,50 +18,34 @@ class StringExtensionTests: XCTestCase {
     
     func test_givenNumberInString_thenStringContainsNumber() {
         // Given
-        setUpTestWith(string: "1")
+        let numbers = [
+            Value(value: "1", contains: true),
+            Value(value: "a", contains: false),
+            Value(value: "1414", contains: true),
+            Value(value: ".", contains: false),
+            Value(value: "123456", contains: true)
+        ]
         
-        // Then
-        XCTAssertTrue(sut.containsNumber)
-    }
-    
-    func test_givenNoNumberInString_thenStringDoNotContainsNumber() {
-        // Given
-        setUpTestWith(string: "a")
-        
-        // Then
-        XCTAssertFalse(sut.containsNumber)
+        numbers.forEach() {
+            // Then
+            XCTAssert($0.value.containsNumber == $0.contains)
+        }
     }
     
     func test_givenCapitalInString_thenStringContainsCapital() {
         // Given
-        setUpTestWith(string: "A")
+        let capitals = [
+            Value(value: "A", contains: true),
+            Value(value: "a", contains: false),
+            Value(value: "aBaC", contains: true),
+            Value(value: ".", contains: false),
+            Value(value: "123456", contains: false)
+        ]
         
+        capitals.forEach() {
         // Then
-        XCTAssertTrue(sut.containsCapital)
-    }
-    
-    func test_givenNoCapitalInString_thenStringDoNotContainsCapital() {
-        // Given
-        setUpTestWith(string: "a")
-        
-        // Then
-        XCTAssertFalse(sut.containsCapital)
-    }
-    
-    func test_givenTwoLettersInString_thenStringsLenghtIsTwo() {
-        // Given
-        setUpTestWith(string: "ab")
-        
-        // Then
-        XCTAssertTrue(sut.length == 2)
-    }
-    
-    func test_givenOneLettersInString_thenStringsLenghtIsNotTwo() {
-        // Given
-        setUpTestWith(string: "a")
-        
-        // Then
-        XCTAssertFalse(sut.length == 2)
+            XCTAssert($0.value.containsCapital == $0.contains)
+        }
     }
     
     func test_givenValidEmail_thenIsEmail() {
@@ -112,43 +96,8 @@ class StringExtensionTests: XCTestCase {
         XCTAssertFalse(sut.isEmail)
     }
     
-    func test_givenValidPassword_thenIsValidPassword() {
-        // Given
-        setUpTestWith(string: "Abcfe1234")
-        
-        // Then
-        XCTAssertTrue(isValidPassword)
-    }
-    
-    func test_givenNoNumberInPassword_thenIsNotValidPassword() {
-        // Given
-        setUpTestWith(string: "Abcdefghch")
-        
-        // Then
-        XCTAssertFalse(isValidPassword)
-    }
-    
-    func test_givenNoCapitalInPassword_thenIsNotValidPassword() {
-        // Given
-        setUpTestWith(string: "abcfe1234")
-        
-        // Then
-        XCTAssertFalse(isValidPassword)
-    }
-    
-    func test_givenLenghtOfPasswordIsLessThenSeven_thenIsNotValidPassword() {
-        // Given
-        setUpTestWith(string: "Abcf12")
-        
-        // Then
-        XCTAssertFalse(isValidPassword)
-    }
-    
-    private var isValidPassword: Bool {
-        guard let sut = sut else {
-            return false
-        }
-        guard sut.containsNumber, sut.containsCapital, sut.length > 7 else { return false }
-        return true
+    private struct Value {
+        let value: String
+        let contains: Bool
     }
 }

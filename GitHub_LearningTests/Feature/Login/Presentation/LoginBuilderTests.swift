@@ -84,7 +84,7 @@ class LoginBuilderTests: XCTestCase {
         }
     }
     
-    func test_givenValidCredentails_whenBuild_thenCredentailsAreBuild() throws {
+    func test_givenValidCredentails_whenBuild_thenCredentailsAreValidAndBuild() throws {
         // Given
         setUpTests()
         let testEmail = "test@gmail.com"
@@ -100,36 +100,71 @@ class LoginBuilderTests: XCTestCase {
         XCTAssert(testPassword == credentails.password)
     }
     
-    func test_givenIncorrectEmail_thenEmailIsNotValid() {
+    func test_givenIncorrectEmail_whenBuild_thenEmailIsNotValid() {
         // Given
         setUpTests()
         sut.email = "test@gmail.c"
         sut.password = "Test124567"
         
-        // Then
-        XCTAssertFalse(sut.isEmailValid)
-        XCTAssertTrue(sut.isPasswordValid)
+        // When
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.invalidEmail)
+        }
     }
     
-    func test_givenIncorrectPassword_thenPasswordIsNotValid() {
+    func test_givenNoNumberInPassword_whenBuild_thenIsNotValidPassword() {
         // Given
         setUpTests()
         sut.email = "test@gmail.com"
-        sut.password = "Test"
+        sut.password = "Abcdefghch"
         
-        // Then
-        XCTAssertTrue(sut.isEmailValid)
-        XCTAssertFalse(sut.isPasswordValid)
+        // When
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.invalidPassword)
+        }
     }
     
-    func test_givenCorrectCredentails_thenCredentailsAreValid() {
+    func test_givenNoCapitalInPassword_whenBuild_thenIsNotValidPassword() {
         // Given
         setUpTests()
         sut.email = "test@gmail.com"
-        sut.password = "Test124567"
+        sut.password = "abcfe1234"
         
-        // Then
-        XCTAssertTrue(sut.isEmailValid)
-        XCTAssertTrue(sut.isPasswordValid)
+        // When
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.invalidPassword)
+        }
+    }
+    
+    func test_givenLenghtOfPasswordIsLessThenSeven_whenBuild_thenIsNotValidPassword() {
+        // Given
+        setUpTests()
+        sut.email = "test@gmail.com"
+        sut.password = "Abcf12"
+        
+        // When
+        XCTAssertThrowsError(try sut.build()) { error in
+            guard let thrownError = error as? LoginBuilderError else {
+                XCTFail("Wrong type of error")
+                return
+            }
+            // Then
+            XCTAssertEqual(thrownError, LoginBuilderError.invalidPassword)
+        }
     }
 }
