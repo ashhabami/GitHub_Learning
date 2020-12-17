@@ -21,10 +21,6 @@ extension String {
         return isCapital != nil
     }
     
-    var length: Int {
-        return self.count
-    }
-    
     var isEmail: Bool {
         do {
             let regex = try NSRegularExpression(pattern: "[\\w.]+@[a-zA-Z]{2,}\\.[a-zA-Z]{2,3}\\b", options: [])
