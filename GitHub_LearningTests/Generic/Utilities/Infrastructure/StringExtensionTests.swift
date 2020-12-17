@@ -58,16 +58,16 @@ class StringExtensionTests: XCTestCase {
         }
     }
     
-    func test_givenInvalidEmail_thenIsNotEmail() {
+    func test_EmailIsValid() {
         // Given
         let emails = [
-          Email(email: "test@gmailcom", isEmail: false),
-          Email(email: "testgmail.com", isEmail: false),
-          Email(email: "test@gmail.c", isEmail: false),
-          Email(email: "@gmail.com", isEmail: false),
-          Email(email: "test@.com", isEmail: false),
-          Email(email: "test@gmail.com", isEmail: true),
-          Email(email: "aminsdfsdfkj12ě@seznam.cze", isEmail: true)
+            Email(email: "test@gmailcom", isEmail: false),
+            Email(email: "testgmail.com", isEmail: false),
+            Email(email: "test@gmail.c", isEmail: false),
+            Email(email: "@gmail.com", isEmail: false),
+            Email(email: "test@.com", isEmail: false),
+            Email(email: "test@gmail.com", isEmail: true),
+            Email(email: "aminsdfsdfkj12ě@seznam.cze", isEmail: true)
         ]
         
         // Then
