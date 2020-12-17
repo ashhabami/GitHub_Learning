@@ -40,4 +40,3 @@ extension AlertProviderControllerImpl: AlertProviderController {
         wireframe.launchAlertWith(title, message: message, actions: actions)
     }
 }
-
