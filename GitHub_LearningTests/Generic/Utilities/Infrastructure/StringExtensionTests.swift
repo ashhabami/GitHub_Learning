@@ -31,8 +31,8 @@ class StringExtensionTests: XCTestCase {
             Value(value: "3_2", contains: true)
         ]
         
+        // Then
         numbers.forEach() {
-            // Then
             XCTAssert($0.value.containsNumber == $0.contains)
         }
     }
@@ -48,65 +48,41 @@ class StringExtensionTests: XCTestCase {
             Value(value: "1 A 6 89", contains: true),
             Value(value: "145.@sdfj", contains: false),
             Value(value: "69,0123_123.213A803", contains: true),
-            Value(value: " ._§ěšč.1AF!", contains: true)
+            Value(value: " ._§ěšč.1AF!", contains: true),
+            Value(value: "`@@#$~ ^&*{°} {*&^<>–;' [][≤", contains: false)
         ]
         
-        capitals.forEach() {
         // Then
+        capitals.forEach() {
             XCTAssert($0.value.containsCapital == $0.contains)
         }
     }
     
-    func test_givenValidEmail_thenIsEmail() {
+    func test_givenInvalidEmail_thenIsNotEmail() {
         // Given
-        setUpTestWith(string: "test@gmail.com")
+        let emails = [
+          Email(email: "test@gmailcom", isEmail: false),
+          Email(email: "testgmail.com", isEmail: false),
+          Email(email: "test@gmail.c", isEmail: false),
+          Email(email: "@gmail.com", isEmail: false),
+          Email(email: "test@.com", isEmail: false),
+          Email(email: "test@gmail.com", isEmail: true),
+          Email(email: "aminsdfsdfkj12ě@seznam.cze", isEmail: true)
+        ]
         
         // Then
-        XCTAssertTrue(sut.isEmail)
-    }
-    
-    func test_givenMissingDotInEmail_thenIsNotEmail() {
-        // Given
-        setUpTestWith(string: "test@gmailcom")
-        
-        // Then
-        XCTAssertFalse(sut.isEmail)
-    }
-    
-    func test_givenMissingAtSignInEmail_thenIsNotEmail() {
-        // Given
-        setUpTestWith(string: "testgmail.com")
-        
-        // Then
-        XCTAssertFalse(sut.isEmail)
-    }
-    
-    func test_givenInvalidDomainInEmail_thenIsNotEmail() {
-        // Given
-        setUpTestWith(string: "test@gmail.c")
-        
-        // Then
-        XCTAssertFalse(sut.isEmail)
-    }
-    
-    func test_givenMissingUsernameInEmail_thenIsNotEmail() {
-        // Given
-        setUpTestWith(string: "@gmail.com")
-        
-        // Then
-        XCTAssertFalse(sut.isEmail)
-    }
-    
-    func test_givenMissingMailServerInEmail_thenIsNotEmail() {
-        // Given
-        setUpTestWith(string: "test@.com")
-        
-        // Then
-        XCTAssertFalse(sut.isEmail)
+        emails.forEach() {
+            XCTAssert($0.email.isEmail == $0.isEmail)
+        }
     }
     
     private struct Value {
         let value: String
         let contains: Bool
+    }
+    
+    private struct Email {
+        let email: String
+        let isEmail: Bool
     }
 }
