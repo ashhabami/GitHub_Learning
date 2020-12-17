@@ -23,7 +23,12 @@ class StringExtensionTests: XCTestCase {
             Value(value: "a", contains: false),
             Value(value: "1414", contains: true),
             Value(value: ".", contains: false),
-            Value(value: "123456", contains: true)
+            Value(value: "123456", contains: true),
+            Value(value: "a 1", contains: true),
+            Value(value: "a4fC", contains: true),
+            Value(value: "1.3", contains: true),
+            Value(value: "1,3", contains: true),
+            Value(value: "3_2", contains: true)
         ]
         
         numbers.forEach() {
@@ -39,7 +44,11 @@ class StringExtensionTests: XCTestCase {
             Value(value: "a", contains: false),
             Value(value: "aBaC", contains: true),
             Value(value: ".", contains: false),
-            Value(value: "123456", contains: false)
+            Value(value: "123456", contains: false),
+            Value(value: "1 A 6 89", contains: true),
+            Value(value: "145.@sdfj", contains: false),
+            Value(value: "69,0123_123.213A803", contains: true),
+            Value(value: " ._§ěšč.1AF!", contains: true)
         ]
         
         capitals.forEach() {
