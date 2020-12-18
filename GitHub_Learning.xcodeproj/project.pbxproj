@@ -39,6 +39,7 @@
 		DA123EDB2589014C003CC7DC /* DashboardLauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EDA2589014C003CC7DC /* DashboardLauncherTests.swift */; };
 		DA123EE7258B6937003CC7DC /* LogOutControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EE6258B6937003CC7DC /* LogOutControllerTests.swift */; };
 		DA123EEB258B9FC3003CC7DC /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EEA258B9FC3003CC7DC /* StringExtensionTests.swift */; };
+		DA123EEF258BAB28003CC7DC /* AlertProviderControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EEE258BAB28003CC7DC /* AlertProviderControllerTests.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -134,6 +135,7 @@
 		DA123EDA2589014C003CC7DC /* DashboardLauncherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardLauncherTests.swift; sourceTree = "<group>"; };
 		DA123EE6258B6937003CC7DC /* LogOutControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutControllerTests.swift; sourceTree = "<group>"; };
 		DA123EEA258B9FC3003CC7DC /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		DA123EEE258BAB28003CC7DC /* AlertProviderControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProviderControllerTests.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -504,6 +506,22 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		DA123EEC258BAA75003CC7DC /* AlertProvider */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EED258BAAC4003CC7DC /* Application */,
+			);
+			path = AlertProvider;
+			sourceTree = "<group>";
+		};
+		DA123EED258BAAC4003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EEE258BAB28003CC7DC /* AlertProviderControllerTests.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +574,7 @@
 		DA9EFB582562879C007DF94E /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				DA123EEC258BAA75003CC7DC /* AlertProvider */,
 				DA123EE8258B9FC3003CC7DC /* Utilities */,
 				DA123EE4258B6937003CC7DC /* LogOut */,
 				DA123ED62588FEDF003CC7DC /* Navigation */,
@@ -1121,6 +1140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
+				DA123EEF258BAB28003CC7DC /* AlertProviderControllerTests.swift in Sources */,
 				DA123ED92588FF09003CC7DC /* LoginLauncherTests.swift in Sources */,
 				DA123ECF258797E8003CC7DC /* LoginPresenterTests.swift in Sources */,
 				DA123EE7258B6937003CC7DC /* LogOutControllerTests.swift in Sources */,
