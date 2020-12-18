@@ -23,16 +23,18 @@ class OnboardingResourceTests: XCTestCase {
     func test_givenOnboardingResource_whenloadIsOnboardingFinished_thenDataAreLoaded() throws {
         // Given
         let localStorage = LocalStorageDummy()
+        let isFinished = true
+        localStorage.dataLoaded = isFinished
         setUpTests(localStorage: localStorage)
         
         // When
-        let _ = try sut.loadIsOnboardingFinished()
+        let data = try sut.loadIsOnboardingFinished()
         
         // Then
-        XCTAssert(localStorage.dataLoaded == true)
+        XCTAssert(isFinished == data)
     }
     
-    func test_givenOnboardingResource_whenStoreIsOnboardingFinished_thenDataAreLoaded() {
+    func test_givenOnboardingResource_whenStoreIsOnboardingFinished_thenDataAreStored() {
         // Given
         let localStorage = LocalStorageDummy()
         let isFinished = true
@@ -50,14 +52,25 @@ class OnboardingResourceTests: XCTestCase {
         var dataLoaded: Bool?
         
         func storeData(_ type: String, id: String, data: Bytes) throws {
-            isOnboardingFinished = true
+            isOnboardingFinished = try fromByteArray(data, Bool.self)
         }
         
         func loadData(_ type: String, id: String) throws -> Bytes {
-            dataLoaded = true
-            return Bytes()
+            return toByteArray(dataLoaded)
         }
         
         func deleteData(_ type: String, id: String) throws {}
+        
+        private func fromByteArray<T>(_ value: Bytes, _ type: T.Type) throws -> T {
+            return try value.withUnsafeBytes {
+                guard let baseAddress = $0.baseAddress else { throw LocalStorageError.loadFailed("\(#function)") }
+                return baseAddress.load(as: type)
+            }
+        }
+    
+        private func toByteArray<T>(_ value: T) -> Bytes {
+            var value = value
+            return withUnsafeBytes(of: &value) { Array($0) }
+        }
     }
 }
