@@ -20,7 +20,7 @@ class OnboardingResourceTests: XCTestCase {
         sut = OnboardingResourceImpl(localStorage: localStorage)
     }
     
-    func test_givenOnboardingResource_whenloadIsOnboardingFinished_thenDataAreLoaded() throws {
+    func test_givenOnboardingResource_whenLoadIsOnboardingFinished_thenDataAreLoaded() throws {
         // Given
         let localStorage = LocalStorageDummy()
         let isFinished = true
