@@ -22,16 +22,16 @@ class OnboardingResourceTests: XCTestCase {
     
     func test_givenOnboardingResource_whenLoadIsOnboardingFinished_thenDataAreLoaded() throws {
         // Given
-        let localStorage = LocalStorageDummy()
-        let isFinished = true
-        localStorage.dataLoaded = isFinished
+        let dataLoaded = true
+        let localStorage = LocalStorageDummy(loadedData: dataLoaded)
         setUpTests(localStorage: localStorage)
         
         // When
         let data = try sut.loadIsOnboardingFinished()
         
         // Then
-        XCTAssert(isFinished == data)
+        XCTAssert(localStorage.isDataLoaded == true)
+        XCTAssert(localStorage.isDataLoaded == data)
     }
     
     func test_givenOnboardingResource_whenStoreIsOnboardingFinished_thenDataAreStored() {
@@ -49,14 +49,20 @@ class OnboardingResourceTests: XCTestCase {
     
     private class LocalStorageDummy: LocalStorage {
         var isOnboardingFinished: Bool?
-        var dataLoaded: Bool?
+        var isDataLoaded: Bool?
+        var loadedData: Bool?
+        
+        init(loadedData: Bool? = nil) {
+            self.loadedData = loadedData
+        }
         
         func storeData(_ type: String, id: String, data: Bytes) throws {
             isOnboardingFinished = try fromByteArray(data, Bool.self)
         }
         
         func loadData(_ type: String, id: String) throws -> Bytes {
-            return toByteArray(dataLoaded)
+            isDataLoaded = true
+            return toByteArray(loadedData)
         }
         
         func deleteData(_ type: String, id: String) throws {}
