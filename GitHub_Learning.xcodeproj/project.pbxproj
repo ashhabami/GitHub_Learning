@@ -42,6 +42,13 @@
 		DA123EEF258BAB28003CC7DC /* AlertProviderControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EEE258BAB28003CC7DC /* AlertProviderControllerTests.swift */; };
 		DA123EF7258CBEB4003CC7DC /* CredentailsKeychainResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EF6258CBEB4003CC7DC /* CredentailsKeychainResourceTests.swift */; };
 		DA123EFB258CC2D5003CC7DC /* OnboardingResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EFA258CC2D5003CC7DC /* OnboardingResourceTests.swift */; };
+		DA123EFE258F78CB003CC7DC /* CryptocurrencyPriceResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123EFD258F78CB003CC7DC /* CryptocurrencyPriceResource.swift */; };
+		DA123F01258F79D9003CC7DC /* Cryptocurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F00258F79D9003CC7DC /* Cryptocurrency.swift */; };
+		DA123F03258F8FFE003CC7DC /* CryptocurrencyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F02258F8FFE003CC7DC /* CryptocurrencyParser.swift */; };
+		DA123F05258F9DFF003CC7DC /* CryptocurrencyPriceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F04258F9DFF003CC7DC /* CryptocurrencyPriceInteractor.swift */; };
+		DA123F07258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F06258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift */; };
+		DA123F09258FC978003CC7DC /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F08258FC978003CC7DC /* Double+.swift */; };
+		DA123F0B25921C7B003CC7DC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F0A25921C7B003CC7DC /* DashboardViewModel.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -140,6 +147,13 @@
 		DA123EEE258BAB28003CC7DC /* AlertProviderControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProviderControllerTests.swift; sourceTree = "<group>"; };
 		DA123EF6258CBEB4003CC7DC /* CredentailsKeychainResourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentailsKeychainResourceTests.swift; sourceTree = "<group>"; };
 		DA123EFA258CC2D5003CC7DC /* OnboardingResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingResourceTests.swift; sourceTree = "<group>"; };
+		DA123EFD258F78CB003CC7DC /* CryptocurrencyPriceResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPriceResource.swift; sourceTree = "<group>"; };
+		DA123F00258F79D9003CC7DC /* Cryptocurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptocurrency.swift; sourceTree = "<group>"; };
+		DA123F02258F8FFE003CC7DC /* CryptocurrencyParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyParser.swift; sourceTree = "<group>"; };
+		DA123F04258F9DFF003CC7DC /* CryptocurrencyPriceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPriceInteractor.swift; sourceTree = "<group>"; };
+		DA123F06258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPriceFacade.swift; sourceTree = "<group>"; };
+		DA123F08258FC978003CC7DC /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		DA123F0A25921C7B003CC7DC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,8 +272,10 @@
 			children = (
 				DA123E7225792C27003CC7DC /* Injection */,
 				DA123E7425792C27003CC7DC /* View */,
-				DA123E7725792C27003CC7DC /* Application */,
 				DA123E7925792C27003CC7DC /* Presentation */,
+				DA123E7725792C27003CC7DC /* Application */,
+				DA123EFC258E712D003CC7DC /* Resource */,
+				DA123EFF258F79C1003CC7DC /* Domain */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -285,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				DA123E7825792C27003CC7DC /* DashboardController.swift */,
+				DA123F04258F9DFF003CC7DC /* CryptocurrencyPriceInteractor.swift */,
+				DA123F06258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -294,6 +312,7 @@
 			children = (
 				DA123E7A25792C27003CC7DC /* DashboardView.swift */,
 				DA123E7B25792C27003CC7DC /* DashboardPresenter.swift */,
+				DA123F0A25921C7B003CC7DC /* DashboardViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -558,6 +577,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		DA123EFC258E712D003CC7DC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DA123EFD258F78CB003CC7DC /* CryptocurrencyPriceResource.swift */,
+				DA123F02258F8FFE003CC7DC /* CryptocurrencyParser.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA123EFF258F79C1003CC7DC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F00258F79D9003CC7DC /* Cryptocurrency.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA4032B25668904006DD914 /* String+.swift */,
+				DA123F08258FC978003CC7DC /* Double+.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -1119,17 +1156,23 @@
 				DA595002256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift in Sources */,
 				DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */,
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
+				DA123F05258F9DFF003CC7DC /* CryptocurrencyPriceInteractor.swift in Sources */,
 				DA9EFB662562ACB7007DF94E /* LoginViewController.swift in Sources */,
 				DAA4032625667C37006DD914 /* LoginBuilder.swift in Sources */,
 				DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
+				DA123F07258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift in Sources */,
+				DA123F09258FC978003CC7DC /* Double+.swift in Sources */,
+				DA123F0B25921C7B003CC7DC /* DashboardViewModel.swift in Sources */,
 				DA123EAA257E66C1003CC7DC /* LogOutController.swift in Sources */,
 				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
 				DA123E7E25792C27003CC7DC /* DashboardViewController.swift in Sources */,
 				DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */,
+				DA123EFE258F78CB003CC7DC /* CryptocurrencyPriceResource.swift in Sources */,
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,
 				DA9EFB6A2562AFBA007DF94E /* LoginPresenter.swift in Sources */,
 				DA9EFB6E2562B6E6007DF94E /* UIWindow+topViewController.swift in Sources */,
+				DA123F03258F8FFE003CC7DC /* CryptocurrencyParser.swift in Sources */,
 				DA123E9E257BF29A003CC7DC /* CredentialKeychainController.swift in Sources */,
 				DA123E70257909FE003CC7DC /* StartUpAssembly.swift in Sources */,
 				DA123E92257A6797003CC7DC /* LoadCredentialsKeychainInteractorImpl.swift in Sources */,
@@ -1168,6 +1211,7 @@
 				DA123E8125792C27003CC7DC /* DashboardPresenter.swift in Sources */,
 				DA123E6D2579097D003CC7DC /* StartUpController.swift in Sources */,
 				DA123E7D25792C27003CC7DC /* DashboardLayout.swift in Sources */,
+				DA123F01258F79D9003CC7DC /* Cryptocurrency.swift in Sources */,
 				DA123E7F25792C27003CC7DC /* DashboardController.swift in Sources */,
 				DA595013256D4080000CE120 /* LoadOnboardingFinishedFacade.swift in Sources */,
 			);
