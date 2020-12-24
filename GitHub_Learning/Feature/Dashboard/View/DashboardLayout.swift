@@ -11,11 +11,51 @@ import SnapKit
 
 class DashboardLayout: UIView {
     private lazy var dashboardStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [dashboardLabel, logoutButton])
+        let stack = UIStackView(arrangedSubviews: [dashboardLabel, cryptocurrencyPriceStack, spacer, logoutButton])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 20
         return stack
+    }()
+    
+    private lazy var cryptocurrencyPriceStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [cryptocurrencyLogoImageView, cryptocurrencyPriceChangePercentage, cryptocurrencyPriceLabel, cryptocurrencySymbolLabel])
+        stack.axis = .horizontal
+        stack.spacing = 8
+        return stack
+    }()
+    
+    let cryptocurrencyLogoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 25
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.darkGray.cgColor
+        return imageView
+    }()
+    
+    let cryptocurrencyPriceChangePercentage: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
+        return label
+    }()
+    
+    let cryptocurrencyPriceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+        return label
+    }()
+    
+    let cryptocurrencySymbolLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+        return label
+    }()
+    
+    let spacer: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }()
     
     let logoutButton: UIButton = {
@@ -50,14 +90,22 @@ class DashboardLayout: UIView {
     private func setup() {
         addSubview(dashboardStack)
         dashboardStack.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20))
-            $0.bottom.equalTo(self.snp.centerY)
+            $0.edges.equalTo(safeAreaLayoutGuide).inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
         }
         dashboardLabel.snp.makeConstraints {
-            $0.height.greaterThanOrEqualTo(100)
+            $0.height.equalTo(50)
+        }
+        spacer.snp.makeConstraints {
+            $0.height.greaterThanOrEqualTo(1)
+        }
+        cryptocurrencyLogoImageView.snp.makeConstraints {
+            $0.width.equalTo(cryptocurrencyLogoImageView.snp.height)
         }
         logoutButton.snp.makeConstraints {
             $0.height.equalTo(40)
+        }
+        cryptocurrencyPriceLabel.snp.makeConstraints {
+            $0.height.equalTo(50)
         }
     }
 }

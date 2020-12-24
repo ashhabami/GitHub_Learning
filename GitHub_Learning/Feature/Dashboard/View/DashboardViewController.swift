@@ -8,6 +8,7 @@
 
 import UIKit
 import CleanPlatform
+import SDWebImage
 
 class DashboardViewController: BaseViewController {
     
@@ -41,6 +42,27 @@ class DashboardViewController: BaseViewController {
 }
 
 extension DashboardViewController: DashboardView {
+    func setCryptocurrencyPrice(_ price: String) {
+        layout.cryptocurrencyPriceLabel.text = price
+    }
+    
+    func setCryptocurrencyPriceChange(_ change: String?, direction: PriceChangeDirection) {
+        layout.cryptocurrencyPriceChangePercentage.text = change
+        switch direction {
+        case .negative: layout.cryptocurrencyPriceChangePercentage.textColor = .systemRed
+        case .positive: layout.cryptocurrencyPriceChangePercentage.textColor = .systemGreen
+        case .neutral:  layout.cryptocurrencyPriceChangePercentage.textColor = .black
+        }
+    }
+    
+    func setCryptocurrencyImage(_ image: URL?) {
+        layout.cryptocurrencyLogoImageView.sd_setImage(with: image)
+    }
+    
+    func setCryptocurrencySymbol(_ symbol: String) {
+        layout.cryptocurrencySymbolLabel.text = symbol
+    }
+    
     func setEmail(_ email: String?) {
         layout.dashboardLabel.text = "Welcome to the dashboard \(email ?? "unknown user")!"
     }
