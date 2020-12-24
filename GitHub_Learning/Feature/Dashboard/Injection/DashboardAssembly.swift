@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import CleanCore
+import CleanPlatform
 import Swinject
 
 class DashboardAssembly: Assembly {
@@ -19,5 +21,12 @@ class DashboardAssembly: Assembly {
             }
         container.autoregister(DashboardViewController.self, initializer: DashboardViewController.init)
             .implements(DashboardView.self)
+        container.autoregister(CryptocurrencyPriceResource.self, initializer: CryptocurrencyPriceResourceImpl.init)
+        container.autoregister(CryptocurrencyParser.self, initializer: CryptocurrencyParserImpl.init)
+        container.autoregister(CryptocurrencyInteractor.self, initializer: CryptocurrencyInteractor.init)
+        container.autoregister(CryptocurrencyPriceFacade.self, initializer: CryptocurrencyPriceFacadeImpl.init)
+        container.register(RequestCreationStep.self) { r in
+            r.resolve(RequestCreationStep.self, name: NetworkingAssembly.headersCreationStepName)!
+        }
     }
 }
