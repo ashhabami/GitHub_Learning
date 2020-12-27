@@ -61,6 +61,8 @@ class DashboardPresenterTests: XCTestCase {
     }
     
     private class DashboardControllerDummy: TestController, DashboardController {
+        var cryptocurrency: Cryptocurrency?
+        
         private var email: String?
         
         init(email: String = "Initial Value") {
@@ -85,6 +87,14 @@ class DashboardPresenterTests: XCTestCase {
     }
     
     private class DashboardViewDummy: TestView, DashboardView {
+        func setCryptocurrencyPrice(_ price: String) {}
+        
+        func setCryptocurrencyPriceChange(_ change: String?, direction: PriceChangeDirection) {}
+        
+        func setCryptocurrencyImage(_ image: URL?) {}
+        
+        func setCryptocurrencySymbol(_ symbol: String) {}
+        
         var email: String?
         var isCalled: Bool?
         
