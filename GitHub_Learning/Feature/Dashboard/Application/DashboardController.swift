@@ -29,7 +29,7 @@ final class DashboardControllerImpl: BaseControllerImpl {
     ) {
         self.cryptocurrencyPriceFacade = cryptocurrencyPriceFacade
         super.init()
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: {_ in self.loadCryptocurrency()})
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in self.loadCryptocurrency() })
         loadCryptocurrency()
     }
     
