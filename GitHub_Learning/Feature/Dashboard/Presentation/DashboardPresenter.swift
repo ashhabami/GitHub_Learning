@@ -34,19 +34,27 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
         guard let cryprocurrencyUnwraped = cryprocurrency else { return nil }
         let url = cryprocurrencyUnwraped.imageUrl ?? ""
         let price = String(cryprocurrencyUnwraped.price ?? 0)
-        var priceChangePercentage = cryprocurrencyUnwraped.priceChange?.toString() ?? "N&N"
         let symbol = cryprocurrencyUnwraped.symbol?.uppercased() ?? "N&N"
         let priceChange: PriceChangeDirection
+        var priceChangePercentage: String
         
-        priceChangePercentage += " %"
-        if priceChangePercentage.contains("-") {
-            priceChange = .negative
-        } else if priceChangePercentage.contains("N&N") || priceChangePercentage.contains("0.0") {
-            priceChange = .neutral
-            priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+        if let change = cryprocurrencyUnwraped.priceChange {
+            priceChangePercentage = change.toString()
+            priceChangePercentage += " %"
+            if change > 0 {
+                priceChange = .positive
+                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+            }
+            else if change < 0 {
+                priceChange = .negative
+            }
+            else {
+                priceChange = .neutral
+                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+            }
         } else {
-            priceChange = .positive
-            priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+            priceChange = .neutral
+            priceChangePercentage = "N&N"
         }
         
         return CryptocurrencyViewModel(

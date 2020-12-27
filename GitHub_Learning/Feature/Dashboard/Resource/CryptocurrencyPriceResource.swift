@@ -18,7 +18,6 @@ protocol CryptocurrencyPriceResource {
 }
 
 class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPriceRequest, CryptoPriceResponse>, CryptocurrencyPriceResource {
-    private let baseUrlConfig: BaseUrlConfig
     private let cryptocurrencyPriceParser: CryptocurrencyParser
     
     init(
@@ -29,7 +28,6 @@ class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPriceRequest
         baseUrlConfig: BaseUrlConfig,
         cryptocurrencyPriceParser: CryptocurrencyParser
     ) {
-        self.baseUrlConfig = baseUrlConfig
         self.cryptocurrencyPriceParser = cryptocurrencyPriceParser
         super.init(
             networkClient: networkClient,
@@ -45,7 +43,7 @@ class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPriceRequest
     }
     
     override func resourcePath(_ request: CryptoPriceRequest) throws -> String {
-        return baseUrlConfig.baseUrl() + "api.coingecko.com/api/v3/coins/markets?&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+        return "https://api.coingecko.com/api/v3/coins/markets?&order=market_cap_desc&per_page=100&page=1&sparkline=false"
     }
     
     override func resourceMethod(_ request: CryptoPriceRequest) -> RequestMethod {
