@@ -61,7 +61,7 @@ class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPriceRequest
     }
     
     override func parametersForRequest(_ request: CryptoPriceRequest) -> RequestParameters? {
-        return ["vs_currency":"usd", "ids":"bitcoin", "price_change_percentage":"24h"]
+        return ["vs_currency": "usd", "ids": "bitcoin", "price_change_percentage": "24h"]
     }
     
     override func bodyForRequest(_ request: CryptoPriceRequest) -> RequestBody? {
