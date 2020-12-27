@@ -17,7 +17,7 @@ class CryptocurrencyParserImpl: Parser, CryptocurrencyParser {
     func parse(_ responseBody: DeserializedBody) throws -> Cryptocurrency {
         self.deserializedBody = responseBody
         let array = deserializedBody as? [Any]
-        let dictionary = array?[0] as? [String:Any]
+        let dictionary = array?.first as? [String: Any]
         let price = dictionary?["current_price"] as? Int
         let symbol = dictionary?["symbol"] as? String
         let image = dictionary?["image"] as? String
