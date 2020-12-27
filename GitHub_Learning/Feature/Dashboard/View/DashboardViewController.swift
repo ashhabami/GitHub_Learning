@@ -47,11 +47,11 @@ extension DashboardViewController: DashboardView {
     }
     
     func setCryptocurrencyPriceChange(_ change: String?, direction: PriceChangeDirection) {
-        layout.cryptocurrencyPriceChangePercentage.text = change
+        layout.cryptocurrencyPriceChangePercentageLabel.text = change
         switch direction {
-        case .negative: layout.cryptocurrencyPriceChangePercentage.textColor = .systemRed
-        case .positive: layout.cryptocurrencyPriceChangePercentage.textColor = .systemGreen
-        case .neutral:  layout.cryptocurrencyPriceChangePercentage.textColor = .black
+        case .negative: layout.cryptocurrencyPriceChangePercentageLabel.textColor = .systemRed
+        case .positive: layout.cryptocurrencyPriceChangePercentageLabel.textColor = .systemGreen
+        case .neutral:  layout.cryptocurrencyPriceChangePercentageLabel.textColor = .black
         }
     }
     

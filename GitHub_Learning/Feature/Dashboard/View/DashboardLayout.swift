@@ -19,7 +19,7 @@ class DashboardLayout: UIView {
     }()
     
     private lazy var cryptocurrencyPriceStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [cryptocurrencyLogoImageView, cryptocurrencyPriceChangePercentage, cryptocurrencyPriceLabel, cryptocurrencySymbolLabel])
+        let stack = UIStackView(arrangedSubviews: [cryptocurrencyLogoImageView, cryptocurrencyPriceChangePercentageLabel, cryptocurrencyPriceLabel, cryptocurrencySymbolLabel])
         stack.axis = .horizontal
         stack.spacing = 8
         return stack
@@ -34,7 +34,7 @@ class DashboardLayout: UIView {
         return imageView
     }()
     
-    let cryptocurrencyPriceChangePercentage: UILabel = {
+    let cryptocurrencyPriceChangePercentageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
         return label
