@@ -49,6 +49,8 @@
 		DA123F07258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F06258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift */; };
 		DA123F09258FC978003CC7DC /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F08258FC978003CC7DC /* Double+.swift */; };
 		DA123F0B25921C7B003CC7DC /* CryptocurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F0A25921C7B003CC7DC /* CryptocurrencyViewModel.swift */; };
+		DA123F0E259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F0D259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift */; };
+		DA123F13259B3EDC003CC7DC /* DashboardControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F12259B3EDC003CC7DC /* DashboardControllerTests.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -154,6 +156,8 @@
 		DA123F06258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPriceFacade.swift; sourceTree = "<group>"; };
 		DA123F08258FC978003CC7DC /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		DA123F0A25921C7B003CC7DC /* CryptocurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyViewModel.swift; sourceTree = "<group>"; };
+		DA123F0D259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPriceResourceTests.swift; sourceTree = "<group>"; };
+		DA123F12259B3EDC003CC7DC /* DashboardControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardControllerTests.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 		DA123ED22587C1B8003CC7DC /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				DA123F0F259B3E5E003CC7DC /* Application */,
+				DA123F0C259A35ED003CC7DC /* Resource */,
 				DA123ED32587C1B8003CC7DC /* Presentation */,
 			);
 			name = Dashboard;
@@ -592,6 +598,22 @@
 				DA123F00258F79D9003CC7DC /* Cryptocurrency.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		DA123F0C259A35ED003CC7DC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F0D259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DA123F0F259B3E5E003CC7DC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F12259B3EDC003CC7DC /* DashboardControllerTests.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		DA373820255567510003D164 = {
@@ -1222,6 +1244,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB9291C2559622600354C8F /* OnboardingControllerTests.swift in Sources */,
+				DA123F0E259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift in Sources */,
+				DA123F13259B3EDC003CC7DC /* DashboardControllerTests.swift in Sources */,
 				DA123EEF258BAB28003CC7DC /* AlertProviderControllerTests.swift in Sources */,
 				DA123ED92588FF09003CC7DC /* LoginLauncherTests.swift in Sources */,
 				DA123ECF258797E8003CC7DC /* LoginPresenterTests.swift in Sources */,
