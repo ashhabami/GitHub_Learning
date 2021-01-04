@@ -34,7 +34,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         // Given
         let string = "Success"
         let data = Data(string.utf8)
-        let successResponse = HttpNetworkResponse(status: 200, headers: [:], body: data)
+        let successResponse = HttpNetworkResponse(status: 200, headers: nil, body: data)
         setupTest(httpNetworkClient: HttpNetworkClientDummy(response: successResponse))
         
         // When
@@ -48,7 +48,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         // Given
         let string = "Failure"
         let data = Data(string.utf8)
-        let successResponse = HttpNetworkResponse(status: 400, headers: ["":""], body: data)
+        let successResponse = HttpNetworkResponse(status: 400, headers: nil, body: data)
         setupTest(httpNetworkClient: HttpNetworkClientDummy(response: successResponse))
         
         // When
@@ -66,7 +66,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         // Given
         let string = "Failure"
         let data = Data(string.utf8)
-        let successResponse = HttpNetworkResponse(status: 500, headers: [:], body: data)
+        let successResponse = HttpNetworkResponse(status: 500, headers: nil, body: data)
         setupTest(httpNetworkClient: HttpNetworkClientDummy(response: successResponse))
         
         // When
