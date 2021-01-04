@@ -11,4 +11,8 @@ import CleanCore
 
 protocol DashboardView: View {
     func setEmail(_ email: String?)
+    func setCryptocurrencyPrice(_ price: String)
+    func setCryptocurrencyPriceChange(_ change: String?, direction: PriceChangeDirection)
+    func setCryptocurrencyImage(_ image: URL?)
+    func setCryptocurrencySymbol(_ symbol: String)
 }

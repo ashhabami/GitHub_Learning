@@ -31,7 +31,7 @@ class OnboardingResourceTests: XCTestCase {
         
         // Then
         XCTAssert(localStorage.isDataLoaded == true)
-        XCTAssert(localStorage.isDataLoaded == data)
+        XCTAssert(dataLoaded == data)
     }
     
     func test_givenOnboardingResource_whenStoreIsOnboardingFinished_thenDataAreStored() {
@@ -73,7 +73,7 @@ class OnboardingResourceTests: XCTestCase {
                 return baseAddress.load(as: type)
             }
         }
-    
+        
         private func toByteArray<T>(_ value: T) -> Bytes {
             var value = value
             return withUnsafeBytes(of: &value) { Array($0) }

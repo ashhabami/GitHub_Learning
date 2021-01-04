@@ -9,7 +9,7 @@
 import Foundation
 import CleanCore
 
-protocol DashboardPresenter: Presenter {
+protocol DashboardPresenter: Presenter, Listener {
     func logOut()
 }
 
@@ -27,6 +27,48 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     
     func viewDidLoad() {
         view?.setEmail(dashboardCotroller.getEmail())
+        dashboardCotroller.subscribe(self, errorBlock: nil, updateBlock: { _ in self.updateBlock() })
+    }
+    
+    private func makeViewModelFrom(_ cryprocurrency: Cryptocurrency?) -> CryptocurrencyViewModel? {
+        guard let cryprocurrencyUnwraped = cryprocurrency else { return nil }
+        let url = cryprocurrencyUnwraped.imageUrl ?? ""
+        let price = String(cryprocurrencyUnwraped.price ?? 0)
+        let symbol = cryprocurrencyUnwraped.symbol?.uppercased() ?? "N&N"
+        let priceChange: PriceChangeDirection
+        var priceChangePercentage: String
+        
+        if let change = cryprocurrencyUnwraped.priceChange {
+            priceChangePercentage = change.toString() + " %"
+            if change > 0 {
+                priceChange = .positive
+                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+            } else if change < 0 {
+                priceChange = .negative
+            } else {
+                priceChange = .neutral
+                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+            }
+        } else {
+            priceChange = .neutral
+            priceChangePercentage = "N&N"
+        }
+        
+        return CryptocurrencyViewModel(
+            imageUrl: URL(string: url),
+            price: price,
+            priceChangePercentage: priceChangePercentage,
+            priceChange: priceChange,
+            symbol: symbol
+        )
+    }
+    
+    private func updateBlock() {
+        guard let viewModel = makeViewModelFrom(dashboardCotroller.cryptocurrency) else { return }
+        view?.setCryptocurrencyPrice(viewModel.price)
+        view?.setCryptocurrencyImage(viewModel.imageUrl)
+        view?.setCryptocurrencyPriceChange(viewModel.priceChangePercentage, direction: viewModel.priceChange)
+        view?.setCryptocurrencySymbol("\(viewModel.symbol)/USD")
     }
 }
 
