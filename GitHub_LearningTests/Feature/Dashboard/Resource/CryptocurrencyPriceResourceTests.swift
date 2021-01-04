@@ -34,7 +34,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         // Given
         let string = "Success"
         let data = Data(string.utf8)
-        let successResponse = HttpNetworkResponse(status: 200, headers: ["":""], body: data)
+        let successResponse = HttpNetworkResponse(status: 200, headers: [:], body: data)
         setupTest(httpNetworkClient: HttpNetworkClientDummy(response: successResponse))
         
         // When

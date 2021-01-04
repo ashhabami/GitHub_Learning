@@ -139,7 +139,7 @@ class DashboardPresenterTests: XCTestCase {
         XCTAssert(view.priceChange?.contains("+") ?? false)
     }
     
-    func test_givenNillPriceChange_thenPriceChangeDirectionIsNeutral() {
+    func test_givenNilPriceChange_thenPriceChangeDirectionIsNeutral() {
         // Given
         let dashboardController = DashboardControllerDummy()
         let view = DashboardViewDummy()
