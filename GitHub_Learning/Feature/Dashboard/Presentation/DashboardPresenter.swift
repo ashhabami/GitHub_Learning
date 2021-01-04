@@ -45,8 +45,7 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
                 priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
             } else if change < 0 {
                 priceChange = .negative
-            }
-            else {
+            } else {
                 priceChange = .neutral
                 priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
             }
