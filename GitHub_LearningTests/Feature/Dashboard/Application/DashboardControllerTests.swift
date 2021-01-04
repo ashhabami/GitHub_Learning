@@ -22,15 +22,15 @@ class DashboardControllerTests: XCTestCase {
     private func test_givenCryptocurrency_whenCryptocurrencyIsSet_thenNotifiesListeners() {
         // Given
         let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0)
-        let fakelistener = FakeListener()
+        let fakeListener = FakeListener()
         setUpTests()
-        sut.subscribe(fakelistener, errorBlock: nil, updateBlock: { _ in fakelistener.isNotified = true })
+        sut.subscribe(fakeListener, errorBlock: nil, updateBlock: { _ in fakeListener.isNotified = true })
         
         // When
         sut.cryptocurrency = cryptocurrency
         
         // Then
-        XCTAssert(fakelistener.isNotified == true)
+        XCTAssert(fakeListener.isNotified == true)
     }
     
     private func test_givenSuccessResult_whenDashboardIsInitialized_thenCryptocurrencyIsLoaded() {

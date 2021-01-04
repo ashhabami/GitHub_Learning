@@ -78,7 +78,7 @@ class DashboardPresenterTests: XCTestCase {
         XCTAssert(view.isCryptocurrencySymbolSet == true)
     }
     
-    func test_givenValidPriceChange_thenPriceChangeContainsPercatangeSign() {
+    func test_givenValidPriceChange_whenCryptocurrencyIsSet_thenPriceChangeContainsPercatangeSign() {
         // Given
         let dashboardController = DashboardControllerDummy()
         let view = DashboardViewDummy()
@@ -88,7 +88,7 @@ class DashboardPresenterTests: XCTestCase {
         dashboardController.cryptocurrency = cryptocurrency
         
         // Then
-        XCTAssert((view.priceChange ?? "").contains("%"))
+        XCTAssert(view.priceChange?.contains("%") ?? false)
     }
     
     func test_givenPriceChangeIsGreaterThanZero_whenCryptocurrencyIsSet_thenPriceChangeDirectionIsPositive() {
@@ -104,7 +104,7 @@ class DashboardPresenterTests: XCTestCase {
         
         // Then
         XCTAssert(view.direction == .positive)
-        XCTAssert((view.priceChange ?? "").contains("+"))
+        XCTAssert(view.priceChange?.contains("+") ?? false)
     }
     
     func test_givenPriceChangeIsLessThanZero_whenCryptocurrencyIsSet_thenPriceChangeDirectionIsNegative() {
@@ -120,6 +120,7 @@ class DashboardPresenterTests: XCTestCase {
         
         // Then
         XCTAssert(view.direction == .negative)
+        XCTAssertFalse(view.priceChange?.contains("+") ?? true)
     }
     
     func test_givenPriceChangeIsZero_whenCryptocurrencyIsSet_thenPriceChangeDirectionIsNeutral() {
@@ -135,7 +136,7 @@ class DashboardPresenterTests: XCTestCase {
         
         // Then
         XCTAssert(view.direction == .neutral)
-        XCTAssert((view.priceChange ?? "").contains("+"))
+        XCTAssert(view.priceChange?.contains("+") ?? false)
     }
     
     func test_givenNillPriceChange_thenPriceChangeDirectionIsNeutral() {
@@ -152,7 +153,7 @@ class DashboardPresenterTests: XCTestCase {
         
         // Then
         XCTAssert(view.direction == .neutral)
-        XCTAssert((view.priceChange ?? "").contains("N&N"))
+        XCTAssert(view.priceChange?.contains("N&N") ?? false)
     }
     
     private class DashboardControllerDummy: TestController, DashboardController {
