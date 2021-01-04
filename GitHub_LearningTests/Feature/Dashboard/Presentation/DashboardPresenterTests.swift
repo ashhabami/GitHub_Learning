@@ -152,7 +152,7 @@ class DashboardPresenterTests: XCTestCase {
         
         // Then
         XCTAssert(view.direction == .neutral)
-        XCTAssert((view.priceChange ?? "").contains("N&N"))
+        XCTAssert(view.priceChange?.contains("N&N") ?? false)
     }
     
     private class DashboardControllerDummy: TestController, DashboardController {
