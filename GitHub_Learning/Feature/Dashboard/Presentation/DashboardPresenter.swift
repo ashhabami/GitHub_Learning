@@ -39,8 +39,7 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
         var priceChangePercentage: String
         
         if let change = cryprocurrencyUnwraped.priceChange {
-            priceChangePercentage = change.toString()
-            priceChangePercentage += " %"
+            priceChangePercentage = change.toString() + " %"
             if change > 0 {
                 priceChange = .positive
                 priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
