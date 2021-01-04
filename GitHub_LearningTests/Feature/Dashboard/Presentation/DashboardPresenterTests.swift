@@ -85,6 +85,8 @@ class DashboardPresenterTests: XCTestCase {
         let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 1, price: 0)
         setupTests(dashboardController: dashboardController, dashboardView: view)
         sut.viewDidLoad()
+        
+        // When
         dashboardController.cryptocurrency = cryptocurrency
         
         // Then
