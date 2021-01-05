@@ -28,6 +28,7 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     func viewDidLoad() {
         view?.setEmail(dashboardCotroller.getEmail())
         dashboardCotroller.subscribe(self, errorBlock: nil, updateBlock: { _ in self.updateBlock() })
+        dashboardCotroller.viewDidLoad()
     }
     
     private func makeViewModelFrom(_ cryprocurrency: Cryptocurrency?) -> CryptocurrencyViewModel? {

@@ -13,13 +13,16 @@ import CleanPlatform
 class WireframeImpl: Wireframe {
     private let instanceProvider: InstanceProvider
     private let window: UIWindow
+    private let mainAppTabBar: MainAppTabBarController
     
     init(
         instanceProvider: InstanceProvider,
-        window: UIWindow
+        window: UIWindow,
+        mainAppTabBar: MainAppTabBarController
     ) {
         self.instanceProvider = instanceProvider
         self.window = window
+        self.mainAppTabBar = mainAppTabBar
     }
     
     func launchLoginAfter(_ point: LoginLaunchPoint) {
@@ -42,12 +45,11 @@ class WireframeImpl: Wireframe {
     func launchDashboard(from point: DashboardLaunchPoint) {
         switch point {
         case .login:
-            presentViewControllerModally(DashboardViewController.self, with: .fullScreen, animated: true) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.setViewControllerAsRoot(DashboardViewController.self)
-                }
-            }
-        case .startUp: setViewControllerAsRoot(DashboardViewController.self)
+            let tabbar = makeTabBarController()
+            self.window.rootViewController = tabbar  
+        case .startUp:
+            let tabbar = makeTabBarController()
+            self.window.rootViewController = tabbar
         }
     }
     
@@ -74,5 +76,26 @@ class WireframeImpl: Wireframe {
         let vc = try! instanceProvider.getInstance(T.self)
         vc.modalPresentationStyle = presentationStyle ?? .automatic
         window.topViewController?.present(vc, animated: animated, completion: completion)
+    }
+    
+    private func makeTabBarController() -> MainAppTabBarController {
+        let dashboardVC = try! instanceProvider.getInstance(DashboardViewController.self)
+        let dashboardNavController = try! instanceProvider.getInstance(MainAppNavigationController.self)
+        dashboardNavController.setViewControllers([dashboardVC], animated: true)
+        
+        let favouritesVC = try! instanceProvider.getInstance(FavouritesViewController.self)
+        let favouritesNavController = try! instanceProvider.getInstance(MainAppNavigationController.self)
+        favouritesNavController.setViewControllers([favouritesVC], animated: true)
+        
+        let newsVC = try! instanceProvider.getInstance(NewsViewController.self)
+        let newsStubNavController = try! instanceProvider.getInstance(MainAppNavigationController.self)
+        newsStubNavController.setViewControllers([newsVC], animated: true)
+        
+        let portfolioVC = try! instanceProvider.getInstance(PortfolioViewController.self)
+        let portfolioFakeNavController = try! instanceProvider.getInstance(MainAppNavigationController.self)
+        portfolioFakeNavController.setViewControllers([portfolioVC], animated: true)
+        
+        mainAppTabBar.setViewControllers([dashboardNavController, favouritesNavController, newsStubNavController, portfolioFakeNavController], animated: false)
+        return mainAppTabBar
     }
 }

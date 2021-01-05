@@ -13,6 +13,7 @@ protocol DashboardController: BaseController {
     func setEmail(_ email: String)
     func getEmail() -> String?
     var cryptocurrency: Cryptocurrency? { get set }
+    func viewDidLoad()
 }
 
 final class DashboardControllerImpl: BaseControllerImpl {
@@ -29,8 +30,6 @@ final class DashboardControllerImpl: BaseControllerImpl {
     ) {
         self.cryptocurrencyPriceFacade = cryptocurrencyPriceFacade
         super.init()
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in self.loadCryptocurrency() })
-        loadCryptocurrency()
     }
     
     private func loadCryptocurrency() {
@@ -43,6 +42,11 @@ final class DashboardControllerImpl: BaseControllerImpl {
 }
 
 extension DashboardControllerImpl: DashboardController {
+    func viewDidLoad() {
+        loadCryptocurrency()
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in self.loadCryptocurrency() })
+    }
+    
     func getEmail() -> String? {
         return email
     }
