@@ -22,6 +22,18 @@ class DashboardPresenterTests: XCTestCase {
         sut.view = dashboardView
     }
     
+    func test_givenDashboardController_whenViewDidLoad_thenDashboardControllerCallsViewDidLoad() {
+        // Given
+        let controller = DashboardControllerDummy()
+        setupTests(dashboardController: controller)
+        
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssert(controller.viewLoaded == true)
+    }
+    
     func test_givenDashboardView_whenViewDidLoad_thenSetEmailIsCalled() {
         // Given
         let view = DashboardViewDummy()
@@ -159,6 +171,8 @@ class DashboardPresenterTests: XCTestCase {
     }
     
     private class DashboardControllerDummy: TestController, DashboardController {
+        var viewLoaded: Bool?
+        
         var cryptocurrency: Cryptocurrency? {
             didSet {
                 notifyListenersAboutUpdate()
@@ -177,6 +191,10 @@ class DashboardPresenterTests: XCTestCase {
         
         func getEmail() -> String? {
             return email
+        }
+        
+        func viewDidLoad() {
+            viewLoaded = true
         }
     }
     

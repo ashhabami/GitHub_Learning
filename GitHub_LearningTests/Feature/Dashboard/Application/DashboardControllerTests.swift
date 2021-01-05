@@ -19,6 +19,19 @@ class DashboardControllerTests: XCTestCase {
         sut = DashboardControllerImpl(cryptocurrencyPriceFacade: cryptocurrencyPriceFacade)
     }
     
+    private func test_givenListener_whenViewDidLoad_thenNotifiesListeners() {
+        // Given
+        let fakeListener = FakeListener()
+        setUpTests()
+        sut.subscribe(fakeListener, errorBlock: nil, updateBlock: { _ in fakeListener.isNotified = true })
+        
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssert(fakeListener.isNotified == true)
+    }
+    
     private func test_givenCryptocurrency_whenCryptocurrencyIsSet_thenNotifiesListeners() {
         // Given
         let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0)
