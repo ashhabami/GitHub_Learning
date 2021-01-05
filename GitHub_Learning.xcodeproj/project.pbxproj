@@ -51,6 +51,14 @@
 		DA123F0B25921C7B003CC7DC /* CryptocurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F0A25921C7B003CC7DC /* CryptocurrencyViewModel.swift */; };
 		DA123F0E259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F0D259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift */; };
 		DA123F13259B3EDC003CC7DC /* DashboardControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F12259B3EDC003CC7DC /* DashboardControllerTests.swift */; };
+		DA123F1625A4A702003CC7DC /* MainAppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F1525A4A702003CC7DC /* MainAppTabBarController.swift */; };
+		DA123F1C25A4C1CF003CC7DC /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F1B25A4C1CF003CC7DC /* FavouritesViewController.swift */; };
+		DA123F1F25A4C27F003CC7DC /* FavouritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F1E25A4C27F003CC7DC /* FavouritesAssembly.swift */; };
+		DA123F2125A4D5D1003CC7DC /* MainAppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F2025A4D5D1003CC7DC /* MainAppNavigationController.swift */; };
+		DA123F2925A4F78B003CC7DC /* NewsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F2825A4F78B003CC7DC /* NewsAssembly.swift */; };
+		DA123F2B25A4F7AE003CC7DC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F2A25A4F7AE003CC7DC /* NewsViewController.swift */; };
+		DA123F2D25A4F7FC003CC7DC /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F2C25A4F7FC003CC7DC /* PortfolioViewController.swift */; };
+		DA123F2F25A4F813003CC7DC /* PortfolioAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA123F2E25A4F813003CC7DC /* PortfolioAssembly.swift */; };
 		DA37382D255567510003D164 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382C255567510003D164 /* AppDelegate.swift */; };
 		DA37382F255567510003D164 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA37382E255567510003D164 /* SceneDelegate.swift */; };
 		DA373831255567510003D164 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA373830255567510003D164 /* OnboardingViewController.swift */; };
@@ -158,6 +166,14 @@
 		DA123F0A25921C7B003CC7DC /* CryptocurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyViewModel.swift; sourceTree = "<group>"; };
 		DA123F0D259A36A9003CC7DC /* CryptocurrencyPriceResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocurrencyPriceResourceTests.swift; sourceTree = "<group>"; };
 		DA123F12259B3EDC003CC7DC /* DashboardControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardControllerTests.swift; sourceTree = "<group>"; };
+		DA123F1525A4A702003CC7DC /* MainAppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppTabBarController.swift; sourceTree = "<group>"; };
+		DA123F1B25A4C1CF003CC7DC /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		DA123F1E25A4C27F003CC7DC /* FavouritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesAssembly.swift; sourceTree = "<group>"; };
+		DA123F2025A4D5D1003CC7DC /* MainAppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppNavigationController.swift; sourceTree = "<group>"; };
+		DA123F2825A4F78B003CC7DC /* NewsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAssembly.swift; sourceTree = "<group>"; };
+		DA123F2A25A4F7AE003CC7DC /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		DA123F2C25A4F7FC003CC7DC /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		DA123F2E25A4F813003CC7DC /* PortfolioAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAssembly.swift; sourceTree = "<group>"; };
 		DA373829255567510003D164 /* GitHub_Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA37382C255567510003D164 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA37382E255567510003D164 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -616,6 +632,81 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		DA123F1925A4C1A1003CC7DC /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F1D25A4C26E003CC7DC /* Injection */,
+				DA123F1A25A4C1C0003CC7DC /* View */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		DA123F1A25A4C1C0003CC7DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F1B25A4C1CF003CC7DC /* FavouritesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA123F1D25A4C26E003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F1E25A4C27F003CC7DC /* FavouritesAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		DA123F2225A4F65B003CC7DC /* News */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F2525A4F75C003CC7DC /* View */,
+				DA123F2425A4F757003CC7DC /* Injection */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		DA123F2325A4F666003CC7DC /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F2725A4F766003CC7DC /* Injection */,
+				DA123F2625A4F761003CC7DC /* View */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		DA123F2425A4F757003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F2825A4F78B003CC7DC /* NewsAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		DA123F2525A4F75C003CC7DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F2A25A4F7AE003CC7DC /* NewsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA123F2625A4F761003CC7DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F2C25A4F7FC003CC7DC /* PortfolioViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA123F2725A4F766003CC7DC /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				DA123F2E25A4F813003CC7DC /* PortfolioAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
 		DA373820255567510003D164 = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +752,8 @@
 			children = (
 				DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */,
 				DA9EFB6D2562B6E6007DF94E /* UIWindow+topViewController.swift */,
+				DA123F1525A4A702003CC7DC /* MainAppTabBarController.swift */,
+				DA123F2025A4D5D1003CC7DC /* MainAppNavigationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -750,6 +843,9 @@
 		DAB928F225559D8800354C8F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				DA123F2325A4F666003CC7DC /* Portfolio */,
+				DA123F2225A4F65B003CC7DC /* News */,
+				DA123F1925A4C1A1003CC7DC /* Favourites */,
 				DA123E7125792C27003CC7DC /* Dashboard */,
 				DA123E6A2579094E003CC7DC /* StartUp */,
 				DAB92923255EC66E00354C8F /* Login */,
@@ -1170,12 +1266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA123F1C25A4C1CF003CC7DC /* FavouritesViewController.swift in Sources */,
 				DA123E98257A6AE6003CC7DC /* StoreCredentialsKeychainFacade.swift in Sources */,
 				DA123E90257A649D003CC7DC /* CredintalsKeychainService.swift in Sources */,
 				DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */,
 				DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */,
 				DA59500F256D3AD0000CE120 /* LoadOnboardingFinishedInteractor.swift in Sources */,
 				DA595002256BD952000CE120 /* ActionStyle+UIAlertAction.style.swift in Sources */,
+				DA123F1F25A4C27F003CC7DC /* FavouritesAssembly.swift in Sources */,
 				DA9EFB702562BC61007DF94E /* LoginLayout.swift in Sources */,
 				DA373831255567510003D164 /* OnboardingViewController.swift in Sources */,
 				DA123F05258F9DFF003CC7DC /* CryptocurrencyPriceInteractor.swift in Sources */,
@@ -1183,6 +1281,7 @@
 				DAA4032625667C37006DD914 /* LoginBuilder.swift in Sources */,
 				DA9EFB682562AED0007DF94E /* LoginAssembly.swift in Sources */,
 				DA37382D255567510003D164 /* AppDelegate.swift in Sources */,
+				DA123F2B25A4F7AE003CC7DC /* NewsViewController.swift in Sources */,
 				DA123F07258F9FE8003CC7DC /* CryptocurrencyPriceFacade.swift in Sources */,
 				DA123F09258FC978003CC7DC /* Double+.swift in Sources */,
 				DA123F0B25921C7B003CC7DC /* CryptocurrencyViewModel.swift in Sources */,
@@ -1202,12 +1301,15 @@
 				DAA4033325669242006DD914 /* AlertProviderAssembly.swift in Sources */,
 				DAA4032825667E02006DD914 /* LoginCredentials.swift in Sources */,
 				DAB928FB25559FDC00354C8F /* OnboardingPage.swift in Sources */,
+				DA123F2925A4F78B003CC7DC /* NewsAssembly.swift in Sources */,
 				DA595011256D3DE3000CE120 /* StoreOnboardingFinishedInteractor.swift in Sources */,
+				DA123F2D25A4F7FC003CC7DC /* PortfolioViewController.swift in Sources */,
 				DA123E8D257A6165003CC7DC /* CredentialsKeychainResource.swift in Sources */,
 				DAB929012555A87200354C8F /* ScopeSpec.swift in Sources */,
 				DA123E87257A590C003CC7DC /* OnboardingPersistancyAssembly.swift in Sources */,
 				DA123EA1257C0861003CC7DC /* KeychainAssembly.swift in Sources */,
 				DA37382F255567510003D164 /* SceneDelegate.swift in Sources */,
+				DA123F2125A4D5D1003CC7DC /* MainAppNavigationController.swift in Sources */,
 				DA123E8025792C27003CC7DC /* DashboardView.swift in Sources */,
 				DAB92931255ECF2400354C8F /* NavigationAssembly.swift in Sources */,
 				DA595015256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift in Sources */,
@@ -1219,6 +1321,8 @@
 				DA123EB0257F9859003CC7DC /* LoginController.swift in Sources */,
 				DA123E8325792D3C003CC7DC /* DashboardLauncherController.swift in Sources */,
 				DAB92922255AC0C300354C8F /* OnboardingPageViewModel.swift in Sources */,
+				DA123F1625A4A702003CC7DC /* MainAppTabBarController.swift in Sources */,
+				DA123F2F25A4F813003CC7DC /* PortfolioAssembly.swift in Sources */,
 				DAB929032555A88500354C8F /* ScopeSpecProvider.swift in Sources */,
 				DAB9290A25595B9D00354C8F /* OnboardingPresenter.swift in Sources */,
 				DA123E94257A67AC003CC7DC /* StoreCredentialsKeychainInteractorImpl.swift in Sources */,
