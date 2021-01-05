@@ -11,7 +11,7 @@ import SnapKit
 
 class DashboardLayout: UIView {
     private lazy var dashboardStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [dashboardLabel, cryptocurrencyPriceStack, spacer, logoutButton])
+        let stack = UIStackView(arrangedSubviews: [cryptocurrencyPriceStack, spacer])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 20
@@ -58,25 +58,6 @@ class DashboardLayout: UIView {
         return view
     }()
     
-    let logoutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("LogOut", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17.0, weight: .medium)
-        button.backgroundColor = .brown
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
-        return button
-    }()
-    
-    let dashboardLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
-        return label
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemYellow
@@ -92,17 +73,11 @@ class DashboardLayout: UIView {
         dashboardStack.snp.makeConstraints {
             $0.edges.equalTo(safeAreaLayoutGuide).inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
         }
-        dashboardLabel.snp.makeConstraints {
-            $0.height.equalTo(50)
-        }
         spacer.snp.makeConstraints {
             $0.height.greaterThanOrEqualTo(1)
         }
         cryptocurrencyLogoImageView.snp.makeConstraints {
             $0.width.equalTo(cryptocurrencyLogoImageView.snp.height)
-        }
-        logoutButton.snp.makeConstraints {
-            $0.height.equalTo(40)
         }
         cryptocurrencyPriceLabel.snp.makeConstraints {
             $0.height.equalTo(50)

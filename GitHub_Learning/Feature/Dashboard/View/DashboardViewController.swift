@@ -21,7 +21,7 @@ class DashboardViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        layout.logoutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logoutPressed))
         presenter.viewDidLoad()
     }
     
@@ -30,6 +30,7 @@ class DashboardViewController: BaseViewController {
     ) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+        tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
     }
     
     required init?(coder: NSCoder) {
@@ -64,6 +65,6 @@ extension DashboardViewController: DashboardView {
     }
     
     func setEmail(_ email: String?) {
-        layout.dashboardLabel.text = "Welcome to the dashboard \(email ?? "unknown user")!"
+        title = email
     }
 }
