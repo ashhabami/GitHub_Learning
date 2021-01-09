@@ -11,6 +11,7 @@ import CleanCore
 
 protocol DashboardPresenter: Presenter, Listener {
     func logOut()
+    func refresh(_ completion: (() -> Void)?)
 }
 
 final class DashboardPresenterImpl: BasePresenter<DashboardView> {
@@ -28,27 +29,24 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     func viewDidLoad() {
         view?.setEmail(dashboardCotroller.getEmail())
         dashboardCotroller.subscribe(self, errorBlock: nil, updateBlock: { _ in self.updateBlock() })
-        dashboardCotroller.viewDidLoad()
+        dashboardCotroller.loadCrypto(nil)
     }
     
-    private func makeViewModelFrom(_ cryprocurrency: Cryptocurrency?) -> CryptocurrencyViewModel? {
-        guard let cryprocurrencyUnwraped = cryprocurrency else { return nil }
-        let url = cryprocurrencyUnwraped.imageUrl ?? ""
-        let price = String(cryprocurrencyUnwraped.price ?? 0)
-        let symbol = cryprocurrencyUnwraped.symbol?.uppercased() ?? "N&N"
+    private func makeViewModelFrom(_ cryprocurrency: Cryptocurrency) -> CryptocurrencyViewModel {
+        let url = cryprocurrency.imageUrl ?? ""
+        let price = String((cryprocurrency.price ?? 0).rounded(toPlaces: 4))
+        let symbol = cryprocurrency.symbol?.uppercased() ?? "N&N"
+        let rank = String(cryprocurrency.rank ?? 0)
         let priceChange: PriceChangeDirection
         var priceChangePercentage: String
         
-        if let change = cryprocurrencyUnwraped.priceChange {
+        if let change = cryprocurrency.priceChange {
             priceChangePercentage = change.toString() + " %"
             if change > 0 {
                 priceChange = .positive
-                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
-            } else if change < 0 {
-                priceChange = .negative
+                priceChangePercentage.insert(contentsOf: "+", at: priceChangePercentage.startIndex)
             } else {
-                priceChange = .neutral
-                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+                priceChange = .negative
             }
         } else {
             priceChange = .neutral
@@ -60,20 +58,26 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
             price: price,
             priceChangePercentage: priceChangePercentage,
             priceChange: priceChange,
-            symbol: symbol
+            symbol: symbol,
+            rank: rank
         )
     }
     
     private func updateBlock() {
-        guard let viewModel = makeViewModelFrom(dashboardCotroller.cryptocurrency) else { return }
-        view?.setCryptocurrencyPrice(viewModel.price)
-        view?.setCryptocurrencyImage(viewModel.imageUrl)
-        view?.setCryptocurrencyPriceChange(viewModel.priceChangePercentage, direction: viewModel.priceChange)
-        view?.setCryptocurrencySymbol("\(viewModel.symbol)/USD")
+        var cryptocurrencyViewModels = [CryptocurrencyViewModel]()
+        dashboardCotroller.cryptocurrencies.forEach {
+            let viewModel = makeViewModelFrom($0)
+            cryptocurrencyViewModels.append(viewModel)
+        }
+        view?.setCryptocurrency(cryptocurrencyViewModels)
     }
 }
 
 extension DashboardPresenterImpl: DashboardPresenter {
+    func refresh(_ completion: (() -> Void)? = nil) {
+        dashboardCotroller.loadCrypto(completion)
+    }
+    
     func logOut() {
         logOutController.logOut()
     }

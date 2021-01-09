@@ -20,4 +20,5 @@ struct CryptocurrencyViewModel {
     let priceChangePercentage: String
     let priceChange: PriceChangeDirection
     let symbol: String
+    let rank: String
 }

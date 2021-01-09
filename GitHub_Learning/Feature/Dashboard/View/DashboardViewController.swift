@@ -8,21 +8,15 @@
 
 import UIKit
 import CleanPlatform
-import SDWebImage
 
 class DashboardViewController: BaseViewController {
     
     private let layout = DashboardLayout()
     private let presenter: DashboardPresenter
+    var cryptocurrenciesVM = [CryptocurrencyViewModel]()
     
     override func loadView() {
         view = layout
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logoutPressed))
-        presenter.viewDidLoad()
     }
     
     init(
@@ -37,33 +31,53 @@ class DashboardViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        layout.dashboardTableView.delegate = self
+        layout.dashboardTableView.dataSource = self
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logoutPressed))
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        layout.dashboardTableView.refreshControl = refreshControl
+        presenter.viewDidLoad()
+    }
+    
     @objc func logoutPressed() {
         presenter.logOut()
+    }
+    
+    @objc func refresh() {
+        presenter.refresh {
+            self.layout.dashboardTableView.refreshControl?.endRefreshing()
+        }
+    }
+}
+
+extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cryptocurrenciesVM.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CryptoPriceCell.identifier, for: indexPath) as! CryptoPriceCell
+        cell.cryptocurrencyVM = cryptocurrenciesVM[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return HeaderView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
 }
 
 extension DashboardViewController: DashboardView {
-    func setCryptocurrencyPrice(_ price: String) {
-        layout.cryptocurrencyPriceLabel.text = price
+    func setCryptocurrency(_ cryptocurrencies: [CryptocurrencyViewModel]) {
+        self.cryptocurrenciesVM = cryptocurrencies
+        layout.dashboardTableView.reloadData()
     }
-    
-    func setCryptocurrencyPriceChange(_ change: String?, direction: PriceChangeDirection) {
-        layout.cryptocurrencyPriceChangePercentageLabel.text = change
-        switch direction {
-        case .negative: layout.cryptocurrencyPriceChangePercentageLabel.textColor = .systemRed
-        case .positive: layout.cryptocurrencyPriceChangePercentageLabel.textColor = .systemGreen
-        case .neutral:  layout.cryptocurrencyPriceChangePercentageLabel.textColor = .black
-        }
-    }
-    
-    func setCryptocurrencyImage(_ image: URL?) {
-        layout.cryptocurrencyLogoImageView.sd_setImage(with: image)
-    }
-    
-    func setCryptocurrencySymbol(_ symbol: String) {
-        layout.cryptocurrencySymbolLabel.text = symbol
-    }
-    
     func setEmail(_ email: String?) {
         title = email
     }

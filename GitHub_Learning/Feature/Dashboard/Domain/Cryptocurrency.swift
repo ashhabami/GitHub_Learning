@@ -12,5 +12,6 @@ struct Cryptocurrency {
     let imageUrl: String?
     let symbol: String?
     let priceChange: Double?
-    let price: Int?
+    let price: Double?
+    let rank: Int?
 }
