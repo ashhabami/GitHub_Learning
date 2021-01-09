@@ -18,10 +18,10 @@ struct CryptocurrencyRequest: Equatable {
 }
 
 struct CryptocurrencyResponse {
-    let cryptocurrency: Cryptocurrency
+    let cryptocurrencies: [Cryptocurrency]
     
-    init(cryptocurrency: Cryptocurrency) {
-        self.cryptocurrency = cryptocurrency
+    init(cryptocurrency: [Cryptocurrency]) {
+        self.cryptocurrencies = cryptocurrency
     }
 }
 
@@ -33,8 +33,8 @@ final class CryptocurrencyInteractor: Interactor {
     }
     
     public func execute(_ request: CryptocurrencyRequest) throws -> CryptocurrencyResponse {
-        let cryptocurrency = try cryptocurrencyPriceResource.getCryptocurrencyPrice()
-        return CryptocurrencyResponse(cryptocurrency: cryptocurrency)
+        let cryptocurrencies = try cryptocurrencyPriceResource.getCryptocurrencyPrices()
+        return CryptocurrencyResponse(cryptocurrency: cryptocurrencies)
     }
     
     public static func == (lhs: CryptocurrencyInteractor, rhs: CryptocurrencyInteractor) -> Bool {

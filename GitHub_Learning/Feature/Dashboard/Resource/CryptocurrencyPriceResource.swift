@@ -9,15 +9,15 @@
 import Foundation
 import CleanCore
 
-struct CryptoPriceRequest {}
+struct CryptoPricesRequest {}
 
-typealias CryptoPriceResponse = Cryptocurrency  
+typealias CryptoPricesResponse = [Cryptocurrency]
 
 protocol CryptocurrencyPriceResource {
-    func getCryptocurrencyPrice() throws -> Cryptocurrency
+    func getCryptocurrencyPrices() throws -> [Cryptocurrency]
 }
 
-class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPriceRequest, CryptoPriceResponse>, CryptocurrencyPriceResource {
+class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPricesRequest, CryptoPricesResponse>, CryptocurrencyPriceResource {
     private let cryptocurrencyPriceParser: CryptocurrencyParser
     
     init(
@@ -37,16 +37,16 @@ class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPriceRequest
         )
     }
     
-    func getCryptocurrencyPrice() throws -> Cryptocurrency {
-        let request = CryptoPriceRequest()
+    func getCryptocurrencyPrices() throws -> [Cryptocurrency] {
+        let request = CryptoPricesRequest()
         return try makeRequest(request)
     }
     
-    override func resourcePath(_ request: CryptoPriceRequest) throws -> String {
-        return "https://api.coingecko.com/api/v3/coins/markets?&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+    override func resourcePath(_ request: CryptoPricesRequest) throws -> String {
+        return "https://api.coingecko.com/api/v3/coins/markets?"
     }
     
-    override func resourceMethod(_ request: CryptoPriceRequest) -> RequestMethod {
+    override func resourceMethod(_ request: CryptoPricesRequest) -> RequestMethod {
         return .get
     }
     
@@ -54,23 +54,20 @@ class CryptocurrencyPriceResourceImpl: BaseHttpRemoteResource<CryptoPriceRequest
         return .json
     }
     
-    override func headersForRequest(_ request: CryptoPriceRequest) -> RequestHeaders? {
+    override func headersForRequest(_ request: CryptoPricesRequest) -> RequestHeaders? {
         return nil
     }
     
-    override func parametersForRequest(_ request: CryptoPriceRequest) -> RequestParameters? {
-        return ["vs_currency": "usd", "ids": "bitcoin", "price_change_percentage": "24h"]
+    override func parametersForRequest(_ request: CryptoPricesRequest) -> RequestParameters? {
+        return ["vs_currency": "usd", "order": "market_cap_desc", "price_change_percentage": "24h", "per_page": "20", "page": "1", "sparkline": "false"]
     }
     
-    override func bodyForRequest(_ request: CryptoPriceRequest) -> RequestBody? {
+    override func bodyForRequest(_ request: CryptoPricesRequest) -> RequestBody? {
         return nil
     }
     
-    override func mapResponseBodyToObject(_ responseBody: DeserializedBody?) throws -> CryptoPriceResponse {
-        guard let responseBody = responseBody else {
-            throw ResourceError.incorrectResponse
-        }
-        
+    override func mapResponseBodyToObject(_ responseBody: DeserializedBody?) throws -> CryptoPricesResponse {
+        guard let responseBody = responseBody else { throw ResourceError.incorrectResponse }
         let response = try cryptocurrencyPriceParser.parse(responseBody)
         return response
     }

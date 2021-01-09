@@ -24,7 +24,7 @@ class DashboardAssembly: Assembly {
         container.autoregister(CryptocurrencyPriceResource.self, initializer: CryptocurrencyPriceResourceImpl.init)
         container.autoregister(CryptocurrencyParser.self, initializer: CryptocurrencyParserImpl.init)
         container.autoregister(CryptocurrencyInteractor.self, initializer: CryptocurrencyInteractor.init)
-        container.autoregister(CryptocurrencyPriceFacade.self, initializer: CryptocurrencyPriceFacadeImpl.init)
+        container.autoregister(CryptocurrencyPricesFacade.self, initializer: CryptocurrencyPricesFacadeImpl.init)
         container.register(RequestCreationStep.self) { r in
             r.resolve(RequestCreationStep.self, name: NetworkingAssembly.headersCreationStepName)!
         }
