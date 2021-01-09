@@ -8,9 +8,12 @@
 
 import UIKit
 
-class MainAppTabBarController: UITabBarController {
+class BaseTabBarController: UITabBarController {
     
-    init() {
+    private let rootViewControllers: [UIViewController]
+    
+    init(rootViewControllers: [UIViewController]) {
+        self.rootViewControllers = rootViewControllers
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -20,9 +23,11 @@ class MainAppTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViewControllers(rootViewControllers.map { NavigationController(rootViewController: $0) }, animated: false)
         tabBar.isTranslucent = true
         tabBar.shadowImage = UIImage()
-        tabBar.unselectedItemTintColor = .lightGray
-        tabBar.tintColor = .black
+        tabBar.unselectedItemTintColor = .darkGray
+        tabBar.tintColor = .white
+        tabBar.barStyle = .black
     }
 }

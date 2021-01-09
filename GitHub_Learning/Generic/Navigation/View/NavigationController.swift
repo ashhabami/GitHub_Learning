@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MainAppNavigationController: UINavigationController {
+class NavigationController: UINavigationController {
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,13 +21,14 @@ class MainAppNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black
+            NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black
+            NSAttributedString.Key.foregroundColor: UIColor.white
         ]
-        navigationBar.tintColor = .black
+        navigationBar.tintColor = .white
         navigationBar.isTranslucent = true
         navigationBar.shadowImage = UIImage()
+        navigationBar.barStyle = .black
     }
 }

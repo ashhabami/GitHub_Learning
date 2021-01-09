@@ -18,8 +18,5 @@ final class NavigationAssembly: Assembly {
         container.autoregister(Wireframe.self, initializer: WireframeImpl.init)
         container.register(UIWindow.self) { _ in UIApplication.shared.windows.first! }
         container.autoregister(DashboardLauncherController.self, initializer: DashboardLauncherControllerImpl.init)
-        container.autoregister(MainAppTabBarController.self, initializer: MainAppTabBarController.init)
-            .inObjectScope(.container)
-        container.autoregister(MainAppNavigationController.self, initializer: MainAppNavigationController.init)
     }
 }
