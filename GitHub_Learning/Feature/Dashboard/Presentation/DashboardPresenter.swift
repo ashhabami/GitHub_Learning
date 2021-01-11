@@ -17,6 +17,8 @@ protocol DashboardPresenter: Presenter, Listener {
 final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     private let logOutController: LogOutController
     private let dashboardCotroller: DashboardController
+    private var lastPrices : [String?]?
+    private var lastPriceChanges : [String?]?
     
     init(
         dashboardCotroller: DashboardController,
@@ -33,10 +35,12 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     }
     
     private func makeViewModelFrom(_ cryprocurrency: Cryptocurrency) -> CryptocurrencyViewModel {
+        let name = cryprocurrency.name ?? "N&N"
         let url = cryprocurrency.imageUrl ?? ""
-        let price = String((cryprocurrency.price ?? 0).rounded(toPlaces: 4))
+        var price = String((cryprocurrency.price ?? 0).rounded(toPlaces: 4))
+        price.insert(contentsOf: "$", at: price.startIndex)
         let symbol = cryprocurrency.symbol?.uppercased() ?? "N&N"
-        let rank = String(cryprocurrency.rank ?? 0)
+        let rank = String(cryprocurrency.rank ?? 0) + "."
         let priceChange: PriceChangeDirection
         var priceChangePercentage: String
         
@@ -54,6 +58,7 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
         }
         
         return CryptocurrencyViewModel(
+            name: name,
             imageUrl: URL(string: url),
             price: price,
             priceChangePercentage: priceChangePercentage,
@@ -65,10 +70,27 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     
     private func updateBlock() {
         var cryptocurrencyViewModels = [CryptocurrencyViewModel]()
+        var index = 0
+        
         dashboardCotroller.cryptocurrencies.forEach {
-            let viewModel = makeViewModelFrom($0)
+            var viewModel = makeViewModelFrom($0)
+            viewModel.lastPriceChange = lastPriceChanges?[index]
+            viewModel.lastPrice = lastPrices?[index]
             cryptocurrencyViewModels.append(viewModel)
+            if let lastPrices = lastPrices, let lastPriceChanges = lastPriceChanges {
+                if index < lastPrices.count - 1, index < lastPriceChanges.count - 1 {
+                    index += 1
+                }
+            }
         }
+        
+        lastPriceChanges = []
+        lastPrices = []
+        cryptocurrencyViewModels.forEach {
+            lastPriceChanges?.append($0.priceChangePercentage)
+            lastPrices?.append($0.price)
+        }
+        
         view?.setCryptocurrency(cryptocurrencyViewModels)
     }
 }

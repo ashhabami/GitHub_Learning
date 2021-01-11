@@ -74,6 +74,7 @@
 		DA595015256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */; };
 		DA595017256FD8E9000CE120 /* UIAlertAction+AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */; };
 		DA7C7EEF25A8B1E200C2C4E0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C7EEE25A8B1E200C2C4E0 /* HeaderView.swift */; };
+		DA7C7EF125A9EEE800C2C4E0 /* UIVIew+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7C7EF025A9EEE800C2C4E0 /* UIVIew+.swift */; };
 		DA9EFB5525617DB4007DF94E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5425617DB4007DF94E /* Wireframe.swift */; };
 		DA9EFB5725617EEA007DF94E /* WireframeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */; };
 		DA9EFB5E2562884D007DF94E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9EFB5D2562884D007DF94E /* TestView.swift */; };
@@ -193,6 +194,7 @@
 		DA595014256E5A95000CE120 /* StoreOnboardingFinishedFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOnboardingFinishedFacade.swift; sourceTree = "<group>"; };
 		DA595016256FD8E9000CE120 /* UIAlertAction+AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+AlertAction.swift"; sourceTree = "<group>"; };
 		DA7C7EEE25A8B1E200C2C4E0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		DA7C7EF025A9EEE800C2C4E0 /* UIVIew+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+.swift"; sourceTree = "<group>"; };
 		DA9EFB5425617DB4007DF94E /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		DA9EFB5625617EEA007DF94E /* WireframeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeImpl.swift; sourceTree = "<group>"; };
 		DA9EFB5D2562884D007DF94E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -816,6 +818,7 @@
 			children = (
 				DAA4032B25668904006DD914 /* String+.swift */,
 				DA123F08258FC978003CC7DC /* Double+.swift */,
+				DA7C7EF025A9EEE800C2C4E0 /* UIVIew+.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -1294,6 +1297,7 @@
 				DA123EAA257E66C1003CC7DC /* LogOutController.swift in Sources */,
 				DAB92920255AA95B00354C8F /* OnboardingCell.swift in Sources */,
 				DA123E7E25792C27003CC7DC /* DashboardViewController.swift in Sources */,
+				DA7C7EF125A9EEE800C2C4E0 /* UIVIew+.swift in Sources */,
 				DA9EFB6C2562B04E007DF94E /* LoginView.swift in Sources */,
 				DA123EFE258F78CB003CC7DC /* CryptocurrencyPriceResource.swift in Sources */,
 				DAB929082559513A00354C8F /* OnboardingLayout.swift in Sources */,

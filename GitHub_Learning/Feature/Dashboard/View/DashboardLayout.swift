@@ -44,7 +44,6 @@ class DashboardLayout: UIView {
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
         dashboardTableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

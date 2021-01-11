@@ -9,6 +9,7 @@
 import Foundation
 
 struct Cryptocurrency {
+    let name: String?
     let imageUrl: String?
     let symbol: String?
     let priceChange: Double?

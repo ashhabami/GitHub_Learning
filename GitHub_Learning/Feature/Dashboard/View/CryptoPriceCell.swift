@@ -16,10 +16,12 @@ class CryptoPriceCell: UITableViewCell {
         didSet {
             guard let crypto = cryptocurrencyVM else { return }
             
-            cryptocurrencyRankLabel.text = crypto.rank + "."
+            blinkLabelsIfNeeded(crypto)
+            
+            cryptocurrencyRankLabel.text = crypto.rank
             cryptocurrencyLogoImageView.sd_setImage(with: crypto.imageUrl)
-            cryptocurrencyPriceLabel.text = crypto.price + "/USD"
-            cryptocurrencySymbolLabel.text = crypto.symbol
+            cryptocurrencyPriceLabel.text = crypto.price
+            cryptocurrencyNameLabel.text = crypto.name
             cryptocurrencyPriceChangePercentageLabel.text = crypto.priceChangePercentage
             
             switch crypto.priceChange {
@@ -32,7 +34,7 @@ class CryptoPriceCell: UITableViewCell {
     
     static let identifier = "CryptoPriceCell"
     
-    let cryptoPriceCellView: UIView = {
+    let cryptoPriceView: UIView = {
         let view = UIView()
         let blurEffect = UIBlurEffect(style: .systemMaterialDark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -73,15 +75,16 @@ class CryptoPriceCell: UITableViewCell {
         return label
     }()
     
-    let cryptocurrencySymbolLabel: UILabel = {
+    let cryptocurrencyNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15.0, weight: .medium)
+        label.numberOfLines = 0
         label.textColor = .lightGray
         return label
     }()
     
     private lazy var cryptocurrencyPriceStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [cryptocurrencyRankLabel, cryptocurrencyLogoImageView, cryptocurrencyPriceChangePercentageLabel, cryptocurrencyPriceLabel, cryptocurrencySymbolLabel])
+        let stack = UIStackView(arrangedSubviews: [cryptocurrencyRankLabel, cryptocurrencyLogoImageView, cryptocurrencyNameLabel, cryptocurrencyPriceChangePercentageLabel, cryptocurrencyPriceLabel])
         stack.axis = .horizontal
         stack.spacing = 7
         return stack
@@ -96,12 +99,22 @@ class CryptoPriceCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func blinkLabelsIfNeeded(_ crypto: CryptocurrencyViewModel) {
+        guard let lastChange = crypto.lastPriceChange, let lastPrice = crypto.lastPrice else { return }
+        if lastPrice != crypto.price {
+            cryptocurrencyPriceLabel.flash(numberOfFlashes: 1)
+        }
+        if lastChange != crypto.priceChangePercentage {
+            cryptocurrencyPriceChangePercentageLabel.flash(numberOfFlashes: 3)
+        }
+    }
+    
     private func setUpLayout() {
         backgroundColor = .clear
-        addSubview(cryptoPriceCellView)
-        cryptoPriceCellView.addSubview(cryptocurrencyPriceStack)
+        addSubview(cryptoPriceView)
+        cryptoPriceView.addSubview(cryptocurrencyPriceStack)
         
-        cryptoPriceCellView.snp.makeConstraints {
+        cryptoPriceView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8))
         }
         cryptocurrencyRankLabel.snp.makeConstraints {
@@ -110,8 +123,11 @@ class CryptoPriceCell: UITableViewCell {
         cryptocurrencyLogoImageView.snp.makeConstraints {
             $0.width.equalTo(cryptocurrencyPriceStack.snp.height)
         }
-        cryptocurrencyPriceChangePercentageLabel.snp.makeConstraints {
+        cryptocurrencyNameLabel.snp.makeConstraints {
             $0.width.equalTo(80)
+        }
+        cryptocurrencyPriceChangePercentageLabel.snp.makeConstraints {
+            $0.width.equalTo(65)
         }
         cryptocurrencyPriceStack.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10))

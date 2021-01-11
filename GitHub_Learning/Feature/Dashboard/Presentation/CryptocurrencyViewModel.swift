@@ -15,10 +15,13 @@ enum PriceChangeDirection {
 }
 
 struct CryptocurrencyViewModel {
+    let name: String?
     let imageUrl: URL?
     let price: String
     let priceChangePercentage: String
     let priceChange: PriceChangeDirection
     let symbol: String
     let rank: String
+    var lastPriceChange: String? = nil
+    var lastPrice: String? = nil
 }

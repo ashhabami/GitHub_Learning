@@ -28,7 +28,21 @@ class HeaderView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Rank", for: .normal)
         button.tintColor = .lightGray
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.contentHorizontalAlignment = .leading
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 1
+        return button
+    }()
+    
+    let nameTitleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Name", for: .normal)
+        button.tintColor = .lightGray
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.contentHorizontalAlignment = .leading
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 1
         return button
     }()
     
@@ -36,35 +50,28 @@ class HeaderView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("24h %", for: .normal)
         button.tintColor = .lightGray
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.contentHorizontalAlignment = .leading
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 1
         return button
-    }()
-    
-    let spacer: UIView = {
-        let view = UIView()
-        return view
     }()
     
     let priceTitleButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Price", for: .normal)
+        button.setTitle("Price(USD)", for: .normal)
         button.tintColor = .lightGray
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
-        return button
-    }()
-    
-    let symbolTitleButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Symbol", for: .normal)
-        button.tintColor = .lightGray
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        button.contentHorizontalAlignment = .leading
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 1
         return button
     }()
     
     private lazy var headerStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [rankTitleButton, priceChangeTitleButton, spacer, priceTitleButton, symbolTitleButton])
+        let stack = UIStackView(arrangedSubviews: [rankTitleButton, nameTitleButton, priceChangeTitleButton, priceTitleButton])
         stack.axis = .horizontal
-        stack.spacing = 10
+        stack.distribution = .fillEqually
         return stack
     }()
     
@@ -83,23 +90,10 @@ class HeaderView: UIView {
         headerContentView.addSubview(headerStack)
         
         headerContentView.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
         }
-        
         headerStack.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
-        }
-        rankTitleButton.snp.makeConstraints {
-            $0.width.equalTo(50)
-        }
-        priceChangeTitleButton.snp.makeConstraints {
-            $0.width.equalTo(100)
-        }
-        spacer.snp.makeConstraints {
-            $0.width.greaterThanOrEqualTo(1)
-        }
-        priceTitleButton.snp.makeConstraints {
-            $0.width.equalTo(80)
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8))
         }
     }
 }
