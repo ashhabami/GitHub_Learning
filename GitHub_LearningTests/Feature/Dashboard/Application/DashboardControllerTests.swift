@@ -14,37 +14,50 @@ class DashboardControllerTests: XCTestCase {
     private var sut: DashboardControllerImpl!
     
     private func setUpTests(
-        cryptocurrencyPriceFacade: CryptocurrencyPriceFacade = CryptocurrencyPriceFacadeDummy()
+        cryptocurrencyPriceFacade: CryptocurrencyPricesFacade = CryptocurrencyPriceFacadeDummy()
     ) {
-        sut = DashboardControllerImpl(cryptocurrencyPriceFacade: cryptocurrencyPriceFacade)
+        sut = DashboardControllerImpl(cryptocurrencyPricesFacade: cryptocurrencyPriceFacade)
     }
     
-    private func test_givenCryptocurrency_whenCryptocurrencyIsSet_thenNotifiesListeners() {
+    private func test_givenListener_whenLoadsCrypto_thenNotifiesListeners() {
         // Given
-        let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0)
         let fakeListener = FakeListener()
         setUpTests()
         sut.subscribe(fakeListener, errorBlock: nil, updateBlock: { _ in fakeListener.isNotified = true })
         
         // When
-        sut.cryptocurrency = cryptocurrency
+        sut.loadCrypto()
         
         // Then
         XCTAssert(fakeListener.isNotified == true)
     }
     
-    private func test_givenSuccessResult_whenDashboardIsInitialized_thenCryptocurrencyIsLoaded() {
+    private func test_givenCryptocurrency_whenCryptocurrencyIsSet_thenNotifiesListeners() {
         // Given
-        let successResult: Result<CryptocurrencyResponse> = .success(response: CryptocurrencyResponse(cryptocurrency: Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0)))
+        let cryptocurrencies = [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0, rank: 0)]
+        let fakeListener = FakeListener()
+        setUpTests()
+        sut.subscribe(fakeListener, errorBlock: nil, updateBlock: { _ in fakeListener.isNotified = true })
+        
+        // When
+        sut.cryptocurrencies = cryptocurrencies
+        
+        // Then
+        XCTAssert(fakeListener.isNotified == true)
+    }
+    
+    private func test_givenSuccessResult_whenDashboardIsInitialized_thenCryptocurrenciesAreLoaded() {
+        // Given
+        let successResult: Result<CryptocurrencyResponse> = .success(response: CryptocurrencyResponse(cryptocurrency: [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0, rank: 0)]))
         
         // When
         setUpTests(cryptocurrencyPriceFacade: CryptocurrencyPriceFacadeDummy(returnValue: successResult))
         
         // Then
-        XCTAssertNotNil(sut.cryptocurrency)
+        XCTAssertNotNil(sut.cryptocurrencies)
     }
     
-    private func test_givenFailureResult_whenDashboardIsInitialized_thenCryptocurrencyIsNotLoaded() {
+    private func test_givenFailureResult_whenDashboardIsInitialized_thenCryptocurrenciesAreNotLoaded() {
         // Given
         let successResult: Result<CryptocurrencyResponse> = .failure(error: TestError.InvalidResponse)
         
@@ -52,14 +65,14 @@ class DashboardControllerTests: XCTestCase {
         setUpTests(cryptocurrencyPriceFacade: CryptocurrencyPriceFacadeDummy(returnValue: successResult))
         
         // Then
-        XCTAssertNil(sut.cryptocurrency)
+        XCTAssertNil(sut.cryptocurrencies)
     }
     
-    private class CryptocurrencyPriceFacadeDummy: CryptocurrencyPriceFacade {
+    private class CryptocurrencyPriceFacadeDummy: CryptocurrencyPricesFacade {
         
         private let returnValue: Result<CryptocurrencyResponse>
         
-        init(returnValue: Result<CryptocurrencyResponse> = .success(response: CryptocurrencyResponse(cryptocurrency: Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0)))) {
+        init(returnValue: Result<CryptocurrencyResponse> = .success(response: CryptocurrencyResponse(cryptocurrency: [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0.0, price: 0, rank: 0)]))) {
             self.returnValue = returnValue
         }
         

@@ -11,11 +11,14 @@ import CleanCore
 
 protocol DashboardPresenter: Presenter, Listener {
     func logOut()
+    func refresh(_ completion: (() -> Void)?)
 }
 
 final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     private let logOutController: LogOutController
     private let dashboardCotroller: DashboardController
+    private var lastPrices : [String?]?
+    private var lastPriceChanges : [String?]?
     
     init(
         dashboardCotroller: DashboardController,
@@ -28,26 +31,26 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
     func viewDidLoad() {
         view?.setEmail(dashboardCotroller.getEmail())
         dashboardCotroller.subscribe(self, errorBlock: nil, updateBlock: { _ in self.updateBlock() })
+        dashboardCotroller.loadCrypto(nil)
     }
     
-    private func makeViewModelFrom(_ cryprocurrency: Cryptocurrency?) -> CryptocurrencyViewModel? {
-        guard let cryprocurrencyUnwraped = cryprocurrency else { return nil }
-        let url = cryprocurrencyUnwraped.imageUrl ?? ""
-        let price = String(cryprocurrencyUnwraped.price ?? 0)
-        let symbol = cryprocurrencyUnwraped.symbol?.uppercased() ?? "N&N"
+    private func makeViewModelFrom(_ cryprocurrency: Cryptocurrency) -> CryptocurrencyViewModel {
+        let name = cryprocurrency.name ?? "N&N"
+        let url = cryprocurrency.imageUrl ?? ""
+        var price = String((cryprocurrency.price ?? 0).rounded(toPlaces: 4))
+        price.insert(contentsOf: "$", at: price.startIndex)
+        let symbol = cryprocurrency.symbol?.uppercased() ?? "N&N"
+        let rank = String(cryprocurrency.rank ?? 0) + "."
         let priceChange: PriceChangeDirection
         var priceChangePercentage: String
         
-        if let change = cryprocurrencyUnwraped.priceChange {
+        if let change = cryprocurrency.priceChange {
             priceChangePercentage = change.toString() + " %"
             if change > 0 {
                 priceChange = .positive
-                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
-            } else if change < 0 {
-                priceChange = .negative
+                priceChangePercentage.insert(contentsOf: "+", at: priceChangePercentage.startIndex)
             } else {
-                priceChange = .neutral
-                priceChangePercentage.insert(contentsOf: "+ ", at: priceChangePercentage.startIndex)
+                priceChange = .negative
             }
         } else {
             priceChange = .neutral
@@ -55,24 +58,48 @@ final class DashboardPresenterImpl: BasePresenter<DashboardView> {
         }
         
         return CryptocurrencyViewModel(
+            name: name,
             imageUrl: URL(string: url),
             price: price,
             priceChangePercentage: priceChangePercentage,
             priceChange: priceChange,
-            symbol: symbol
+            symbol: symbol,
+            rank: rank
         )
     }
     
     private func updateBlock() {
-        guard let viewModel = makeViewModelFrom(dashboardCotroller.cryptocurrency) else { return }
-        view?.setCryptocurrencyPrice(viewModel.price)
-        view?.setCryptocurrencyImage(viewModel.imageUrl)
-        view?.setCryptocurrencyPriceChange(viewModel.priceChangePercentage, direction: viewModel.priceChange)
-        view?.setCryptocurrencySymbol("\(viewModel.symbol)/USD")
+        var cryptocurrencyViewModels = [CryptocurrencyViewModel]()
+        var index = 0
+        
+        dashboardCotroller.cryptocurrencies.forEach {
+            var viewModel = makeViewModelFrom($0)
+            viewModel.lastPriceChange = lastPriceChanges?[index]
+            viewModel.lastPrice = lastPrices?[index]
+            cryptocurrencyViewModels.append(viewModel)
+            if let lastPrices = lastPrices, let lastPriceChanges = lastPriceChanges {
+                if index < lastPrices.count - 1, index < lastPriceChanges.count - 1 {
+                    index += 1
+                }
+            }
+        }
+        
+        lastPriceChanges = []
+        lastPrices = []
+        cryptocurrencyViewModels.forEach {
+            lastPriceChanges?.append($0.priceChangePercentage)
+            lastPrices?.append($0.price)
+        }
+        
+        view?.setCryptocurrency(cryptocurrencyViewModels)
     }
 }
 
 extension DashboardPresenterImpl: DashboardPresenter {
+    func refresh(_ completion: (() -> Void)? = nil) {
+        dashboardCotroller.loadCrypto(completion)
+    }
+    
     func logOut() {
         logOutController.logOut()
     }

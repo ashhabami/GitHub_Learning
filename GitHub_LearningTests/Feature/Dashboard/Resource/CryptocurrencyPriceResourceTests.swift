@@ -30,7 +30,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
             cryptocurrencyPriceParser: cryptocurrencyParser)
     }
     
-    func test_givenSuccesResponse_whenGetCryptocurrency_thenCryptocurrencyIsValid() {
+    func test_givenSuccesResponse_whenGetCryptocurrencyPrices_thenCryptocurrencyIsValid() {
         // Given
         let string = "Success"
         let data = Data(string.utf8)
@@ -38,13 +38,13 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         setupTest(httpNetworkClient: HttpNetworkClientDummy(response: successResponse))
         
         // When
-        let cryptocurrency = try? sut.getCryptocurrencyPrice()
+        let cryptocurrencies = try? sut.getCryptocurrencyPrices()
         
         // Then
-        XCTAssert(cryptocurrency != nil)
+        XCTAssert(cryptocurrencies != nil)
     }
     
-    func test_givenClientError_whenGetCryptocurrency_thenClientErrorIsThrown() {
+    func test_givenClientError_whenGetCryptocurrencyPrices_thenClientErrorIsThrown() {
         // Given
         let string = "Failure"
         let data = Data(string.utf8)
@@ -52,7 +52,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         setupTest(httpNetworkClient: HttpNetworkClientDummy(response: successResponse))
         
         // When
-        XCTAssertThrowsError(try sut.getCryptocurrencyPrice()) { error in
+        XCTAssertThrowsError(try sut.getCryptocurrencyPrices()) { error in
             guard let clientError = error as? ResourceError else {
                 XCTFail()
                 return
@@ -62,7 +62,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         }
     }
     
-    func test_givenServerError_whenGetCryptocurrency_thenServerErrorIsThrown() {
+    func test_givenServerError_whenGetCryptocurrencyPrices_thenServerErrorIsThrown() {
         // Given
         let string = "Failure"
         let data = Data(string.utf8)
@@ -70,7 +70,7 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
         setupTest(httpNetworkClient: HttpNetworkClientDummy(response: successResponse))
         
         // When
-        XCTAssertThrowsError(try sut.getCryptocurrencyPrice()) { error in
+        XCTAssertThrowsError(try sut.getCryptocurrencyPrices()) { error in
             guard let serverError = error as? ResourceError else {
                 XCTFail()
                 return
@@ -118,8 +118,8 @@ class CryptocurrencyPriceResourceTests: XCTestCase {
     }
     
     private class CryptocurrencyParserDummy: CryptocurrencyParser {
-        func parse(_ responseBody: DeserializedBody) throws -> Cryptocurrency {
-            return Cryptocurrency(imageUrl: "", symbol: "", priceChange: 0.0, price: 0)
+        func parse(_ responseBody: DeserializedBody) throws -> [Cryptocurrency] {
+            return [Cryptocurrency(imageUrl: "", symbol: "", priceChange: 0.0, price: 0, rank: 0)]
         }
     }
 }

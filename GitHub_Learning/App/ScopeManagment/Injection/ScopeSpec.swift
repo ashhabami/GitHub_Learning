@@ -21,7 +21,10 @@ final class MainApplicationScopeSpec: ApplicationScopeSpec {
             StartUpAssembly(),
             OnboardingPersistancyAssembly(),
             KeychainAssembly(),
-            LogOutAssembly()
+            LogOutAssembly(),
+            FavouritesAssembly(),
+            NewsAssembly(),
+            PortfolioAssembly()
         ]
     }
 }

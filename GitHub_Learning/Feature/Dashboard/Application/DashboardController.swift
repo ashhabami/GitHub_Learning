@@ -12,37 +12,44 @@ import CleanCore
 protocol DashboardController: BaseController {
     func setEmail(_ email: String)
     func getEmail() -> String?
-    var cryptocurrency: Cryptocurrency? { get set }
+    var cryptocurrencies: [Cryptocurrency] { get set }
+    func loadCrypto(_ completion: (() -> Void)?)
 }
 
 final class DashboardControllerImpl: BaseControllerImpl {
     private var email: String?
-    private let cryptocurrencyPriceFacade: CryptocurrencyPriceFacade
-    var cryptocurrency: Cryptocurrency? {
+    private let cryptocurrencyPricesFacade: CryptocurrencyPricesFacade
+    private var timer: Timer?
+    var cryptocurrencies = [Cryptocurrency]() {
         didSet {
             notifyListenersAboutUpdate()
         }
     }
     
     init(
-        cryptocurrencyPriceFacade: CryptocurrencyPriceFacade
+        cryptocurrencyPricesFacade: CryptocurrencyPricesFacade
     ) {
-        self.cryptocurrencyPriceFacade = cryptocurrencyPriceFacade
+        self.cryptocurrencyPricesFacade = cryptocurrencyPricesFacade
         super.init()
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in self.loadCryptocurrency() })
-        loadCryptocurrency()
     }
     
-    private func loadCryptocurrency() {
-        cryptocurrencyPriceFacade.getCryptocurrencyPrice() { result in
+    private func loadCryptocurrency(_ completion: (() -> Void)? = nil) {
+        cryptocurrencyPricesFacade.getCryptocurrencyPrice() { result in
             self.handleResult(result) { (response) in
-                self.cryptocurrency = response.cryptocurrency
+                self.cryptocurrencies = response.cryptocurrencies
+                completion?()
             }
         }
     }
 }
 
 extension DashboardControllerImpl: DashboardController {
+    func loadCrypto(_ completion: (() -> Void)? = nil) {
+        timer?.invalidate()
+        loadCryptocurrency(completion)
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { _ in self.loadCryptocurrency() })
+    }
+    
     func getEmail() -> String? {
         return email
     }

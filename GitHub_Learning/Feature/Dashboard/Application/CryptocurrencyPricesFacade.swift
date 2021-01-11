@@ -9,11 +9,11 @@
 import Foundation
 import CleanCore
 
-protocol CryptocurrencyPriceFacade {
+protocol CryptocurrencyPricesFacade {
     func getCryptocurrencyPrice(completion: @escaping (Result<CryptocurrencyResponse>) -> Void)
 }
 
-final class CryptocurrencyPriceFacadeImpl: CommandFacadeImpl<CryptocurrencyInteractor, CryptocurrencyRequest, CryptocurrencyResponse>, CryptocurrencyPriceFacade {
+final class CryptocurrencyPricesFacadeImpl: CommandFacadeImpl<CryptocurrencyInteractor, CryptocurrencyRequest, CryptocurrencyResponse>, CryptocurrencyPricesFacade {
     
     init(invoker: Invoker, receiver: CryptocurrencyInteractor) {
         super.init(invoker: invoker, receiver: receiver)

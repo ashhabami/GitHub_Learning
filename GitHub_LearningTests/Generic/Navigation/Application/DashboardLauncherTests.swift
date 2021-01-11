@@ -77,9 +77,12 @@ class DashboardLauncherTests: XCTestCase {
     }
     
     private class DashboardControllerDummy: TestController, DashboardController {
-        var cryptocurrency: Cryptocurrency?
-        
+        var cryptocurrencies: [Cryptocurrency] = []
         var email: String?
+
+        func loadCrypto(_ completion: (() -> Void)?) {
+            
+        }
         
         func setEmail(_ email: String) {
             self.email = email

@@ -42,12 +42,12 @@ class WireframeImpl: Wireframe {
     func launchDashboard(from point: DashboardLaunchPoint) {
         switch point {
         case .login:
-            presentViewControllerModally(DashboardViewController.self, with: .fullScreen, animated: true) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.setViewControllerAsRoot(DashboardViewController.self)
-                }
-            }
-        case .startUp: setViewControllerAsRoot(DashboardViewController.self)
+            // TODO: Modal presentation animation
+            let tabbar = makeTabBarController()
+            self.window.rootViewController = tabbar  
+        case .startUp:
+            let tabbar = makeTabBarController()
+            self.window.rootViewController = tabbar
         }
     }
     
@@ -74,5 +74,13 @@ class WireframeImpl: Wireframe {
         let vc = try! instanceProvider.getInstance(T.self)
         vc.modalPresentationStyle = presentationStyle ?? .automatic
         window.topViewController?.present(vc, animated: animated, completion: completion)
+    }
+    
+    private func makeTabBarController() -> BaseTabBarController {
+        let dashboardVC = try! instanceProvider.getInstance(DashboardViewController.self)
+        let favouritesVC = try! instanceProvider.getInstance(FavouritesViewController.self)
+        let newsVC = try! instanceProvider.getInstance(NewsViewController.self)
+        let portfolioVC = try! instanceProvider.getInstance(PortfolioViewController.self)
+        return BaseTabBarController(rootViewControllers: [dashboardVC, favouritesVC, newsVC, portfolioVC])
     }
 }

@@ -22,6 +22,18 @@ class DashboardPresenterTests: XCTestCase {
         sut.view = dashboardView
     }
     
+    func test_givenDashboardController_whenViewDidLoad_thenDashboardControllerCallsLoadCrypto() {
+        // Given
+        let controller = DashboardControllerDummy()
+        setupTests(dashboardController: controller)
+        
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssert(controller.cryptoLoaded == true)
+    }
+    
     func test_givenDashboardView_whenViewDidLoad_thenSetEmailIsCalled() {
         // Given
         let view = DashboardViewDummy()
@@ -60,34 +72,31 @@ class DashboardPresenterTests: XCTestCase {
         XCTAssert(logOutController.isLogedOut == true)
     }
     
-    func test_givenCryptocurrency_whenCryptocurrencyIsSet_thenIsNotifiedAndSetCryptocurrencyMethodsAreCalled() {
+    func test_givenCryptocurrency_whenCryptocurrencyIsSet_thenIsNotifiedAndSetCryptocurrencyIsCalled() {
         // Given
         let dashboardController = DashboardControllerDummy()
         let view = DashboardViewDummy()
-        let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0, price: 0)
+        let cryptocurrencies = [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0, price: 0, rank: 0)]
         setupTests(dashboardController: dashboardController, dashboardView: view)
         sut.viewDidLoad()
         
         // When
-        dashboardController.cryptocurrency = cryptocurrency
+        dashboardController.cryptocurrencies = cryptocurrencies
         
         // Then
-        XCTAssert(view.isCryptocurrencyImageSet == true)
-        XCTAssert(view.isCryptocurrencyPriceSet == true)
-        XCTAssert(view.isCryptocurrencyPriceChangeSet == true)
-        XCTAssert(view.isCryptocurrencySymbolSet == true)
+        XCTAssert(view.isCryptocurenciesSet == true)
     }
     
     func test_givenValidPriceChange_whenCryptocurrencyIsSet_thenPriceChangeContainsPercatangeSign() {
         // Given
         let dashboardController = DashboardControllerDummy()
         let view = DashboardViewDummy()
-        let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 1, price: 0)
+        let cryptocurrencies = [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0, price: 0, rank: 0)]
         setupTests(dashboardController: dashboardController, dashboardView: view)
         sut.viewDidLoad()
         
         // When
-        dashboardController.cryptocurrency = cryptocurrency
+        dashboardController.cryptocurrencies = cryptocurrencies
         
         // Then
         XCTAssert(view.priceChange?.contains("%") ?? false)
@@ -97,12 +106,12 @@ class DashboardPresenterTests: XCTestCase {
         // Given
         let dashboardController = DashboardControllerDummy()
         let view = DashboardViewDummy()
-        let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 1, price: 0)
+        let cryptocurrencies = [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 1, price: 0, rank: 0)]
         setupTests(dashboardController: dashboardController, dashboardView: view)
         sut.viewDidLoad()
         
         // When
-        dashboardController.cryptocurrency = cryptocurrency
+        dashboardController.cryptocurrencies = cryptocurrencies
         
         // Then
         XCTAssert(view.direction == .positive)
@@ -113,32 +122,16 @@ class DashboardPresenterTests: XCTestCase {
         // Given
         let dashboardController = DashboardControllerDummy()
         let view = DashboardViewDummy()
-        let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: -1, price: 0)
+        let cryptocurrencies = [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0, price: 0, rank: 0)]
         setupTests(dashboardController: dashboardController, dashboardView: view)
         sut.viewDidLoad()
         
         // When
-        dashboardController.cryptocurrency = cryptocurrency
+        dashboardController.cryptocurrencies = cryptocurrencies
         
         // Then
         XCTAssert(view.direction == .negative)
         XCTAssertFalse(view.priceChange?.contains("+") ?? true)
-    }
-    
-    func test_givenPriceChangeIsZero_whenCryptocurrencyIsSet_thenPriceChangeDirectionIsNeutral() {
-        // Given
-        let dashboardController = DashboardControllerDummy()
-        let view = DashboardViewDummy()
-        let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: 0, price: 0)
-        setupTests(dashboardController: dashboardController, dashboardView: view)
-        sut.viewDidLoad()
-        
-        // When
-        dashboardController.cryptocurrency = cryptocurrency
-        
-        // Then
-        XCTAssert(view.direction == .neutral)
-        XCTAssert(view.priceChange?.contains("+") ?? false)
     }
     
     func test_givenNilPriceChange_thenPriceChangeDirectionIsNeutral() {
@@ -146,25 +139,38 @@ class DashboardPresenterTests: XCTestCase {
         let dashboardController = DashboardControllerDummy()
         let view = DashboardViewDummy()
         let priceChange: Double? = nil
-        let cryptocurrency = Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: priceChange, price: 0)
+        let cryptocurrencies = [Cryptocurrency(imageUrl: "Dummy", symbol: "Dummy", priceChange: priceChange, price: 0, rank: 0)]
         setupTests(dashboardController: dashboardController, dashboardView: view)
         sut.viewDidLoad()
         
         // When
-        dashboardController.cryptocurrency = cryptocurrency
+        dashboardController.cryptocurrencies = cryptocurrencies
         
         // Then
         XCTAssert(view.direction == .neutral)
         XCTAssert(view.priceChange?.contains("N&N") ?? false)
     }
     
+    func test_givenDashboardPresenter_whenRefresh_thenCryptoIsLoaded() {
+        // Given
+        let dashboardController = DashboardControllerDummy()
+        setupTests(dashboardController: dashboardController)
+        
+        // When
+        sut.refresh()
+        
+        // Then
+        XCTAssert(dashboardController.cryptoLoaded == true)
+    }
+    
     private class DashboardControllerDummy: TestController, DashboardController {
-        var cryptocurrency: Cryptocurrency? {
+        var cryptocurrencies = [Cryptocurrency]() {
             didSet {
                 notifyListenersAboutUpdate()
             }
         }
         
+        var cryptoLoaded: Bool?
         private var email: String?
         
         init(email: String = "Initial Value") {
@@ -178,6 +184,10 @@ class DashboardPresenterTests: XCTestCase {
         func getEmail() -> String? {
             return email
         }
+        
+        func loadCrypto(_ completion: (() -> Void)?) {
+            cryptoLoaded = true
+        }
     }
     
     private class LogOutControllerDummy: TestController, LogOutController {
@@ -189,30 +199,19 @@ class DashboardPresenterTests: XCTestCase {
     }
     
     private class DashboardViewDummy: TestView, DashboardView {
-        var isCryptocurrencyPriceSet: Bool?
-        var isCryptocurrencyPriceChangeSet: Bool?
-        var isCryptocurrencyImageSet: Bool?
-        var isCryptocurrencySymbolSet: Bool?
         var direction: PriceChangeDirection?
         var priceChange: String?
+        var isCryptocurenciesSet: Bool?
         
         var email: String?
         var isSetEmailCalled: Bool?
         
-        func setCryptocurrencyPrice(_ price: String) {
-            isCryptocurrencyPriceSet = true
+        func setCryptocurrency(_ cryptocurrencies: [CryptocurrencyViewModel]) {
+            isCryptocurenciesSet = true
+            direction = cryptocurrencies.first?.priceChange
+            priceChange = cryptocurrencies.first?.priceChangePercentage
         }
-        func setCryptocurrencyPriceChange(_ change: String?, direction: PriceChangeDirection) {
-            isCryptocurrencyPriceChangeSet = true
-            self.direction = direction
-            priceChange = change
-        }
-        func setCryptocurrencyImage(_ image: URL?) {
-            isCryptocurrencyImageSet = true
-        }
-        func setCryptocurrencySymbol(_ symbol: String) {
-            isCryptocurrencySymbolSet = true
-        }
+        
         func setEmail(_ email: String?) {
             self.email = email
             isSetEmailCalled = true
